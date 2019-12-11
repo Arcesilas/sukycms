@@ -3,38 +3,48 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\Auth\LoginRequest;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
+    use ThrottlesLogins;
 
-    use AuthenticatesUsers;
-
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function form(): View
     {
-        $this->middleware('guest')->except('logout');
+        return view('auth.login');
+    }
+
+    /**
+     * @param \App\Http\Requests\Auth\LoginRequest $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function login(LoginRequest $request): RedirectResponse
+    {
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->sendLockoutResponse($request);
+        }
+
+        $credentials = $request->only([$this->username(), 'password']);
+
+        if (auth()->attempt($credentials, $request->filled('remember'))) {
+            $this->clearLoginAttempts($request);
+
+            return redirect()->route('web.home');
+        }
+
+        $this->incrementLoginAttempts($request);
+
+        return redirect()->route('auth.login');
+    }
+
+    public function username(): string
+    {
+        return 'email';
     }
 }
