@@ -43,6 +43,14 @@ class LoginController extends Controller
         return redirect()->route('auth.login');
     }
 
+    public function logout(Request $request)
+    {
+        $request->session()->regenerate();
+        auth()->logout();
+
+        return redirect()->route('auth.login');
+    }
+
     public function username(): string
     {
         return 'email';
