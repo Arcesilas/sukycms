@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Forms\Auth\LoginForm;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -13,9 +14,11 @@ class LoginController extends Controller
 {
     use ThrottlesLogins;
 
-    public function form(): View
+    public function form(LoginForm $form): View
     {
-        return view('auth.login');
+        return view('auth.login', [
+            'form' => $form->make(),
+        ]);
     }
 
     /**

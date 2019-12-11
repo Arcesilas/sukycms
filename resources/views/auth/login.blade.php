@@ -1,10 +1,5 @@
-<form action="{{ route('auth.login') }}" method="POST">
-    @csrf
+{!! $form->renderField('email') !!}
 
-    <input type="email" placeholder="Email..." name="email">
+{!! $form->renderField('password') !!}
 
-    <input type="password" placeholder="Password..." name="password">
-
-    <button type="submit">Login</button>
-
-</form>
+{!! $form->renderField('login') !!}
