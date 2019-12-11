@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Enum\Users;
+
 final class UserStatus
 {
     public const ACTIVE = 'active';
