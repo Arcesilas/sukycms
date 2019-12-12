@@ -14,6 +14,10 @@ abstract class Field
 
     public array $options = [];
 
+    public bool $wrapper = true;
+
+    public bool $show_label = true;
+
     abstract public function view(): string;
 
     public function __construct(string $name)
@@ -40,6 +44,20 @@ abstract class Field
     public function setReadonly(bool $readonly): self
     {
         $this->options['readonly'] = $readonly;
+
+        return $this;
+    }
+
+    public function setWrapper(bool $wrapper): self
+    {
+        $this->wrapper = $wrapper;
+
+        return $this;
+    }
+
+    public function setShowLabel(bool $show_label): self
+    {
+        $this->show_label = $show_label;
 
         return $this;
     }

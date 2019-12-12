@@ -30,9 +30,19 @@ abstract class Form
         ]);
     }
 
-    public function renderField(string $name)
+    public function renderField(string $name, array $options = [])
     {
-        return $this->fields[$name]->render();
+        $field = $this->fields[$name];
+
+        if (isset($options['wrapper'])) {
+            $field->setWrapper($options['wrapper']);
+        }
+
+        if (isset($options['show_label'])) {
+            $field->setShowLabel($options['show_label']);
+        }
+
+        return $field->render();
     }
 
     public function add(Field $field): self
