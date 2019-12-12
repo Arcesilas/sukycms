@@ -12,6 +12,10 @@ abstract class Field
 
     public string $id;
 
+    public string $value = '';
+
+    public string $class = '';
+
     public array $options = [];
 
     public bool $wrapper = true;
@@ -58,6 +62,13 @@ abstract class Field
     public function setShowLabel(bool $show_label): self
     {
         $this->show_label = $show_label;
+
+        return $this;
+    }
+
+    public function setClass(string $class): self
+    {
+        $this->class = $class;
 
         return $this;
     }

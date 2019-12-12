@@ -2,7 +2,8 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css";
 
 // BASE
-@import "../colors";
+@import "colors";
+@import "buttons";
 
 html {
     box-sizing: border-box;

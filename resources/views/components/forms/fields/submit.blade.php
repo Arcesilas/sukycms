@@ -2,7 +2,7 @@
 <div class="form-group">
 @endif
 
-    <button type="submit" id="{{ $field->id }}">{{ $field->label }}</button>
+    <button type="submit" id="{{ $field->id }}" class="{{ $field->class }}">{{ $field->label }}</button>
 
 @if ($field->wrapper)
 </div>

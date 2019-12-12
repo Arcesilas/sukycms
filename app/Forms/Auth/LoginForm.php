@@ -2,6 +2,7 @@
 
 namespace App\Forms\Auth;
 
+use App\Support\Forms\Fields\CheckboxField;
 use App\Support\Forms\Fields\EmailField;
 use App\Support\Forms\Fields\PasswordField;
 use App\Support\Forms\Fields\SubmitField;
@@ -18,7 +19,9 @@ class LoginForm extends Form
         $this->fields([
             new EmailField('email'),
             new PasswordField('password'),
-            new SubmitField('login'),
+            (new SubmitField('login'))
+                ->setClass('btn btn-blue'),
+            new CheckboxField('remember'),
         ]);
     }
 }

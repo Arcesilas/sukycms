@@ -6,5 +6,6 @@ return [
     'password' => 'Contraseña',
 
     'login' => 'Acceder',
+    'remember' => 'Recordarme',
 
 ];

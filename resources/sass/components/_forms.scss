@@ -4,14 +4,19 @@ form {
     .form-group {
         display: block;
         width: 100%;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     label {
         display: block;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.75rem;
         font-weight: 500;
-        font-size: 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    input, button, textarea, select, optgroup {
+        font-size: 100%;
+        font-family: inherit;
     }
 
     input:not([type="checkbox"]):not([type="radio"]) {
@@ -23,18 +28,11 @@ form {
         appearance: none;
     }
 
-    button[type="submit"] {
-        background-color: var(--color-blue);
-        border-color: var(--color-blue);
-        color: #fff;
-        padding: 0.5rem 1rem;
-        font-weight: 700;
-        border-radius: 0.25rem;
-        -webkit-appearance: button;
-        cursor: pointer;
+    input[type="checkbox"] {
+        margin-right: 0.25rem;
+    }
 
-        &:hover {
-            background-color: var(--color-blue-dark);
-        }
+    button[type="submit"] {
+
     }
 }

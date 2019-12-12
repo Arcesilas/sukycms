@@ -20,6 +20,13 @@ body.auth {
 .auth-form {
     width: 100%;
     max-width: 400px;
+
+    form {
+        label {
+            color: #fff;
+            font-weight: 300;
+        }
+    }
 }
 
 img.auth-logo {
