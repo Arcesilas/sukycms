@@ -11,6 +11,8 @@
 </head>
 <body class="auth">
 
+    <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name') }}" class="auth-logo">
+
     <div class="auth-form">
         @yield('content')
     </div>

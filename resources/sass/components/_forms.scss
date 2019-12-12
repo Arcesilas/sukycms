@@ -10,7 +10,7 @@ form {
     label {
         display: block;
         margin-bottom: 0.5rem;
-        font-weight: 700;
+        font-weight: 500;
         font-size: 0.75rem;
     }
 
@@ -24,10 +24,17 @@ form {
     }
 
     button[type="submit"] {
+        background-color: var(--color-blue);
+        border-color: var(--color-blue);
+        color: #fff;
         padding: 0.5rem 1rem;
         font-weight: 700;
         border-radius: 0.25rem;
         -webkit-appearance: button;
         cursor: pointer;
+
+        &:hover {
+            background-color: var(--color-blue-dark);
+        }
     }
 }
