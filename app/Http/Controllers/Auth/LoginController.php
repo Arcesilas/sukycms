@@ -38,7 +38,7 @@ class LoginController extends Controller
         if (auth()->attempt($credentials, $request->filled('remember'))) {
             $this->clearLoginAttempts($request);
 
-            return redirect()->route('web.home');
+            return redirect($this->redirectTo());
         }
 
         $this->incrementLoginAttempts($request);
@@ -57,5 +57,14 @@ class LoginController extends Controller
     public function username(): string
     {
         return 'email';
+    }
+
+    private function redirectTo(): string
+    {
+        if (auth()->user()->can('access-admin')) {
+            return route('admin.dashboard');
+        }
+
+        return route('web.home');
     }
 }
