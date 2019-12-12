@@ -13,7 +13,7 @@ class LoadOptions
         $options = Option::where('autoload', true)->get(['key', 'value']);
 
         app()->singleton('options', static function () use ($options) {
-            return $options;
+            return $options->pluck('value', 'key')->toArray();
         });
 
         return $next($request);
