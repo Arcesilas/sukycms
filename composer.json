@@ -30,7 +30,11 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/telescope",
+                "barryvdh/laravel-debugbar",
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "autoload": {
