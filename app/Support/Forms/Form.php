@@ -4,6 +4,7 @@ namespace App\Support\Forms;
 
 use App\Support\Forms\Fields\Field;
 use App\Support\Forms\Fields\InputField;
+use Illuminate\Http\Request;
 use RuntimeException;
 
 abstract class Form
@@ -43,6 +44,24 @@ abstract class Form
         }
 
         return $field->render();
+    }
+
+    public function renderStart(): string
+    {
+        $form = "<form action='{$this->url}' method='{$this->method}'>";
+        $form .= csrf_field();
+
+        if (! in_array($this->method, [Request::METHOD_GET, Request::METHOD_POST], true)) {
+            $form .= method_field($this->method);
+            $this->method = 'POST';
+        }
+
+        return $form;
+    }
+
+    public function renderEnd(): string
+    {
+        return '</form>';
     }
 
     public function add(Field $field): self

@@ -1,0 +1,33 @@
+form {
+    width: 100%;
+
+    .form-group {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+        font-size: 0.75rem;
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]) {
+        width: 100%;
+        padding: 0.5rem 0.8rem;
+        background-color: #fff;
+        border-radius: 0.25rem;
+        border: none;
+        appearance: none;
+    }
+
+    button[type="submit"] {
+        padding: 0.5rem 1rem;
+        font-weight: 700;
+        border-radius: 0.25rem;
+        -webkit-appearance: button;
+        cursor: pointer;
+    }
+}

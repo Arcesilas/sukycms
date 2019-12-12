@@ -1,5 +1,13 @@
-{!! $form->renderField('email') !!}
+@extends('auth.layouts.base')
 
-{!! $form->renderField('password') !!}
+@section('content')
+    {!! $form->renderStart() !!}
 
-{!! $form->renderField('login') !!}
+    {!! $form->renderField('email') !!}
+
+    {!! $form->renderField('password') !!}
+
+    {!! $form->renderField('login') !!}
+
+    {!! $form->renderEnd() !!}
+@endsection
