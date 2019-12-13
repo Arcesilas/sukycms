@@ -34,12 +34,10 @@ class AdminBaseController extends Controller
                         'submenu' => [
                             [
                                 'title' => 'Listado',
-                                'icon' => 'fas fa-list fa-fw',
                                 'url' => '',
                             ],
                             [
                                 'title' => 'Crear ficha',
-                                'icon' => 'fas fa-plus-square fa-fw',
                                 'url' => '',
                             ],
                         ],
@@ -51,12 +49,10 @@ class AdminBaseController extends Controller
                         'submenu' => [
                             [
                                 'title' => 'Listado',
-                                'icon' => 'fas fa-list fa-fw',
                                 'url' => '',
                             ],
                             [
                                 'title' => 'Crear ficha',
-                                'icon' => 'fas fa-plus-square fa-fw',
                                 'url' => '',
                             ],
                         ],
@@ -68,12 +64,10 @@ class AdminBaseController extends Controller
                         'submenu' => [
                             [
                                 'title' => 'Listado',
-                                'icon' => 'fas fa-list fa-fw',
                                 'url' => '',
                             ],
                             [
                                 'title' => 'Crear ficha',
-                                'icon' => 'fas fa-plus-square fa-fw',
                                 'url' => '',
                             ],
                         ],

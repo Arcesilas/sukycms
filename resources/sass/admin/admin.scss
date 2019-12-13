@@ -2,6 +2,7 @@
 
 // COMPONENTS
 @import "../components/forms";
+@import "../components/cards";
 
 // THEMES
 @import "themes/default";
@@ -64,13 +65,13 @@ aside.sidebar {
     width: var(--admin-sidebar-width);
 
     .logo {
-        text-align: center;
         width: var(--admin-sidebar-width);
         height: var(--admin-header-height);
         padding: 0.5rem 0;
 
         img {
             max-height: 40px;
+            margin: 0 auto;
         }
     }
 
@@ -114,6 +115,10 @@ aside.sidebar {
         &.open {
             display: flex;
         }
+
+        i {
+            font-size: 0.6rem;
+        }
     }
 
     .arrow {
@@ -132,6 +137,5 @@ aside.sidebar {
 }
 
 .content {
-    padding: 1.25rem;
     height: 100%;
 }

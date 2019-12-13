@@ -11,7 +11,7 @@
             @if (isset($link['submenu']))
                 <div class="submenu" data-sidebarsubmenu="{{ $loop->index }}">
                     @foreach ($link['submenu'] as $sublink)
-                        <a href=""><i class="{{ $sublink['icon'] ?? '' }}"></i> {{ $sublink['title'] }}</a>
+                        <a href=""><i class="fas fa-chevron-right"></i> {{ $sublink['title'] }}</a>
                     @endforeach
                 </div>
             @endif
