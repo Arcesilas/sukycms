@@ -72,6 +72,36 @@ class AdminBaseController extends Controller
                             ],
                         ],
                     ],
+                    [
+                        'title' => 'Personas',
+                        'icon' => 'fas fa-users fa-fw',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'title' => 'Listado',
+                                'url' => '',
+                            ],
+                            [
+                                'title' => 'Crear ficha',
+                                'url' => '',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => 'Formularios',
+                        'icon' => 'fab fa-wpforms fa-fw',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'title' => 'Listado',
+                                'url' => '',
+                            ],
+                            [
+                                'title' => 'Crear ficha',
+                                'url' => '',
+                            ],
+                        ],
+                    ],
                 ],
             ],
         ];
