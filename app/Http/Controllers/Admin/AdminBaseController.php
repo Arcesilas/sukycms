@@ -19,7 +19,7 @@ class AdminBaseController extends Controller
                 'links' => [
                     [
                         'title' => 'Dashboard',
-                        'icon' => 'fas fa-home',
+                        'icon' => 'fas fa-home fa-fw',
                         'url' => '',
                     ],
                 ],
@@ -29,17 +29,51 @@ class AdminBaseController extends Controller
                 'links' => [
                     [
                         'title' => 'Animales',
-                        'icon' => 'fas fa-paw',
-                        'url' => '',
+                        'icon' => 'fas fa-paw fa-fw',
+                        'url' => '#',
                         'submenu' => [
                             [
                                 'title' => 'Listado',
-                                'icon' => 'fas fa-list',
+                                'icon' => 'fas fa-list fa-fw',
                                 'url' => '',
                             ],
                             [
                                 'title' => 'Crear ficha',
-                                'icon' => 'fas fa-plus',
+                                'icon' => 'fas fa-plus-square fa-fw',
+                                'url' => '',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => 'Artículos',
+                        'icon' => 'fas fa-file-alt fa-fw',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'title' => 'Listado',
+                                'icon' => 'fas fa-list fa-fw',
+                                'url' => '',
+                            ],
+                            [
+                                'title' => 'Crear ficha',
+                                'icon' => 'fas fa-plus-square fa-fw',
+                                'url' => '',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => 'Páginas',
+                        'icon' => 'fas fa-file-powerpoint fa-fw',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'title' => 'Listado',
+                                'icon' => 'fas fa-list fa-fw',
+                                'url' => '',
+                            ],
+                            [
+                                'title' => 'Crear ficha',
+                                'icon' => 'fas fa-plus-square fa-fw',
                                 'url' => '',
                             ],
                         ],

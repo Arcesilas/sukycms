@@ -26,7 +26,7 @@ header {
     a {
         display: inline-block;
         height: 100%;
-        padding: 0 0.75rem;
+        padding: 0 0.85rem;
         line-height: var(--admin-header-height);
     }
 
@@ -38,6 +38,17 @@ header {
 
     .right-menu {
         justify-self: flex-end;
+        margin-right: 0.5rem;
+    }
+
+    .avatar {
+        display: flex;
+        align-items: center;
+
+        img {
+            max-height: 30px;
+            border-radius: 50%;
+        }
     }
 }
 
@@ -68,12 +79,20 @@ aside.sidebar {
     }
 
     a {
-        padding-top: 0.6rem;
-        padding-bottom: 0.6rem;
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
         text-decoration: none;
 
         i {
             margin-right: 0.25rem;
+        }
+
+        &.open {
+            .arrow {
+                &::after {
+                    content: "\F107";
+                }
+            }
         }
     }
 
@@ -85,11 +104,23 @@ aside.sidebar {
     }
 
     .submenu {
-        display: flex;
+        display: none;
         flex-direction: column;
 
         a {
             padding-left: 2.25rem;
+        }
+
+        &.open {
+            display: flex;
+        }
+    }
+
+    .arrow {
+        float: right;
+
+        &::after {
+            content: "\F104";
         }
     }
 }
