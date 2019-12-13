@@ -19,7 +19,7 @@ class AdminBaseController extends Controller
                 'links' => [
                     [
                         'title' => 'Dashboard',
-                        'icon' => '',
+                        'icon' => 'fas fa-home',
                         'url' => '',
                     ],
                 ],
@@ -29,17 +29,17 @@ class AdminBaseController extends Controller
                 'links' => [
                     [
                         'title' => 'Animales',
-                        'icon' => '',
+                        'icon' => 'fas fa-paw',
                         'url' => '',
                         'submenu' => [
                             [
                                 'title' => 'Listado',
-                                'icon' => '',
+                                'icon' => 'fas fa-list',
                                 'url' => '',
                             ],
                             [
                                 'title' => 'Crear ficha',
-                                'icon' => '',
+                                'icon' => 'fas fa-plus',
                                 'url' => '',
                             ],
                         ],

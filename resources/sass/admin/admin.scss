@@ -9,7 +9,7 @@
 // VARIABLES
 :root {
     --admin-header-height: 60px;
-    --admin-sidebar-width: 260px;
+    --admin-sidebar-width: 220px;
 }
 
 html, body {
@@ -18,16 +18,10 @@ html, body {
 
 header {
     display: flex;
+    width: 100%;
     flex-direction: row;
     height: var(--admin-header-height);
     justify-content: space-between;
-
-    .logo {
-        width: var(--admin-sidebar-width);
-        img {
-            max-height: 40px;
-        }
-    }
 
     .right-menu {
         justify-self: flex-end;
@@ -37,7 +31,7 @@ header {
 #wrapper {
     display: flex;
     flex-direction: row;
-    height: calc(100% - var(--admin-header-height));
+    height: 100%;
 }
 
 aside.sidebar {
@@ -45,13 +39,50 @@ aside.sidebar {
     flex-direction: column;
     width: var(--admin-sidebar-width);
 
+    .logo {
+        text-align: center;
+        width: var(--admin-sidebar-width);
+        height: var(--admin-header-height);
+        padding: 0.5rem 0;
+
+        img {
+            max-height: 40px;
+        }
+    }
+
+    h4, a {
+        padding: 0 1.25rem;
+    }
+
+    a {
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+        text-decoration: none;
+
+        i {
+            margin-right: 0.25rem;
+        }
+    }
+
     h4 {
         font-weight: 500;
         letter-spacing: 1px;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .submenu {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            padding-left: 2.25rem;
+        }
     }
 }
 
 .content {
     display: flex;
-    width: calc(100% - var(--admin-sidebar-width));
+    flex-direction: column;
+    width: 100%;
 }

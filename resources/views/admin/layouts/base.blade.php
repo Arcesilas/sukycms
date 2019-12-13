@@ -11,10 +11,10 @@
 </head>
 <body>
 
-    @include('admin.layouts.header')
     <div id="wrapper">
         @include('admin.layouts.sidebar')
         <div class="content">
+            @include('admin.layouts.header')
             @yield('content')
         </div>
     </div>
