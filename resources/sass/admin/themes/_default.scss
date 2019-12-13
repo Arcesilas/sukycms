@@ -1,17 +1,34 @@
 :root {
-    --admin-theme-default-bg-color: #eee;
-    --admin-theme-default-bg-header: #aaa;
-    --admin-theme-default-bg-content-color: #ccc;
+    --admin-theme-default-bg: #eee;
+    --admin-theme-default-header-bg-color: #fff;
+
+    --admin-theme-default-sidebar-bg-color: #404E67;
+    --admin-theme-default-sidebar-link-color: #dcdcdc;
+    --admin-theme-default-sidebar-section-color: #999;
+
+    --admin-theme-default-content-bg-color: #F6F7FB;
 }
 
 header {
-    background-color: var(--admin-theme-default-bg-header);
+    background-color: var(--admin-theme-default-header-bg-color);
+
+    .logo {
+        background-color: var(--admin-theme-default-sidebar-bg-color);
+    }
 }
 
 aside.sidebar[data-theme="default"] {
-    background-color: var(--admin-theme-default-bg-color);
+    background-color: var(--admin-theme-default-sidebar-bg-color);
+
+    h4 {
+        color: var(--admin-theme-default-sidebar-section-color);
+    }
+
+    a {
+        color: var(--admin-theme-default-sidebar-link-color);
+    }
 }
 
 .content {
-    background-color: var(--admin-theme-default-bg-content-color);
+    background-color: var(--admin-theme-default-content-bg-color);
 }

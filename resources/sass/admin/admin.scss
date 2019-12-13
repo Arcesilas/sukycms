@@ -9,6 +9,7 @@
 // VARIABLES
 :root {
     --admin-header-height: 60px;
+    --admin-sidebar-width: 260px;
 }
 
 html, body {
@@ -22,8 +23,9 @@ header {
     justify-content: space-between;
 
     .logo {
+        width: var(--admin-sidebar-width);
         img {
-            max-height: 50px;
+            max-height: 40px;
         }
     }
 
@@ -31,7 +33,6 @@ header {
         justify-self: flex-end;
     }
 }
-
 
 #wrapper {
     display: flex;
@@ -42,10 +43,15 @@ header {
 aside.sidebar {
     display: flex;
     flex-direction: column;
-    width: 260px;
+    width: var(--admin-sidebar-width);
+
+    h4 {
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
 }
 
 .content {
     display: flex;
-    width: 100%;
+    width: calc(100% - var(--admin-sidebar-width));
 }
