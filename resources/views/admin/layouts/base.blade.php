@@ -11,9 +11,15 @@
 </head>
 <body>
 
-Hi
+    @include('admin.layouts.header')
+    <div id="wrapper">
+        @include('admin.layouts.sidebar')
+        <div class="content">
+            @yield('content')
+        </div>
+    </div>
 
-<script src="{{ mix('build/admin.js') }}"></script>
-@stack('scripts')
+    <script src="{{ mix('build/admin.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

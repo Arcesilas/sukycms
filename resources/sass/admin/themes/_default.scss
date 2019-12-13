@@ -1,0 +1,17 @@
+:root {
+    --admin-theme-default-bg-color: #eee;
+    --admin-theme-default-bg-header: #aaa;
+    --admin-theme-default-bg-content-color: #ccc;
+}
+
+header {
+    background-color: var(--admin-theme-default-bg-header);
+}
+
+aside.sidebar[data-theme="default"] {
+    background-color: var(--admin-theme-default-bg-color);
+}
+
+.content {
+    background-color: var(--admin-theme-default-bg-content-color);
+}

@@ -2,3 +2,50 @@
 
 // COMPONENTS
 @import "../components/forms";
+
+// THEMES
+@import "themes/default";
+
+// VARIABLES
+:root {
+    --admin-header-height: 60px;
+}
+
+html, body {
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    height: var(--admin-header-height);
+    justify-content: space-between;
+
+    .logo {
+        img {
+            max-height: 50px;
+        }
+    }
+
+    .right-menu {
+        justify-self: flex-end;
+    }
+}
+
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - var(--admin-header-height));
+}
+
+aside.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+}
