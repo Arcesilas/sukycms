@@ -2,7 +2,10 @@
 
 :root {
     --admin-theme-default-bg: #eee;
+
     --admin-theme-default-header-bg-color: #fff;
+    --admin-theme-default-header-link-color: #404E67;
+    --admin-theme-default-header-link-hover-bg-color: #F6F7FB;
 
     --admin-theme-default-sidebar-bg-color: #404E67;
     --admin-theme-default-sidebar-link-color: #dcdcdc;
@@ -19,14 +22,23 @@ body {
 
 header {
     background-color: var(--admin-theme-default-header-bg-color);
+    box-shadow: var(--box-shadow);
 
-    .logo {
-        background-color: var(--admin-theme-default-sidebar-bg-color);
+    a {
+        color: var(--admin-theme-default-header-link-color);
+
+        &.active, &:hover {
+            background-color: var(--admin-theme-default-header-link-hover-bg-color);
+        }
     }
 }
 
 aside.sidebar[data-theme="default"] {
     background-color: var(--admin-theme-default-sidebar-bg-color);
+
+    .logo {
+        box-shadow: var(--box-shadow);
+    }
 
     h4 {
         color: var(--admin-theme-default-sidebar-section-color);

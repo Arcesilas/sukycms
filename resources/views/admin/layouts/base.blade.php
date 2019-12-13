@@ -13,9 +13,11 @@
 
     <div id="wrapper">
         @include('admin.layouts.sidebar')
-        <div class="content">
+        <div class="content-wrapper">
             @include('admin.layouts.header')
-            @yield('content')
+            <div class="content">
+                @yield('content')
+            </div>
         </div>
     </div>
 

@@ -20,8 +20,21 @@ header {
     display: flex;
     width: 100%;
     flex-direction: row;
-    height: var(--admin-header-height);
     justify-content: space-between;
+    z-index: 1;
+
+    a {
+        display: inline-block;
+        height: 100%;
+        padding: 0 0.75rem;
+        line-height: var(--admin-header-height);
+    }
+
+    .left-menu, .right-menu {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
 
     .right-menu {
         justify-self: flex-end;
@@ -81,8 +94,13 @@ aside.sidebar {
     }
 }
 
-.content {
+.content-wrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+.content {
+    padding: 1.25rem;
+    height: 100%;
 }
