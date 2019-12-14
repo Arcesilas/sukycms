@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'SukyCMS'),
 
+    'version' => '0.1',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

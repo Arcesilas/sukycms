@@ -17,6 +17,8 @@
             @include('admin.layouts.header')
             <div class="content">
                 @yield('content')
+
+                @include('admin.layouts.footer')
             </div>
         </div>
     </div>
