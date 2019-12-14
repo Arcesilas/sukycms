@@ -18,8 +18,24 @@ class AdminBaseController extends Controller
                 'title' => 'General',
                 'links' => [
                     [
-                        'title' => 'Dashboard',
-                        'icon' => 'fas fa-home fa-fw',
+                        'title' => 'Escritorio',
+                        'icon' => 'fas fa-columns fa-fw',
+                        'url' => '',
+                        'active' => 'admin'
+                    ],
+                    [
+                        'title' => 'Asociación',
+                        'icon' => 'fas fa-heart fa-fw',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'Estadísticas',
+                        'icon' => 'fas fa-chart-bar fa-fw',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'Calendario',
+                        'icon' => 'fas fa-calendar fa-fw',
                         'url' => '',
                     ],
                 ],
@@ -89,7 +105,22 @@ class AdminBaseController extends Controller
                     ],
                     [
                         'title' => 'Formularios',
-                        'icon' => 'fab fa-wpforms fa-fw',
+                        'icon' => 'fas fa-clipboard-list fa-fw',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'title' => 'Listado',
+                                'url' => '',
+                            ],
+                            [
+                                'title' => 'Crear ficha',
+                                'url' => '',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => 'Archivos',
+                        'icon' => 'fas fa-cloud-upload-alt fa-fw',
                         'url' => '#',
                         'submenu' => [
                             [
@@ -104,6 +135,27 @@ class AdminBaseController extends Controller
                     ],
                 ],
             ],
+            [
+                'title' => 'Soporte',
+                'links' => [
+                    [
+                        'title' => 'Documentación',
+                        'icon' => 'fas fa-file-alt fa-fw',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'Contacto',
+                        'icon' => 'fas fa-user fa-fw',
+                        'url' => '',
+                    ],
+                    [
+                        'title' => 'Preguntas frecuentes',
+                        'icon' => 'fas fa-question-circle fa-fw',
+                        'url' => '',
+                    ],
+                ],
+            ],
+
         ];
     }
 }

@@ -6,7 +6,7 @@
     @foreach ($sidebar as $section)
         <h4>{{ $section['title'] }}</h4>
         @foreach ($section['links'] as $link)
-            <a href="{{ $link['url'] }}" data-sidebarsubmenu="{{ $loop->index }}"><i class="{{ $link['icon'] ?? '' }}"></i> {{ $link['title'] }} @if (isset($link['submenu'])) <i class="fas arrow"></i> @endif</a>
+            <a href="{{ $link['url'] }}" data-sidebarsubmenu="{{ $loop->index }}" class="{{ Request::is($link['active'] ?? null) ? 'active' : '' }}"><i class="{{ $link['icon'] ?? '' }}"></i> {{ $link['title'] }} @if (isset($link['submenu'])) <i class="fas arrow"></i> @endif</a>
 
             @if (isset($link['submenu']))
                 <div class="submenu" data-sidebarsubmenu="{{ $loop->index }}">

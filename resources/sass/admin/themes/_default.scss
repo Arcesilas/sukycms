@@ -47,7 +47,7 @@ aside.sidebar[data-theme="default"] {
     a {
         color: var(--admin-theme-default-sidebar-link-color);
 
-        &:hover {
+        &.active, &:hover {
             color: var(--admin-theme-default-sidebar-link-hover-color);
             background-color: var(--admin-theme-default-sidebar-link-hover-bg-color);
         }

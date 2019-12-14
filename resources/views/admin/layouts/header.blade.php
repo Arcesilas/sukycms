@@ -2,9 +2,6 @@
     <div class="left-menu">
         <a href="" class="active"><i class="fas fa-columns"></i></a>
         <a href=""><i class="fas fa-desktop"></i></a>
-        <a href=""><i class="fas fa-chart-bar"></i></a>
-        <a href=""><i class="fas fa-calendar"></i></a>
-        <a href=""><i class="fas fa-question-circle"></i></a>
         <a href=""><i class="fas fa-cogs"></i></a>
     </div>
     <div class="right-menu">
