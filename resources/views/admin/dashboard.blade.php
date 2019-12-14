@@ -8,7 +8,7 @@
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
@@ -58,7 +58,7 @@
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
