@@ -2,6 +2,8 @@ const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
 require('laravel-mix-purgecss');
 
+const environment = 'local';
+
 /**
  * ADMIN ASSETS
  */
@@ -10,7 +12,7 @@ mix.sass('resources/sass/admin/admin.scss', 'build').options({
     processCssUrls: false,
     postCss: [ tailwindcss('tailwind.config.js') ],
 }).purgeCss({
-    enabled: true,
+    enabled: environment === 'production',
     extensions: ['php'],
 });
 
@@ -22,7 +24,7 @@ mix.sass('resources/sass/auth/auth.scss', 'build').options({
     processCssUrls: false,
     postCss: [ tailwindcss('tailwind.config.js') ],
 }).purgeCss({
-    enabled: true,
+    enabled: environment === 'production',
     extensions: ['php'],
     globs: [
         path.join(__dirname, 'resources/views/admin/**/*.blade.php'),
