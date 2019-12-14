@@ -55,7 +55,7 @@ header {
 #wrapper {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    min-height: 100%;
 }
 
 aside.sidebar {
@@ -63,8 +63,6 @@ aside.sidebar {
     flex-direction: column;
     min-width: var(--admin-sidebar-width);
     padding-bottom: 2rem;
-    overflow-y: auto;
-    overflow-x: hidden;
 
     .logo {
         width: var(--admin-sidebar-width);
