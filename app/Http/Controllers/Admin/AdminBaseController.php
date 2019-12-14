@@ -11,7 +11,7 @@ class AdminBaseController extends Controller
         view()->share('sidebar', $this->getSidebar());
     }
 
-    private function getSidebar(): array
+    protected function getSidebar(): array
     {
         return [
             [

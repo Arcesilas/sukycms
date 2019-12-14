@@ -1,8 +1,8 @@
 <header>
     <div class="left-menu">
-        <a href="" class="active"><i class="fas fa-columns"></i></a>
-        <a href=""><i class="fas fa-desktop"></i></a>
-        <a href=""><i class="fas fa-cogs"></i></a>
+        <a href="{{ route('admin.dashboard') }}" class="{{ ! Request::is('admin/web*') ? 'active' : '' }}"><i class="fas fa-columns"></i></a>
+        <a href="{{ route('admin.web.index') }}" class="{{ Request::is('admin/web*') ? 'active' : '' }}"><i class="fas fa-desktop"></i></a>
+        <a href="" class="{{ Request::is('admin/configuration*') ? 'active' : '' }}"><i class="fas fa-cogs"></i></a>
     </div>
     <div class="right-menu">
         <a href=""><i class="fas fa-search"></i></a>
