@@ -1,3 +1,8 @@
+:root {
+    --forms-input-border-color: #e2e5ec;
+    --forms-input-border-color-focus: #b0b3ba;
+}
+
 form {
     width: 100%;
 
@@ -24,9 +29,13 @@ form {
         padding: 0.6rem 0.8rem;
         background-color: #fff;
         border-radius: 0.25rem;
-        border: none;
         appearance: none;
-        box-shadow: var(--box-shadow);
+        border: 1px solid var(--forms-input-border-color);
+
+        &:focus {
+            border-color: var(--forms-input-border-color-focus);
+            outline: 0;
+        }
     }
 
     input[type="checkbox"] {

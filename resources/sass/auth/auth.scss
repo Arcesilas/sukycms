@@ -20,6 +20,10 @@ body.auth {
     max-width: 400px;
 
     form {
+        input:not([type="checkbox"]):not([type="radio"]) {
+            box-shadow: var(--box-shadow);
+        }
+
         label {
             color: #fff;
             font-weight: 300;

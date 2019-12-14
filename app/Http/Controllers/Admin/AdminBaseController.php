@@ -20,13 +20,14 @@ class AdminBaseController extends Controller
                     [
                         'title' => __('admin.sidebar.dashboard'),
                         'icon' => 'fas fa-columns fa-fw',
-                        'url' => '',
+                        'url' => route('admin.dashboard'),
                         'active' => 'admin'
                     ],
                     [
                         'title' => __('admin.sidebar.shelter'),
                         'icon' => 'fas fa-heart fa-fw',
-                        'url' => '',
+                        'url' => route('admin.shelter.form'),
+                        'active' => 'admin/shelter*'
                     ],
                     [
                         'title' => __('admin.sidebar.stats'),

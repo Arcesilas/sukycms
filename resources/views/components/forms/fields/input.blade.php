@@ -6,7 +6,7 @@
     <label for="{{ $field->id }}">{{ $field->label }}</label>
     @endif
 
-    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}">
+    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}">
 
 @if ($field->wrapper)
 </div>

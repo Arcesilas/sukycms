@@ -15,6 +15,8 @@ abstract class Form
 
     public array $fields = [];
 
+    public array $data = [];
+
     abstract public function build(): void;
 
     public function make(): self
@@ -70,6 +72,10 @@ abstract class Form
             throw new RuntimeException("Field {$field->name} already exists");
         }
 
+        if (isset($this->data[$field->name])) {
+            $field->value = $this->data[$field->name];
+        }
+
         $this->fields[$field->name] = $field;
 
         return $this;
@@ -80,6 +86,13 @@ abstract class Form
         foreach ($fields as $field) {
             $this->add($field);
         }
+
+        return $this;
+    }
+
+    public function setData(array $data = []): self
+    {
+        $this->data = $data;
 
         return $this;
     }

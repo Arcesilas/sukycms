@@ -6,7 +6,7 @@
             <label for="{{ $field->id }}">{{ $field->label }}</label>
         @endif
 
-        <input type="email" name="{{ $field->name }}" id="{{ $field->id }}">
+        <input type="email" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}">
 
         @if ($field->wrapper)
     </div>
