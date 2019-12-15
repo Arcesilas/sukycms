@@ -5,5 +5,19 @@ $(document).ready(function () {
         $(this).toggleClass('open');
         $('.submenu[data-sidebarsubmenu="' + $(this).data('sidebarsubmenu') + '"]').toggleClass('open');
     });
+
+    $('.btn-loading').on('click', function () {
+        let button = $(this);
+        let icon = button.find('i').first();
+
+        icon.removeClass();
+        icon.addClass('fas fa-spinner fa-spin');
+        button.find('span').html('');
+    });
+
+    $('form').on('submit', function () {
+        $('.btn-loading').prop('disabled', true);
+        return true;
+    })
 });
 

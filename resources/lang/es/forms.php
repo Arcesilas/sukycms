@@ -11,4 +11,6 @@ return [
     'login' => 'Acceder',
     'remember' => 'Recordarme',
 
+    'save' => 'Guardar',
+
 ];

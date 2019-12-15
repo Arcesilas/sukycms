@@ -10,7 +10,7 @@
                 <h3>Editar datos de la asociación</h3>
 
                 <div class="actions">
-                    <button type="submit" class="btn btn-blue"><i class="fas fa-save mr-2"></i> Guardar</button>
+                    {!! $form->renderField('save') !!}
                 </div>
             </div>
             <div class="card-body">

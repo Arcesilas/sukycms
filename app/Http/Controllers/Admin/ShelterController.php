@@ -17,6 +17,6 @@ class ShelterController extends AdminBaseController
 
     public function update()
     {
-
+        return redirect()->back();
     }
 }

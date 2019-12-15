@@ -50,12 +50,17 @@ abstract class Form
 
     public function renderStart(): string
     {
+        $methodField = false;
+        if (! in_array($this->method, [Request::METHOD_GET, Request::METHOD_POST], true)) {
+            $methodField = $this->method;
+            $this->method = 'POST';
+        }
+
         $form = "<form action='{$this->url}' method='{$this->method}'>";
         $form .= csrf_field();
 
-        if (! in_array($this->method, [Request::METHOD_GET, Request::METHOD_POST], true)) {
-            $form .= method_field($this->method);
-            $this->method = 'POST';
+        if ($methodField) {
+            $form .= method_field($methodField);
         }
 
         return $form;
