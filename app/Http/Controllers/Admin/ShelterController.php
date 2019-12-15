@@ -18,7 +18,7 @@ class ShelterController extends AdminBaseController
 
     public function update()
     {
-        (new FlashNotification('Prueba', 'pruebita'))->render();
+        flash('Test')->render();
 
         return redirect()->back();
     }
