@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Forms\Admin\ShelterForm;
+use App\Support\FlashNotification;
 
 class ShelterController extends AdminBaseController
 {
@@ -17,6 +18,8 @@ class ShelterController extends AdminBaseController
 
     public function update()
     {
+        (new FlashNotification('Prueba', 'pruebita'))->render();
+
         return redirect()->back();
     }
 }

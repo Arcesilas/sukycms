@@ -25,5 +25,6 @@
 
     <script src="{{ mix('build/admin.js') }}"></script>
     @stack('scripts')
+    @include('components.flash_notification')
 </body>
 </html>
