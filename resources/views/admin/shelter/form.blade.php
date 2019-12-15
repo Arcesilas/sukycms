@@ -14,12 +14,22 @@
                 </div>
             </div>
             <div class="card-body">
-
-                {!! $form->renderField('name') !!}
-                {!! $form->renderField('domain') !!}
-                {!! $form->renderField('subdomain') !!}
-                {!! $form->renderField('email') !!}
-
+                <div class="flex pt-4">
+                    <div class="w-1/2 flex px-4">
+                        {!! $form->renderField('name') !!}
+                    </div>
+                    <div class="w-1/2 flex px-4">
+                        {!! $form->renderField('domain') !!}
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="w-1/2 flex px-4">
+                        {!! $form->renderField('subdomain') !!}
+                    </div>
+                    <div class="w-1/2 flex px-4">
+                        {!! $form->renderField('email') !!}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
