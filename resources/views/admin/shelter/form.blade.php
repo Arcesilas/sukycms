@@ -19,15 +19,15 @@
                         {!! $form->renderField('name') !!}
                     </div>
                     <div class="w-1/2 flex px-4">
-                        {!! $form->renderField('domain') !!}
+                        {!! $form->renderField('email') !!}
                     </div>
                 </div>
                 <div class="flex">
                     <div class="w-1/2 flex px-4">
-                        {!! $form->renderField('subdomain') !!}
+                        {!! $form->renderField('domain') !!}
                     </div>
                     <div class="w-1/2 flex px-4">
-                        {!! $form->renderField('email') !!}
+                        {!! $form->renderField('subdomain') !!}
                     </div>
                 </div>
             </div>

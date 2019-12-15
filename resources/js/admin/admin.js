@@ -1,8 +1,9 @@
-window.jQuery = window.$ = require('jquery');
+require('../bootstrap');
 
-
-$('aside.sidebar > a').on('click', function () {
-    $(this).toggleClass('open');
-    $('.submenu[data-sidebarsubmenu="'+$(this).data('sidebarsubmenu')+'"]').toggleClass('open');
+$(document).ready(function () {
+    $('aside.sidebar > a').on('click', function () {
+        $(this).toggleClass('open');
+        $('.submenu[data-sidebarsubmenu="' + $(this).data('sidebarsubmenu') + '"]').toggleClass('open');
+    });
 });
 

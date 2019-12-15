@@ -16,6 +16,8 @@ abstract class Field
 
     public string $class = '';
 
+    public string $help_text = '';
+
     public array $options = [];
 
     public bool $wrapper = true;
@@ -69,6 +71,13 @@ abstract class Field
     public function setClass(string $class): self
     {
         $this->class = $class;
+
+        return $this;
+    }
+
+    public function setHelpText(string $help_text): self
+    {
+        $this->help_text = $help_text;
 
         return $this;
     }

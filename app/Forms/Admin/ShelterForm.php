@@ -20,7 +20,8 @@ class ShelterForm extends Form
         $this->fields([
             new InputField('name'),
             new InputField('domain'),
-            new InputField('subdomain'),
+            (new InputField('subdomain'))
+                ->setHelpText('Test'),
             new EmailField('email'),
         ]);
     }
