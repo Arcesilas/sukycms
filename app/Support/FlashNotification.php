@@ -44,7 +44,7 @@ class FlashNotification
         return $this;
     }
 
-    public function render(): void
+    public function show(): void
     {
         session()->flash('flash_notification', [
             'title' => $this->title,

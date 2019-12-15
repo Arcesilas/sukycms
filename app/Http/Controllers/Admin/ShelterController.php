@@ -18,7 +18,7 @@ class ShelterController extends AdminBaseController
 
     public function update()
     {
-        flash('Test')->render();
+        flash('Test')->show();
 
         return redirect()->back();
     }
