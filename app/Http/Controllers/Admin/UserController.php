@@ -11,7 +11,9 @@ class UserController extends AdminBaseController
 {
     public function index(): View
     {
-        return view('admin.users.index');
+        return view('admin.users.index', [
+            'users' => User::paginate()
+        ]);
     }
 
     public function create(): View

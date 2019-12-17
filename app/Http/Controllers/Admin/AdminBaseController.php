@@ -36,7 +36,7 @@ class AdminBaseController extends Controller
                     ],
                     [
                         'title' => __('admin.sidebar.calendar'),
-                        'icon' => 'fas fa-calendar fa-fw',
+                        'icon' => 'fas fa-calendar-alt fa-fw',
                         'url' => '',
                     ],
                 ],

@@ -3,9 +3,9 @@
     padding: 0.5rem 1rem;
     font-weight: 700;
     border-radius: 0.25rem;
-    -webkit-appearance: button;
     cursor: pointer;
     outline: none;
+    border: 1px solid;
 }
 
 .btn-blue {
@@ -15,5 +15,16 @@
     &:hover {
         background-color: var(--color-blue-dark);
         border-color: var(--color-blue-dark);
+    }
+}
+
+.btn-blue-outline {
+    color: var(--color-blue);
+    background-color: transparent;
+    border-color: var(--color-blue);
+
+    &:hover {
+        color: #fff;
+        background-color: var(--color-blue);
     }
 }
