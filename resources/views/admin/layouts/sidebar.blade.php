@@ -6,12 +6,12 @@
     @foreach ($sidebar as $section)
         <h4>{{ $section['title'] }}</h4>
         @foreach ($section['links'] as $link)
-            <a href="{{ $link['url'] }}" data-sidebarsubmenu="{{ isset($link['submenu']) ? $loop->index : '' }}" class="{{ Request::is($link['active'] ?? null) ? 'active' : '' }}"><i class="{{ $link['icon'] ?? '' }}"></i> {{ $link['title'] }} @if (isset($link['submenu'])) <i class="fas arrow"></i> @endif</a>
+            <a href="{{ $link['url'] }}" data-sidebarsubmenu="{{ isset($link['submenu']) ? $loop->index : '' }}" class="{{ Request::is($link['active'] ?? null) ? 'active open' : '' }}"><i class="{{ $link['icon'] ?? '' }}"></i> {{ $link['title'] }} @if (isset($link['submenu'])) <i class="fas arrow"></i> @endif</a>
 
             @if (isset($link['submenu']))
-                <div class="submenu" data-sidebarsubmenu="{{ $loop->index }}">
+                <div class="submenu {{ Request::is($link['active'] ?? null) ? 'open' : '' }}" data-sidebarsubmenu="{{ $loop->index }}">
                     @foreach ($link['submenu'] as $sublink)
-                        <a href=""><i class="fas fa-chevron-right"></i> {{ $sublink['title'] }}</a>
+                        <a href="{{ $sublink['url'] }}" class="{{ Request::is($sublink['active'] ?? null) ? 'active' : '' }}"><i class="{{ $sublink['icon'] ?? 'fas fa-chevron-right' }}"></i> {{ $sublink['title'] }}</a>
                     @endforeach
                 </div>
             @endif

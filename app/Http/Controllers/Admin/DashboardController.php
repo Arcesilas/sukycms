@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enum\Users\UserRole;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 

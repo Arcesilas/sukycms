@@ -13,4 +13,5 @@ return [
 
     'save' => 'Guardar',
 
+    'saved' => 'Cambios guardados correctamente'
 ];

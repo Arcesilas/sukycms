@@ -38,7 +38,7 @@ class LoginTest extends DuskTestCase
     }
 
     /** @test */
-    public function a_admin_user_can_login_to_admin(): void
+    public function a_admin_user_can_login(): void
     {
         $email = 'sukycms-admin@gmail.com';
         $password = 'secret';

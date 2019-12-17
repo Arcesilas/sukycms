@@ -26,6 +26,7 @@ return [
         'publish' => 'Publicar',
         'new' => 'Nuevo',
         'add_animal' => 'Crear ficha',
+        'configuration' => 'Configuración',
     ],
 
 ];

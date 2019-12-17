@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Forms\Admin\ShelterForm;
-use App\Support\FlashNotification;
+use App\Http\Requests\Admin\ShelterRequest;
+use App\Models\Option;
 
 class ShelterController extends AdminBaseController
 {
@@ -16,9 +17,10 @@ class ShelterController extends AdminBaseController
         ]);
     }
 
-    public function update()
+    public function update(ShelterRequest $request)
     {
-        flash('Test')->show();
+        Option::set($request->validated());
+        flash(__('forms.saved'))->show();
 
         return redirect()->back();
     }

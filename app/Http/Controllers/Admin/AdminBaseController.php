@@ -48,14 +48,25 @@ class AdminBaseController extends Controller
                         'title' => __('admin.sidebar.animals'),
                         'icon' => 'fas fa-paw fa-fw',
                         'url' => '#',
+                        'active' => 'admin/animals*',
                         'submenu' => [
                             [
                                 'title' => __('admin.sidebar.list'),
                                 'url' => '',
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/animals'
                             ],
                             [
                                 'title' => __('admin.sidebar.add_animal'),
                                 'url' => '',
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/animals/create'
+                            ],
+                            [
+                                'title' => __('admin.sidebar.configuration'),
+                                'url' => route('admin.animals.configuration'),
+                                'icon' => 'fas fa-cog',
+                                'active' => 'admin/animals/configuration'
                             ],
                         ],
                     ],

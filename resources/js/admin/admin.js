@@ -11,8 +11,7 @@ $(document).ready(function () {
         let icon = button.find('i').first();
 
         icon.removeClass();
-        icon.addClass('fas fa-spinner fa-spin');
-        button.find('span').html('');
+        icon.addClass('fas fa-spinner fa-spin mr-2');
     });
 
     $('form').on('submit', function () {

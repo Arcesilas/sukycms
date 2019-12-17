@@ -11,7 +11,11 @@
         </label>
     @endif
 
-    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}">
+    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}"
+    @foreach ($field->options as $key => $value)
+        {{ $key }}="{{ $value }}"
+    @endforeach
+    >
 
 @if ($field->wrapper)
 </div>

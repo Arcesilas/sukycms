@@ -14,4 +14,11 @@ class SubmitField extends Field
     {
         return 'submit';
     }
+
+    public function setIcon(string $icon = ''): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
 }

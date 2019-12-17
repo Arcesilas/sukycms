@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Enum\Users\UserRole;
 use App\Enum\Users\UserStatus;
+use App\Models\Animal;
 use App\Models\Option;
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -22,6 +23,7 @@ class DevData extends Command
 
         $this->createAdmin();
         $this->createOptions();
+        //$this->createAnimals();
     }
 
     private function createAdmin(): User
@@ -61,5 +63,10 @@ class DevData extends Command
         });
 
         return $optionsInserted;
+    }
+
+    private function createAnimals(int $number = 50, array $attributes = []): Collection
+    {
+        return factory(Animal::class, $number)->create($attributes);
     }
 }

@@ -20,7 +20,8 @@ class LoginForm extends Form
             new EmailField('email'),
             new PasswordField('password'),
             (new SubmitField('login'))
-                ->setClass('btn btn-blue'),
+                ->setClass('btn btn-blue')
+                ->setIcon(),
             new CheckboxField('remember'),
         ]);
     }
