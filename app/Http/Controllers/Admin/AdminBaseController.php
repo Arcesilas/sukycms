@@ -21,13 +21,13 @@ class AdminBaseController extends Controller
                         'title' => __('admin.sidebar.dashboard'),
                         'icon' => 'fas fa-columns fa-fw',
                         'url' => route('admin.dashboard'),
-                        'active' => 'admin'
+                        'active' => 'admin',
                     ],
                     [
                         'title' => __('admin.sidebar.shelter'),
                         'icon' => 'fas fa-heart fa-fw',
                         'url' => route('admin.shelter.form'),
-                        'active' => 'admin/shelter*'
+                        'active' => 'admin/shelter*',
                     ],
                     [
                         'title' => __('admin.sidebar.stats'),
@@ -54,19 +54,19 @@ class AdminBaseController extends Controller
                                 'title' => __('admin.sidebar.list'),
                                 'url' => '',
                                 'icon' => 'fas fa-list',
-                                'active' => 'admin/animals'
+                                'active' => 'admin/animals',
                             ],
                             [
                                 'title' => __('admin.sidebar.add_animal'),
                                 'url' => '',
                                 'icon' => 'fas fa-plus-square',
-                                'active' => 'admin/animals/create'
+                                'active' => 'admin/animals/create',
                             ],
                             [
                                 'title' => __('admin.sidebar.configuration'),
                                 'url' => route('admin.animals.configuration'),
                                 'icon' => 'fas fa-cog',
-                                'active' => 'admin/animals/configuration'
+                                'active' => 'admin/animals/configuration',
                             ],
                         ],
                     ],
@@ -104,14 +104,25 @@ class AdminBaseController extends Controller
                         'title' => __('admin.sidebar.people'),
                         'icon' => 'fas fa-users fa-fw',
                         'url' => '#',
+                        'active' => 'admin/users*',
                         'submenu' => [
                             [
                                 'title' => __('admin.sidebar.list'),
-                                'url' => '',
+                                'url' => route('admin.users.index'),
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/users',
                             ],
                             [
                                 'title' => __('admin.sidebar.new'),
-                                'url' => '',
+                                'url' => route('admin.users.create'),
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/users/create',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.configuration'),
+                                'url' => route('admin.users.configuration'),
+                                'icon' => 'fas fa-cog',
+                                'active' => 'admin/users/configuration',
                             ],
                         ],
                     ],
