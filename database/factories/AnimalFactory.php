@@ -4,6 +4,7 @@
 
 use App\Models\Animal;
 use App\Models\AnimalGender;
+use App\Models\AnimalKind;
 use App\Models\AnimalLocation;
 use Faker\Generator as Faker;
 
@@ -11,7 +12,7 @@ $factory->define(Animal::class, static function (Faker $faker) {
     return [
         'identifier' => $faker->optional(0.2)->bothify('####???####'),
         'name' =>ucfirst($faker->word()),
-//        'kind' => AnimalKind::getRandomValue(),
+        'kind_id' => AnimalKind::inRandomOrder()->first()->id,
 //        'location' => AnimalLocation::getRandomValue(),
         'gender_id' => AnimalGender::inRandomOrder()->first()->id,
         'location_id' => AnimalLocation::inRandomOrder()->first()->id,

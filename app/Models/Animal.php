@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Scopes\Animals\GenderScope;
+use App\Scopes\Animals\KindScope;
 use App\Scopes\Animals\LocationScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,6 +16,7 @@ class Animal extends Model
 
         static::addGlobalScope(new GenderScope());
         static::addGlobalScope(new LocationScope());
+        static::addGlobalScope(new KindScope());
     }
 
     public function gender(): BelongsTo
@@ -25,5 +27,10 @@ class Animal extends Model
     public function location(): BelongsTo
     {
         return $this->belongsTo(AnimalLocation::class);
+    }
+
+    public function kind(): BelongsTo
+    {
+        return $this->belongsTo(AnimalKind::class);
     }
 }
