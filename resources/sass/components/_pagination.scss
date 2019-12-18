@@ -1,9 +1,21 @@
 ul.pagination {
     display: flex;
-    margin: 1rem 0;
+    margin: 2rem 0 0;
 
     li {
-        padding: 0.25rem;
+        a, span {
+            height: 100%;
+            display: inline-block;
+            padding: 0.25rem 0.6rem;
+            border: 1px solid #dee2e6;
+            margin-left: -1px;
+        }
+
+        &.active {
+            background-color: var(--color-blue);
+            border-color: var(--color-blue);
+            color: #fff;
+        }
     }
 }
 
