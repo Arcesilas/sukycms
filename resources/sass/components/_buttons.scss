@@ -6,6 +6,10 @@
     cursor: pointer;
     outline: none;
     border: 1px solid;
+
+    &.btn-sm {
+        padding: 0.25rem 0.5rem;
+    }
 }
 
 .btn-blue {
@@ -26,5 +30,26 @@
     &:hover {
         color: #fff;
         background-color: var(--color-blue);
+    }
+}
+
+.btn-red {
+    background-color: var(--color-red);
+    border-color: var(--color-red);
+
+    &:hover {
+        background-color: var(--color-red-dark);
+        border-color: var(--color-red-dark);
+    }
+}
+
+.btn-red-outline {
+    color: var(--color-red);
+    background-color: transparent;
+    border-color: var(--color-red);
+
+    &:hover {
+        color: #fff;
+        background-color: var(--color-red);
     }
 }

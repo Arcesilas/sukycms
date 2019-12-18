@@ -27,6 +27,8 @@ class DevData extends Command
         $this->createAdmin();
         $this->createOptions();
 
+        $this->createUsers();
+
         $this->installAnimal();
         $this->createAnimals();
     }
@@ -39,6 +41,7 @@ class DevData extends Command
             'password' => 'secret',
             'role' => UserRole::ADMIN,
             'status' => UserStatus::ACTIVE,
+            'avatar' => asset('images/jaimesares.jpg'),
         ]);
 
         $this->info('Admin user:');
@@ -80,5 +83,10 @@ class DevData extends Command
         Gender::install();
         Location::install();
         Kind::install();
+    }
+
+    private function createUsers(int $number = 50, array $attributes = []): Collection
+    {
+        return factory(User::class, $number)->create($attributes);
     }
 }
