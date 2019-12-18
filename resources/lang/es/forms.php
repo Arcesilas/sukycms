@@ -10,8 +10,11 @@ return [
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',
+    'last_login' => 'Último acceso',
+
+    'search' => 'Buscar',
 
     'save' => 'Guardar',
 
-    'saved' => 'Cambios guardados correctamente'
+    'saved' => 'Cambios guardados correctamente',
 ];
