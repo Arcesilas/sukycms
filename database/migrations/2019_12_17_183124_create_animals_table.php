@@ -19,6 +19,7 @@ class CreateAnimalsTable extends Migration
 //            $table->string('kind');
 //            $table->string('location');
             $table->unsignedBigInteger('gender_id');
+            $table->unsignedBigInteger('location_id');
 //            $table->string('status');
             $table->date('birth_date');
 //            $table->boolean('birth_date_approximate')->default(AnimalBirthDateApproximate::NO);
@@ -42,6 +43,10 @@ class CreateAnimalsTable extends Migration
             $table->foreign('gender_id')
                 ->references('id')
                 ->on('animal_genders');
+
+            $table->foreign('location_id')
+                ->references('id')
+                ->on('animal_locations');
         });
     }
 

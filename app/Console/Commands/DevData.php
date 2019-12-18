@@ -8,6 +8,7 @@ use App\Models\Animal;
 use App\Models\Option;
 use App\Models\User;
 use App\Support\Installation\Animals\Gender;
+use App\Support\Installation\Animals\Location;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use RuntimeException;
@@ -26,6 +27,7 @@ class DevData extends Command
         $this->createOptions();
 
         $this->createAnimalGenders();
+        $this->createAnimalLocations();
         $this->createAnimals();
     }
 
@@ -76,5 +78,10 @@ class DevData extends Command
     private function createAnimalGenders(): void
     {
         Gender::install();
+    }
+
+    private function createAnimalLocations(): void
+    {
+        Location::install();
     }
 }

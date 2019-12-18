@@ -6,18 +6,16 @@ use App\Models\AnimalGender;
 
 final class Gender
 {
-    public static function install(): bool
+    public static function install(): void
     {
-        foreach (self::default() as $gender) {
+        foreach (self::data() as $gender) {
             AnimalGender::forceCreate([
                 'gender' => $gender,
             ]);
         }
-
-        return true;
     }
 
-    public static function default(): array
+    public static function data(): array
     {
         return [
             __('animals.male'),
