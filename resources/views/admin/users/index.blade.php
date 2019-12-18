@@ -7,8 +7,9 @@
                 <span>Listado de usuarios</span>
 
                 <div class="actions">
-                    <i class="fas fa-search px-4"></i>
-                    <i class="fas fa-cog"></i>
+                    <form class="search-form">
+                        <input type="text" name="q" placeholder="{{ __('forms.search') }}..." class="form-input" value="{{ request('q') }}">
+                    </form>
                 </div>
             </div>
             <div class="card-body">
@@ -16,9 +17,9 @@
                 <table class="table-hover">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Último acceso</th>
+                            <th>{{ __('forms.name') }}</th>
+                            <th>{{ __('forms.email') }}</th>
+                            <th class="text-center">{{ __('forms.last_login') }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -31,7 +32,7 @@
                                     <span>{{ __("users.roles.{$user->role}") }}</span>
                                 </td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->created_at->diffForHumans() }}</td>
+                                <td class="text-center">{{ $user->created_at->diffForHumans() }}</td>
                                 <td class="actions">
                                     <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-blue-outline"><i class="fas fa-ellipsis-h"></i></a>
                                 </td>

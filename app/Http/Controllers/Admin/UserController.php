@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Filters\UserFilters;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class UserController extends AdminBaseController
 {
-    public function index(): View
+    public function index(UserFilters $filter): View
     {
+        $users = User::query()->filter($filter);
+
         return view('admin.users.index', [
-            'users' => User::paginate()
+            'users' => $users->paginate(),
         ]);
     }
 
