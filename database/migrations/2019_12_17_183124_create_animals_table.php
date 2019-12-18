@@ -16,16 +16,16 @@ class CreateAnimalsTable extends Migration
             $table->bigIncrements('id');
             $table->string('identifier')->nullable();
             $table->string('name');
-            $table->string('kind');
-            $table->string('location');
-            $table->string('gender');
-            $table->string('status');
+//            $table->string('kind');
+//            $table->string('location');
+            $table->unsignedBigInteger('gender_id');
+//            $table->string('status');
             $table->date('birth_date');
-            $table->boolean('birth_date_approximate')->default(AnimalBirthDateApproximate::NO);
+//            $table->boolean('birth_date_approximate')->default(AnimalBirthDateApproximate::NO);
             $table->date('entry_date')->nullable();
-            $table->boolean('urgent')->default(AnimalUrgent::NO);
-            $table->boolean('special')->default(AnimalSpecial::NO);
-            $table->string('size')->default(AnimalSize::UNKNOWN);
+//            $table->boolean('urgent')->default(AnimalUrgent::NO);
+//            $table->boolean('special')->default(AnimalSpecial::NO);
+//            $table->string('size')->default(AnimalSize::UNKNOWN);
             $table->double('weight')->nullable();
             $table->smallInteger('height')->nullable();
             $table->smallInteger('length')->nullable();
@@ -38,6 +38,10 @@ class CreateAnimalsTable extends Migration
             $table->integer('visits')->default(0);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('gender_id')
+                ->references('id')
+                ->on('animal_genders');
         });
     }
 

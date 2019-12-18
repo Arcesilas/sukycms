@@ -2,24 +2,24 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Enum\Animals\AnimalSize;
 use App\Models\Animal;
+use App\Models\AnimalGender;
 use Faker\Generator as Faker;
 
 $factory->define(Animal::class, static function (Faker $faker) {
     return [
         'identifier' => $faker->optional(0.2)->bothify('####???####'),
         'name' =>ucfirst($faker->word()),
-        'kind' => AnimalKind::getRandomValue(),
-        'location' => AnimalLocation::getRandomValue(),
-        'gender' => AnimalGender::getRandomValue(),
-        'status' => AnimalStatus::getRandomValue(),
+//        'kind' => AnimalKind::getRandomValue(),
+//        'location' => AnimalLocation::getRandomValue(),
+        'gender_id' => AnimalGender::inRandomOrder()->first()->id,
+//        'status' => AnimalStatus::getRandomValue(),
         'birth_date' => $faker->date(),
-        'birth_date_approximate' => $faker->boolean(),
+//        'birth_date_approximate' => $faker->boolean(),
         'entry_date' => $faker->optional()->date(),
-        'urgent' => $faker->boolean(0.2),
-        'special' => $faker->boolean(0.2),
-        'size' => AnimalSize::getRandomValue(),
+//        'urgent' => $faker->boolean(0.2),
+//        'special' => $faker->boolean(0.2),
+//        'size' => AnimalSize::getRandomValue(),
         'weight' => $faker->optional()->randomFloat(2, 0.05, 100),
         'height' => $faker->optional()->numberBetween(5, 250),
         'length' => $faker->optional()->numberBetween(5, 150),

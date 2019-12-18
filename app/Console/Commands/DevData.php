@@ -7,6 +7,7 @@ use App\Enum\Users\UserStatus;
 use App\Models\Animal;
 use App\Models\Option;
 use App\Models\User;
+use App\Support\Installation\Animals\Gender;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use RuntimeException;
@@ -23,7 +24,9 @@ class DevData extends Command
 
         $this->createAdmin();
         $this->createOptions();
-        //$this->createAnimals();
+
+        $this->createAnimalGenders();
+        $this->createAnimals();
     }
 
     private function createAdmin(): User
@@ -68,5 +71,10 @@ class DevData extends Command
     private function createAnimals(int $number = 50, array $attributes = []): Collection
     {
         return factory(Animal::class, $number)->create($attributes);
+    }
+
+    private function createAnimalGenders(): void
+    {
+        Gender::install();
     }
 }
