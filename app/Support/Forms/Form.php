@@ -56,7 +56,7 @@ abstract class Form
             $this->method = 'POST';
         }
 
-        $form = "<form action='{$this->url}' method='{$this->method}'>";
+        $form = "<form action='{$this->url}' method='{$this->method}' enctype=\"multipart/form-data\">";
         $form .= csrf_field();
 
         if ($methodField) {

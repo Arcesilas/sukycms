@@ -28,7 +28,27 @@ class UserController extends AdminBaseController
 
     public function store(UserRequest $request)
     {
-        dd($request->all());
+        $user = new User();
+        $user->name = $request->get('name');
+        $user->password = $request->get('password');
+        $user->email = $request->get('email');
+        $user->role = $request->get('role');
+        $user->status = $request->get('status');
+
+        if ($request->hasFile('avatar')) {
+            $user->avatar = asset('storage/'.$request
+                ->file('avatar')
+                ->store('images/avatar', 'public'));
+        }
+
+        $user->save();
+
+        flash(
+            __('users.notification.registered.title'),
+            __('users.notification.registered.text'),
+        )->show();
+
+        return redirect()->route('admin.users.index');
     }
 
     public function edit(User $user): View

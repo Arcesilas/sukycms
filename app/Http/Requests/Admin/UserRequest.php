@@ -18,10 +18,14 @@ class UserRequest extends BaseRequest
             'name' => 'required',
             'email' => [
                 'required',
-                Rule::unique('users')->ignore($this->route('user'))
+                'email',
             ],
-            'password' => '',
-            'password_confirmation' => 'required_if:password,confirmation',
+            'password' => 'required|confirmed',
+            'avatar' => 'nullable|image',
+            'notify' => [
+                'boolean',
+                Rule::in(array_keys(__('users.form.create.notify.choices'))),
+            ]
         ];
     }
 }
