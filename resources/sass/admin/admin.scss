@@ -61,7 +61,7 @@ header {
 }
 
 aside.sidebar {
-    display: flex;
+    display: none;
     flex-direction: column;
     min-width: var(--admin-sidebar-width);
     padding-bottom: 2rem;
@@ -175,5 +175,11 @@ form.search-form {
 
     input {
         padding: 0.25rem 0.5rem !important;
+    }
+}
+
+@screen lg {
+    aside.sidebar {
+        display: flex;
     }
 }

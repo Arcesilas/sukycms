@@ -1,6 +1,7 @@
 table {
     width: 100%;
     table-layout: auto;
+    max-width: 100%;
 
     tr {
         &:hover {
@@ -17,6 +18,7 @@ table {
     td {
         border-top: 1px solid #e2e8f0;
         padding: 1rem 1.25rem;
+        white-space: nowrap;
 
         span {
             font-size: 0.8rem;
@@ -34,6 +36,7 @@ table {
     }
 
     th {
+        white-space: nowrap;
         padding: 1rem 1.25rem;
     }
 
@@ -76,4 +79,12 @@ table {
             }
         }
     }
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }

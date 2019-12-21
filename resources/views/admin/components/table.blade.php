@@ -10,22 +10,24 @@
     </div>
     <div class="card-body">
 
-        <table class="table-hover">
-            <thead>
-                {!! $thead !!}
-            </thead>
-            <tbody>
-                {!! $tbody !!}
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table-hover">
+                <thead>
+                    {!! $thead !!}
+                </thead>
+                <tbody>
+                    {!! $tbody !!}
+                </tbody>
+            </table>
 
-        <div class="flex justify-between items-center mt-8 mb-2">
-            {!! $items->appends(['q' => request('q')])->links() !!}
-            <p class="text-right">{{ __('pagination.table', [
-                    'showing' => ($items->currentpage() -1) * $items->perpage() +1,
-                    'to' => $items->currentpage() * $items->perpage(),
-                    'of' => $items->total()
-                ]) }}</p>
+            <div class="flex justify-between items-center mt-8 mb-2">
+                {!! $items->appends(['q' => request('q')])->links() !!}
+                <p class="text-right">{{ __('pagination.table', [
+                        'showing' => ($items->currentpage() -1) * $items->perpage() +1,
+                        'to' => $items->currentpage() * $items->perpage(),
+                        'of' => $items->total()
+                    ]) }}</p>
+            </div>
         </div>
     </div>
 </div>
