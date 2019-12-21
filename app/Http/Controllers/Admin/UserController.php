@@ -6,6 +6,7 @@ use App\Filters\UserFilters;
 use App\Forms\Admin\UserForm;
 use App\Http\Requests\Admin\UserRequest;
 use App\Models\User;
+use App\Notifications\Admin\UserRegistered;
 use Illuminate\View\View;
 
 class UserController extends AdminBaseController
@@ -36,12 +37,17 @@ class UserController extends AdminBaseController
         $user->status = $request->get('status');
 
         if ($request->hasFile('avatar')) {
-            $user->avatar = asset('storage/'.$request
-                ->file('avatar')
-                ->store('images/avatar', 'public'));
+            // TODO: resize & refactor
+            $user->avatar = asset('storage/' . $request
+                    ->file('avatar')
+                    ->store('images/avatar', 'public'));
         }
 
         $user->save();
+
+        if ($request->get('notify')) {
+            $user->notify(new UserRegistered($request->get('password')));
+        }
 
         flash(
             __('users.notification.registered.title'),

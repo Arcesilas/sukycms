@@ -16,10 +16,7 @@ class UserRequest extends BaseRequest
     {
         return [
             'name' => 'required',
-            'email' => [
-                'required',
-                'email',
-            ],
+            'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed',
             'avatar' => 'nullable|image',
             'notify' => [
