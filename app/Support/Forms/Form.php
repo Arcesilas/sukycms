@@ -4,6 +4,8 @@ namespace App\Support\Forms;
 
 use App\Support\Forms\Fields\Field;
 use App\Support\Forms\Fields\InputField;
+use App\Support\Forms\Fields\SelectField;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use RuntimeException;
 
@@ -81,6 +83,10 @@ abstract class Form
             $field->value = $this->data[$field->name];
         }
 
+        if (isset($this->data[$field->name]) && $field instanceof SelectField) {
+            $field->selected = $this->data[$field->name];
+        }
+
         $this->fields[$field->name] = $field;
 
         return $this;
@@ -95,9 +101,13 @@ abstract class Form
         return $this;
     }
 
-    public function setData(array $data = []): self
+    public function setData($data = []): self
     {
-        $this->data = $data;
+        if ($data instanceof Model) {
+            $this->data = $data->toArray();
+        } else {
+            $this->data = $data;
+        }
 
         return $this;
     }
