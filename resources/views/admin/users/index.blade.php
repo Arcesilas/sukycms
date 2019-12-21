@@ -6,14 +6,14 @@
         'items' => $users
     ])
         @slot('title')
-            Listado de usuarios
+            {{ __('users.list') }}
         @endslot
 
         @slot('thead')
             <tr>
                 <th>{{ __('forms.name') }}</th>
                 <th>{{ __('forms.email') }}</th>
-                <th class="text-center">{{ __('forms.last_login') }}</th>
+                <th class="text-right">{{ __('forms.last_login') }}</th>
                 <th></th>
             </tr>
         @endslot
@@ -27,9 +27,13 @@
                         <span>{{ __("users.roles.{$user->role}") }}</span>
                     </td>
                     <td>{{ $user->email }}</td>
-                    <td class="text-center">{{ $user->created_at->diffForHumans() }}</td>
+                    <td class="text-right">{{ $user->created_at->diffForHumans() }}</td>
                     <td class="actions">
-                        <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-blue-outline"><i class="fas fa-ellipsis-h"></i></a>
+                        <ul>
+                            <li><a href="#"><i class="fas fa-trash-alt fa-fw"></i></a></li>
+                            <li><a href="#"><i class="fas fa-edit fa-fw"></i></a></li>
+                            <li><a href="#"><i class="fas fa-eye fa-fw"></i></a></li>
+                        </ul>
                     </td>
                 </tr>
             @endforeach
