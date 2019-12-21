@@ -16,14 +16,14 @@ class UserRequest extends BaseRequest
     public function rules(): array
     {
         $rules = [
-            'name' => 'required',
+            'name' => 'required|max:100',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|min:6|max:30',
             'avatar' => 'nullable|image',
             'notify' => [
                 'boolean',
                 Rule::in(array_keys(__('users.form.create.notify.choices'))),
-            ]
+            ],
         ];
 
 
@@ -31,7 +31,7 @@ class UserRequest extends BaseRequest
             $rules['email'] = [
                 'email',
                 'required',
-                Rule::unique('users')->ignore($this->route('user')->id)
+                Rule::unique('users')->ignore($this->route('user')->id),
             ];
 
             $rules['password'] = 'confirmed';
