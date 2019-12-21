@@ -30,9 +30,21 @@
                     <td class="text-right">{{ $user->created_at->diffForHumans() }}</td>
                     <td class="actions">
                         <ul>
-                            <li><a href="#"><i class="fas fa-trash-alt fa-fw"></i></a></li>
-                            <li><a href="#"><i class="fas fa-edit fa-fw"></i></a></li>
-                            <li><a href="#"><i class="fas fa-eye fa-fw"></i></a></li>
+                            <li>
+                                <a href="#" class="text-purple-500" data-tooltip="Ver">
+                                    <i class="fas fa-eye fa-fw"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-blue-500" data-tooltip="Editar">
+                                    <i class="fas fa-edit fa-fw"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-red-500" data-tooltip="Eliminar">
+                                    <i class="fas fa-trash-alt fa-fw"></i>
+                                </a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
