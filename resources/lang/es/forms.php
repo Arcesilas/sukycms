@@ -21,4 +21,11 @@ return [
     'save' => 'Guardar',
 
     'saved' => 'Cambios guardados correctamente',
+
+    'notification' => [
+        'error' => [
+            'title' => 'Error',
+            'text' => 'Revisa el formulario',
+        ],
+    ],
 ];

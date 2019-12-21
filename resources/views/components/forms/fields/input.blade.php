@@ -18,7 +18,7 @@
     >
 
     @if ($errors->has($field->name))
-        {{ $errors->first($field->name) }}
+        <div class="error-message">{{ $errors->first($field->name) }}</div>
     @endif
 
 @if ($field->wrapper)

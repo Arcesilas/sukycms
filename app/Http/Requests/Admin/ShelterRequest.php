@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class ShelterRequest extends FormRequest
+class ShelterRequest extends BaseRequest
 {
     public function authorize(): bool
     {

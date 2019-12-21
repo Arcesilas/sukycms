@@ -4,6 +4,10 @@ namespace App\Support;
 
 class FlashNotification
 {
+    public const SUCCESS = 'success';
+
+    public const ERROR = 'error';
+
     public string $title = '';
 
     public string $text = '';
