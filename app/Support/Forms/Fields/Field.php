@@ -61,6 +61,13 @@ abstract class Field
         return $this;
     }
 
+    public function setLabel(string $label): self
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
     public function setShowLabel(bool $show_label): self
     {
         $this->show_label = $show_label;
@@ -84,6 +91,10 @@ abstract class Field
 
     public function render(): string
     {
+        if (session()->has('errors') && session('errors')->has($this->name)) {
+            $this->class .= ' has-error';
+        }
+
         return view("components.forms.fields.{$this->view()}", [
             'field' => $this,
         ])->toHtml();

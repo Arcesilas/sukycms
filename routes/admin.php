@@ -19,6 +19,7 @@ Route::group(['prefix' => 'animals', 'as' => 'animals.'], static function () {
 
 Route::group(['prefix' => 'users', 'as' => 'users.'], static function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::post('/', [UserController::class, 'store'])->name('store');
     Route::get('/create', [UserController::class, 'create'])->name('create');
     Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
     Route::get('/configuration', [UserController::class, 'configuration'])->name('configuration');

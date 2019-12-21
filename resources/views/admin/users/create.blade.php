@@ -2,6 +2,8 @@
 
 @section('content')
 
-    Create
+    @include('admin.users.form', [
+        'title' => __('users.form.create.title'),
+    ])
 
 @endsection

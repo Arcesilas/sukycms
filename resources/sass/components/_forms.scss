@@ -1,6 +1,7 @@
 :root {
     --forms-input-border-color: #e2e5ec;
     --forms-input-border-color-focus: #b0b3ba;
+    --forms-input-error-border-color: #f56565;
 }
 
 form {
@@ -24,10 +25,10 @@ form {
         font-family: inherit;
     }
 
-    input:not([type="checkbox"]):not([type="radio"]) {
+    select, input:not([type="checkbox"]):not([type="radio"]) {
         width: 100%;
         padding: 0.6rem 0.8rem;
-        background-color: #fff;
+        background-color: #fafafa;
         border-radius: 0.25rem;
         appearance: none;
         border: 1px solid var(--forms-input-border-color);
@@ -37,7 +38,18 @@ form {
             outline: 0;
         }
 
-        &:disabled, &:read-only {
+        &:disabled {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        &.has-error {
+            border-color: var(--forms-input-error-border-color);
+        }
+    }
+
+    input:not([type="checkbox"]):not([type="radio"]) {
+        &:read-only {
             background-color: #f5f5f5;
             cursor: not-allowed;
         }
@@ -49,5 +61,12 @@ form {
 
     button[type="submit"] {
 
+    }
+
+    .error-message {
+        color: var(--forms-input-error-border-color);
+        font-style: italic;
+        font-size: 0.8em;
+        margin-top: 0.5rem;
     }
 }

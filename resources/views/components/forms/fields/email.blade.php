@@ -11,11 +11,15 @@
         </label>
     @endif
 
-    <input type="email" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}"
+    <input type="email" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}" class="{{ $field->class }}"
     @foreach ($field->options as $key => $value)
         {{ $key }}="{{ $value }}"
     @endforeach
     >
+
+    @if ($errors->has($field->name))
+        <div class="error-message">{{ $errors->first($field->name) }}</div>
+    @endif
 
 @if ($field->wrapper)
 </div>

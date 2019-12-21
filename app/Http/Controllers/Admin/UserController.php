@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Filters\UserFilters;
+use App\Forms\Admin\UserForm;
+use App\Http\Requests\Admin\UserRequest;
 use App\Models\User;
 use Illuminate\View\View;
 
@@ -17,9 +19,16 @@ class UserController extends AdminBaseController
         ]);
     }
 
-    public function create(): View
+    public function create(UserForm $form): View
     {
-        return view('admin.users.create');
+        return view('admin.users.create', [
+            'form' => $form->make(),
+        ]);
+    }
+
+    public function store(UserRequest $request)
+    {
+        dd($request->all());
     }
 
     public function edit(User $user): View

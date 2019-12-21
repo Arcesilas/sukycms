@@ -11,15 +11,11 @@
         </label>
     @endif
 
-    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}"
+    <input type="file" name="{{ $field->name }}" id="{{ $field->id }}"
     @foreach ($field->options as $key => $value)
         {{ $key }}="{{ $value }}"
     @endforeach
     >
-
-    @if ($errors->has($field->name))
-        {{ $errors->first($field->name) }}
-    @endif
 
 @if ($field->wrapper)
 </div>
