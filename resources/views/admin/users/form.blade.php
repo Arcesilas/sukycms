@@ -3,12 +3,9 @@
 <div class="card">
     <div class="card-title flex flex-row justify-between">
         <h3>{{ $title }}</h3>
-
-        <div class="actions">
-            {!! $form->renderField('save') !!}
-        </div>
     </div>
     <div class="card-body">
+        <hr class="mt-8 mb-12">
         <div class="flex mt-12">
             <div class="w-1/3">
                 <h4 class="text-lg">Datos de la cuenta:</h4>
@@ -67,6 +64,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <hr class="mt-8 mb-12">
+
+        <div class="flex">
+            <div class="w-1/3">
+                <h4 class="text-lg">Notificar:</h4>
+                <p class="italic text-gray-600 mt-2 text-xs">Notificar al usuario a través de un mensaje a su correo electrónico con los datos de acceso</p>
+            </div>
+            <div class="w-2/3">
+                <div class="flex pt-4">
+                    <div class="w-1/2 flex px-4">
+                        {!! $form->renderField('notify') !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="mt-8 mb-6">
+
+        <div class="flex justify-end">
+            {!! $form->renderField('save') !!}
         </div>
 
     </div>

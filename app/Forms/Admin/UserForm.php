@@ -2,7 +2,7 @@
 
 namespace App\Forms\Admin;
 
-use App\Enum\Users\UserRole;
+use App\Support\Forms\Fields\CheckboxField;
 use App\Support\Forms\Fields\EmailField;
 use App\Support\Forms\Fields\FileField;
 use App\Support\Forms\Fields\InputField;
@@ -44,6 +44,9 @@ class UserForm extends Form
 
             (new FileField('avatar'))
                 ->setShowLabel(false),
+
+            (new SelectField('notify'))
+                ->setChoices(__('users.form.create.notify.choices'))->setShowLabel(false),
 
             (new SubmitField('save'))
                 ->setLabel($submitLabel),

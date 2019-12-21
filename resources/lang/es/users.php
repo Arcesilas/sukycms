@@ -10,7 +10,13 @@ return [
     'form' => [
         'create' => [
             'title' => 'Registrar persona',
-            'submit' => 'Registrar'
+            'submit' => 'Registrar',
+            'notify' => [
+                'choices' => [
+                    'No notificar',
+                    'Notificar',
+                ]
+            ]
         ],
     ],
 
