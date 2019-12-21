@@ -13,9 +13,12 @@ return [
         'animals' => 'Animales',
         'posts' => 'Artículos',
         'pages' => 'Páginas',
-        'people' => 'Personas',
+        'users' => 'Usuarios',
         'forms' => 'Formularios',
         'files' => 'Archivos',
+        'veterinarians' => 'Veterinarios',
+        'partners' => 'Socios',
+        'temporaryhomes' => 'Casas de acogida',
 
         'support' => 'Soporte',
         'documentation' => 'Documentación',

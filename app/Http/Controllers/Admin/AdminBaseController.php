@@ -101,7 +101,7 @@ class AdminBaseController extends Controller
                         ],
                     ],
                     [
-                        'title' => __('admin.sidebar.people'),
+                        'title' => __('admin.sidebar.users'),
                         'icon' => 'fas fa-users fa-fw',
                         'url' => '#',
                         'active' => 'admin/users*',
@@ -142,6 +142,58 @@ class AdminBaseController extends Controller
                         ],
                     ],
                     [
+                        'title' => __('admin.sidebar.partners'),
+                        'icon' => 'fas fa-hands-helping fa-fw',
+                        'url' => '#',
+                        'active' => '',
+                        'submenu' => [
+                            [
+                                'title' => __('admin.sidebar.list'),
+                                'url' => route('admin.users.index'),
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/users',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.new'),
+                                'url' => route('admin.users.create'),
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/users/create',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.configuration'),
+                                'url' => route('admin.users.configuration'),
+                                'icon' => 'fas fa-cog',
+                                'active' => 'admin/users/configuration',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => __('admin.sidebar.temporaryhomes'),
+                        'icon' => 'fas fa-home fa-fw',
+                        'url' => '#',
+                        'active' => '',
+                        'submenu' => [
+                            [
+                                'title' => __('admin.sidebar.list'),
+                                'url' => route('admin.users.index'),
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/users',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.new'),
+                                'url' => route('admin.users.create'),
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/users/create',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.configuration'),
+                                'url' => route('admin.users.configuration'),
+                                'icon' => 'fas fa-cog',
+                                'active' => 'admin/users/configuration',
+                            ],
+                        ],
+                    ],
+                    [
                         'title' => __('admin.sidebar.files'),
                         'icon' => 'fas fa-cloud-upload-alt fa-fw',
                         'url' => '#',
@@ -153,6 +205,32 @@ class AdminBaseController extends Controller
                             [
                                 'title' => __('admin.sidebar.new'),
                                 'url' => '',
+                            ],
+                        ],
+                    ],
+                    [
+                        'title' => __('admin.sidebar.veterinarians'),
+                        'icon' => 'fas fa-user-md fa-fw',
+                        'url' => '#',
+                        'active' => '',
+                        'submenu' => [
+                            [
+                                'title' => __('admin.sidebar.list'),
+                                'url' => route('admin.users.index'),
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/users',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.new'),
+                                'url' => route('admin.users.create'),
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/users/create',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.configuration'),
+                                'url' => route('admin.users.configuration'),
+                                'icon' => 'fas fa-cog',
+                                'active' => 'admin/users/configuration',
                             ],
                         ],
                     ],
