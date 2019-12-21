@@ -2,56 +2,38 @@
 
 @section('content')
 
-        <div class="card w-full">
-            <div class="card-title flex flex-row justify-between">
-                <span>Listado de usuarios</span>
+    @component('admin.components.table', [
+        'items' => $users
+    ])
+        @slot('title')
+            Listado de usuarios
+        @endslot
 
-                <div class="actions">
-                    <form class="search-form">
-                        <input type="text" name="q" placeholder="{{ __('forms.search') }}..." class="form-input" value="{{ request('q') }}">
-                    </form>
-                </div>
-            </div>
-            <div class="card-body">
+        @slot('thead')
+            <tr>
+                <th>{{ __('forms.name') }}</th>
+                <th>{{ __('forms.email') }}</th>
+                <th class="text-center">{{ __('forms.last_login') }}</th>
+                <th></th>
+            </tr>
+        @endslot
 
-                <table class="table-hover">
-                    <thead>
-                        <tr>
-                            <th>{{ __('forms.name') }}</th>
-                            <th>{{ __('forms.email') }}</th>
-                            <th class="text-center">{{ __('forms.last_login') }}</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <td>
-                                    <img src="{{ $user->getAvatar() }}" alt="" class="avatar">
-                                    {{ $user->name }}<br>
-                                    <span>{{ __("users.roles.{$user->role}") }}</span>
-                                </td>
-                                <td>{{ $user->email }}</td>
-                                <td class="text-center">{{ $user->created_at->diffForHumans() }}</td>
-                                <td class="actions">
-                                    <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-blue-outline"><i class="fas fa-ellipsis-h"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-
-                <div class="flex justify-between items-center mt-8 mb-2">
-                    {!! $users->appends(['q' => request('q')])->links() !!}
-                    <p class="text-right">{{ __('pagination.table', [
-                        'showing' => ($users->currentpage() -1) * $users->perpage() +1,
-                        'to' => $users->currentpage() * $users->perpage(),
-                        'of' => $users->total()
-                    ]) }}</p>
-                </div>
-
-
-            </div>
-        </div>
+        @slot('tbody')
+            @foreach ($users as $user)
+                <tr>
+                    <td>
+                        <img src="{{ $user->getAvatar() }}" alt="" class="avatar">
+                        {{ $user->name }}<br>
+                        <span>{{ __("users.roles.{$user->role}") }}</span>
+                    </td>
+                    <td>{{ $user->email }}</td>
+                    <td class="text-center">{{ $user->created_at->diffForHumans() }}</td>
+                    <td class="actions">
+                        <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-sm btn-blue-outline"><i class="fas fa-ellipsis-h"></i></a>
+                    </td>
+                </tr>
+            @endforeach
+        @endslot
+    @endcomponent
 
 @endsection
