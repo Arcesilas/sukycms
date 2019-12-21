@@ -41,7 +41,15 @@
                     </tbody>
                 </table>
 
-                {!! $users->links() !!}
+                <div class="flex justify-between items-center mt-8 mb-2">
+                    {!! $users->appends(['q' => request('q')])->links() !!}
+                    <p class="text-right">{{ __('pagination.table', [
+                        'showing' => ($users->currentpage() -1) * $users->perpage() +1,
+                        'to' => $users->currentpage() * $users->perpage(),
+                        'of' => $users->total()
+                    ]) }}</p>
+                </div>
+
 
             </div>
         </div>
