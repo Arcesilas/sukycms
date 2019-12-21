@@ -22,6 +22,7 @@ Route::group(['prefix' => 'users', 'as' => 'users.'], static function () {
     Route::post('/', [UserController::class, 'store'])->name('store');
     Route::get('/create', [UserController::class, 'create'])->name('create');
     Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
+    Route::put('/{user}', [UserController::class, 'update'])->name('update');
     Route::get('/configuration', [UserController::class, 'configuration'])->name('configuration');
 });
 

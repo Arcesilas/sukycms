@@ -57,11 +57,38 @@ class UserController extends AdminBaseController
         return redirect()->route('admin.users.index');
     }
 
-    public function edit(User $user): View
+    public function edit(UserForm $form, User $user): View
     {
         return view('admin.users.edit', [
+            'form' => $form->setData($user)->make(),
             'user' => $user,
         ]);
+    }
+
+    public function update(UserRequest $request, User $user)
+    {
+        $user->name = $request->get('name');
+
+        if ($request->filled('password')) {
+            $user->password = $request->get('password');
+        }
+
+        $user->email = $request->get('email');
+        $user->role = $request->get('role');
+        $user->status = $request->get('status');
+
+        if ($request->hasFile('avatar')) {
+            // TODO: resize & refactor
+            $user->avatar = asset('storage/' . $request
+                    ->file('avatar')
+                    ->store('images/avatar', 'public'));
+        }
+
+        $user->save();
+
+        flash(__('forms.saved'),)->show();
+
+        return redirect()->route('admin.users.edit', $user);
     }
 
     public function configuration(): View

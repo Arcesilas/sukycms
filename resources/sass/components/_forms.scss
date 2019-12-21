@@ -2,6 +2,7 @@
     --forms-input-border-color: #e2e5ec;
     --forms-input-border-color-focus: #b0b3ba;
     --forms-input-error-border-color: #f56565;
+    --forms-help-text: #718096;
 }
 
 form {
@@ -68,5 +69,12 @@ form {
         font-style: italic;
         font-size: 0.8em;
         margin-top: 0.5rem;
+    }
+
+    .help-text {
+        font-style: italic;
+        color: var(--forms-help-text);
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
     }
 }

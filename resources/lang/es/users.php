@@ -18,6 +18,10 @@ return [
                 ]
             ]
         ],
+        'edit' => [
+            'title' => 'Editar a :name',
+            'submit' => 'Guardar',
+        ]
     ],
 
     'roles' => [

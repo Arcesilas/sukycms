@@ -22,7 +22,7 @@ class UserForm extends Form
             $this->method = 'POST';
         } else {
             $this->url = route('admin.users.update', request()->route('user'));
-            $submitLabel = __('users.form.update.submit');
+            $submitLabel = __('forms.save');
             $this->method = Request::METHOD_PUT;
         }
 

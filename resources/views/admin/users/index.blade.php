@@ -36,7 +36,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="text-blue-500" data-tooltip="Editar">
+                                <a href="{{ route('admin.users.edit', $user) }}" class="text-blue-500" data-tooltip="Editar">
                                     <i class="fas fa-edit fa-fw"></i>
                                 </a>
                             </li>
