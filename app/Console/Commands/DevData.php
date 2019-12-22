@@ -8,7 +8,7 @@ use App\Models\Animal;
 use App\Models\Option;
 use App\Models\User;
 use App\Support\Installation\Animals\Sex;
-use App\Support\Installation\Animals\Kind;
+use App\Support\Installation\Animals\Species;
 use App\Support\Installation\Animals\Location;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
@@ -82,7 +82,7 @@ class DevData extends Command
     {
         Sex::install();
         Location::install();
-        Kind::install();
+        Species::install();
     }
 
     private function createUsers(int $number = 50, array $attributes = []): Collection

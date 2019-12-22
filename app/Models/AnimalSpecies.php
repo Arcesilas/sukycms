@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class AnimalKind extends Model
+class AnimalSpecies extends Model
 {
     public function animals(): HasMany
     {
-        return $this->hasMany(Animal::class);
+        return $this->hasMany(Animal::class, 'species_id');
     }
 }

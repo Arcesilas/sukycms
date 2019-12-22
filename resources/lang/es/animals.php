@@ -9,6 +9,9 @@ return [
         'locations' => [
             'list' => 'Listado de localizaciones',
         ],
+        'species' => [
+            'list' => 'Listado de especies',
+        ]
     ],
 
 ];

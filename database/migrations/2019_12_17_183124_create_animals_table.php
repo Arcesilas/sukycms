@@ -16,7 +16,7 @@ class CreateAnimalsTable extends Migration
             $table->bigIncrements('id');
             $table->string('identifier')->nullable();
             $table->string('name');
-            $table->unsignedBigInteger('kind_id');
+            $table->unsignedBigInteger('species_id');
             $table->unsignedBigInteger('sex_id');
             $table->unsignedBigInteger('location_id');
 //            $table->string('status');
@@ -39,9 +39,9 @@ class CreateAnimalsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('kind_id')
+            $table->foreign('species_id')
                 ->references('id')
-                ->on('animal_kinds');
+                ->on('animal_species');
 
             $table->foreign('sex_id')
                 ->references('id')

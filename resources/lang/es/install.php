@@ -16,6 +16,14 @@ return [
             'residence' => 'En una residencia',
             'unknown' => 'Desconocido',
         ],
+
+        'species' => [
+            'dog' => 'Perro',
+            'cat' => 'Gato',
+            'horse' => 'Caballo',
+            'rodent' => 'Roedor',
+            'other' => 'Otro',
+        ],
     ],
 
 ];
