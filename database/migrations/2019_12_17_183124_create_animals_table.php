@@ -17,7 +17,7 @@ class CreateAnimalsTable extends Migration
             $table->string('identifier')->nullable();
             $table->string('name');
             $table->unsignedBigInteger('kind_id');
-            $table->unsignedBigInteger('gender_id');
+            $table->unsignedBigInteger('sex_id');
             $table->unsignedBigInteger('location_id');
 //            $table->string('status');
             $table->date('birth_date');
@@ -43,9 +43,9 @@ class CreateAnimalsTable extends Migration
                 ->references('id')
                 ->on('animal_kinds');
 
-            $table->foreign('gender_id')
+            $table->foreign('sex_id')
                 ->references('id')
-                ->on('animal_genders');
+                ->on('animal_sexes');
 
             $table->foreign('location_id')
                 ->references('id')

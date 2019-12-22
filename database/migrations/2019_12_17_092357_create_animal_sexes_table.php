@@ -4,19 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimalGendersTable extends Migration
+class CreateAnimalSexesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('animal_genders', static function (Blueprint $table) {
+        Schema::create('animal_sexes', static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('gender')->unique();
+            $table->string('sex')->unique();
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('animal_genders');
+        Schema::dropIfExists('animal_sexes');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Scopes\Animals\GenderScope;
+use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\KindScope;
 use App\Scopes\Animals\LocationScope;
 use Illuminate\Database\Eloquent\Model;
@@ -14,14 +14,14 @@ class Animal extends Model
     {
         parent::boot();
 
-        static::addGlobalScope(new GenderScope());
+        static::addGlobalScope(new SexScope());
         static::addGlobalScope(new LocationScope());
         static::addGlobalScope(new KindScope());
     }
 
-    public function gender(): BelongsTo
+    public function sex(): BelongsTo
     {
-        return $this->belongsTo(AnimalGender::class);
+        return $this->belongsTo(AnimalSex::class);
     }
 
     public function location(): BelongsTo

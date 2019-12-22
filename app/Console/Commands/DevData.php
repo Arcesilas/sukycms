@@ -7,7 +7,7 @@ use App\Enum\Users\UserStatus;
 use App\Models\Animal;
 use App\Models\Option;
 use App\Models\User;
-use App\Support\Installation\Animals\Gender;
+use App\Support\Installation\Animals\Sex;
 use App\Support\Installation\Animals\Kind;
 use App\Support\Installation\Animals\Location;
 use Illuminate\Console\Command;
@@ -80,7 +80,7 @@ class DevData extends Command
 
     private function installAnimal(): void
     {
-        Gender::install();
+        Sex::install();
         Location::install();
         Kind::install();
     }

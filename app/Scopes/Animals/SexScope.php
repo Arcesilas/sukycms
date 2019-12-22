@@ -2,17 +2,17 @@
 
 namespace App\Scopes\Animals;
 
-use App\Models\AnimalGender;
+use App\Models\AnimalSex;
 use Illuminate\Database\Eloquent\Scope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class GenderScope implements Scope
+class SexScope implements Scope
 {
     public function apply(Builder $builder, Model $model): void
     {
         $builder->addSelect([
-            'gender' => AnimalGender::select('gender')
+            'gender' => AnimalSex::select('gender')
                 ->whereColumn('gender_id', 'animal_genders.id'),
         ]);
     }
