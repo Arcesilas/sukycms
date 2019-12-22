@@ -15,6 +15,7 @@ Route::group(['prefix' => 'shelter', 'as' => 'shelter.'], static function () {
 
 Route::group(['prefix' => 'animals', 'as' => 'animals.'], static function () {
     Route::get('/', [AnimalController::class, 'index'])->name('index');
+    Route::get('/{animal}/edit', [AnimalController::class, 'edit'])->name('edit');
     Route::get('/configuration', [AnimalController::class, 'configuration'])->name('configuration');
     Route::get('/configuration/sexes', [AnimalController::class, 'sexes'])->name('sexes');
     Route::get('/configuration/locations', [AnimalController::class, 'locations'])->name('locations');

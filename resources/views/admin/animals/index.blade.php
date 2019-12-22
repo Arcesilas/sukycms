@@ -12,8 +12,9 @@
         @slot('thead')
             <tr>
                 <th>{{ __('forms.name') }}</th>
-                <th>{{ __('forms.email') }}</th>
-                <th class="text-center">{{ __('forms.last_login') }}</th>
+                <th>{{ __('forms.species') }}</th>
+                <th>{{ __('forms.sex') }}</th>
+                <th>{{ __('forms.status') }}</th>
                 <th></th>
             </tr>
         @endslot
@@ -22,12 +23,13 @@
             @foreach ($animals as $animal)
                 <tr>
                     <td>
-                        <img src="{{ $animal->getAvatar() }}" alt="" class="avatar">
+                        <img src="{{ $animal->getPhoto() }}" alt="" class="avatar">
                         {{ $animal->name }}<br>
-                        <span>{{ __("animals.roles.{$animal->role}") }}</span>
+                        <span>{{ $animal->birth_date->shortAbsoluteDiffForHumans() }}</span>
                     </td>
-                    <td>{{ $animal->email }}</td>
-                    <td class="text-center">{{ optional($animal->birth_date)->diffForHumans() ?? '-' }}</td>
+                    <td>{{ $animal->species }}</td>
+                    <td>{{ $animal->sex }}</td>
+                    <td>{{ $animal->status }}</td>
                     <td class="actions">
                         <ul>
                             <li>

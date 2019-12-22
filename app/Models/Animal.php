@@ -26,6 +26,11 @@ class Animal extends Model
         'birth_date' => 'datetime',
     ];
 
+    public function getPhoto(): string
+    {
+        return asset('images/animaldefault.jpg');
+    }
+
     public function sex(): BelongsTo
     {
         return $this->belongsTo(AnimalSex::class);
