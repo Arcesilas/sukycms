@@ -82,12 +82,14 @@ aside.sidebar {
     }
 
     a {
+        display: flex;
+        align-items: center;
         padding-top: 0.85rem;
         padding-bottom: 0.85rem;
         text-decoration: none;
 
         i {
-            margin-right: 0.25rem;
+            margin-right: 0.5rem;
         }
 
         &.open {
@@ -124,8 +126,7 @@ aside.sidebar {
     }
 
     .arrow {
-        margin-top: 4px;
-        float: right;
+        margin-left: auto;
 
         &::after {
             content: "\F104";
