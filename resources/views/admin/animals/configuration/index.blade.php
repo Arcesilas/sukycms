@@ -4,8 +4,8 @@
 
     <h4 class="text-xl mb-4">Configuraciones de los animales</h4>
     <div class="text-gray-600">
-        <p class="w-1/2 mb-4">En esta sección se pueden configurar los diferentes aspectos de un animal como puede ser su sexo, estado, localización o comportamiento.</p>
-        <p class="w-1/2">Por ejemplo si usáis el método CES (capturar, esterilizar y soltar), podéis crear estados y localizaciones para estos casos. Todo es personalizable.</p>
+        <p class="w-2/3 mb-4">En esta sección se pueden configurar los diferentes aspectos de un animal como puede ser su sexo, estado, localización o comportamiento.</p>
+        <p class="w-2/3">Por ejemplo si usáis el método CES (capturar, esterilizar y soltar), podéis crear estados y localizaciones para estos casos. Todo es personalizable.</p>
     </div>
 
     <hr class="my-8">
