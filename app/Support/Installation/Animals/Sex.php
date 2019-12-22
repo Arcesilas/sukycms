@@ -17,10 +17,6 @@ final class Sex
 
     public static function data(): array
     {
-        return [
-            __('animals.sexes.male'),
-            __('animals.sexes.female'),
-            __('animals.sexes.unknown'),
-        ];
+        return __('install.animals.sexes');
     }
 }

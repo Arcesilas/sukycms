@@ -27,12 +27,12 @@
         <div class="w-1/3 px-4">
             <div class="card hover:bg-gray-200 cursor-pointer">
                 <div class="card-body">
-                    <div class="flex flex-col text-center text-xl">
+                    <a href="{{ route('admin.animals.locations') }}" class="flex flex-col text-center text-xl">
                         <span class="icons">
                             <i class="fas fa-location-arrow"></i>
                         </span>
                         <span class="mt-2">Localizaciones</span>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

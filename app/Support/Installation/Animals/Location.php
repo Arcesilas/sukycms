@@ -17,10 +17,6 @@ final class Location
 
     public static function data(): array
     {
-        return [
-            __('animals.shelter'),
-            __('animals.temporary_home'),
-            __('animals.street'),
-        ];
+        return __('install.animals.locations');
     }
 }
