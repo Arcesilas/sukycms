@@ -1,16 +1,19 @@
 {
-    "name": "laravel/laravel",
+    "name": "sukycms/sukycms",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "SukyCMS - Animal Shelter Manager.",
     "keywords": [
-        "framework",
-        "laravel"
+        "sukycms",
+        "animal",
+        "shelter",
+        "manager",
+        "adoptions"
     ],
-    "license": "MIT",
+    "license": "GPL-3.0",
     "require": {
         "php": "^7.4",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "^6.2",
+        "laravel/framework": "^6.9",
         "laravel/tinker": "^2.0"
     },
     "require-dev": {
