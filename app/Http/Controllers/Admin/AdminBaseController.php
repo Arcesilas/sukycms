@@ -66,7 +66,7 @@ class AdminBaseController extends Controller
                                 'title' => __('admin.sidebar.configuration'),
                                 'url' => route('admin.animals.configuration'),
                                 'icon' => 'fas fa-cog',
-                                'active' => 'admin/animals/configuration',
+                                'active' => 'admin/animals/configuration*',
                             ],
                         ],
                     ],

@@ -53,11 +53,22 @@ table {
         position: relative;
         text-align: right;
 
+        &.visible {
+            display: flex;
+            justify-content: flex-end;
+
+            ul {
+                position: relative;
+                display: flex;
+                right: 0;
+            }
+        }
+
         ul {
             position: absolute;
             z-index: 10;
             display: none;
-            top: 25%;
+            top: 10%;
             right: 1rem;
             box-shadow: var(--box-shadow);
 

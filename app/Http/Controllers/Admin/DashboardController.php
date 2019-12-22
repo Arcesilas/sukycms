@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enum\Users\UserRole;
 use App\Models\Animal;
-use App\Models\AnimalGender;
+use App\Models\AnimalSex;
 use App\Models\AnimalLocation;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
