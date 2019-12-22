@@ -12,8 +12,8 @@ class SexScope implements Scope
     public function apply(Builder $builder, Model $model): void
     {
         $builder->addSelect([
-            'gender' => AnimalSex::select('gender')
-                ->whereColumn('gender_id', 'animal_genders.id'),
+            'sex' => AnimalSex::select('sex')
+                ->whereColumn('sex_id', 'animal_sexes.id'),
         ]);
     }
 }

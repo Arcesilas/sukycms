@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Filters\Filterable;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
 use App\Scopes\Animals\LocationScope;
@@ -10,6 +11,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Animal extends Model
 {
+    use Filterable;
+
     public static function boot(): void
     {
         parent::boot();
@@ -18,6 +21,10 @@ class Animal extends Model
         static::addGlobalScope(new LocationScope());
         static::addGlobalScope(new SpeciesScope());
     }
+
+    protected $casts = [
+        'birth_date' => 'datetime',
+    ];
 
     public function sex(): BelongsTo
     {

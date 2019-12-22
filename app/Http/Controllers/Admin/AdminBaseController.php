@@ -52,7 +52,7 @@ class AdminBaseController extends Controller
                         'submenu' => [
                             [
                                 'title' => __('admin.sidebar.list'),
-                                'url' => '',
+                                'url' => route('admin.animals.index'),
                                 'icon' => 'fas fa-list',
                                 'active' => 'admin/animals',
                             ],

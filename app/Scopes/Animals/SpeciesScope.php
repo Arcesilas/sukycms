@@ -12,8 +12,8 @@ class SpeciesScope implements Scope
     public function apply(Builder $builder, Model $model): void
     {
         $builder->addSelect([
-            'gender' => AnimalSpecies::select('kind')
-                ->whereColumn('kind_id', 'animal_kinds.id'),
+            'species' => AnimalSpecies::select('species')
+                ->whereColumn('species_id', 'animal_species.id'),
         ]);
     }
 }
