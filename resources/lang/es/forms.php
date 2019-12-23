@@ -14,6 +14,10 @@ return [
     'sex' => 'Sexo',
     'species' => 'Especie',
     'location' => 'Localización',
+    'birth_date' => 'Fecha de nacimiento',
+    'entry_date' => 'Fecha de entrada',
+    'urgent' => 'Caso urgente',
+    'special' => 'Caso especial',
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',

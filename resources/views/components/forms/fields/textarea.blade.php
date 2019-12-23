@@ -29,5 +29,6 @@
     <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.config.height = 300;
+        CKEDITOR.config.language = 'es';
     </script>
 @endpush

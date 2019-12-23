@@ -5,6 +5,7 @@ namespace App\Forms\Admin;
 use App\Models\AnimalLocation;
 use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
+use App\Support\Forms\Fields\CheckboxField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SelectField;
 use App\Support\Forms\Fields\SubmitField;
@@ -41,6 +42,14 @@ class AnimalForm extends Form
             (new SelectField('location_id'))
                 ->setLabel(__('forms.location'))
                 ->setChoices($this->getLocations()),
+
+            (new InputField('birth_date')),
+
+            (new SelectField('urgent')),
+
+            (new SelectField('special')),
+
+            (new InputField('entry_date')),
 
             (new TextareaField('description'))
                 ->setShowLabel(false),

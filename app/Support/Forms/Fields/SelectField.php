@@ -4,7 +4,10 @@ namespace App\Support\Forms\Fields;
 
 class SelectField extends Field
 {
-    public array $choices = [];
+    public array $choices = [
+        0 => 'No',
+        1 => 'Yes',
+    ];
 
     public string $selected = '';
 
