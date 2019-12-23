@@ -14,7 +14,6 @@
                 <th>{{ __('forms.name') }}</th>
                 <th>{{ __('forms.species') }}</th>
                 <th>{{ __('forms.sex') }}</th>
-                <th>{{ __('forms.status') }}</th>
                 <th></th>
             </tr>
         @endslot
@@ -29,7 +28,6 @@
                     </td>
                     <td>{{ $animal->species }}</td>
                     <td>{{ $animal->sex }}</td>
-                    <td>{{ $animal->status }}</td>
                     <td class="actions">
                         <ul>
                             <li>

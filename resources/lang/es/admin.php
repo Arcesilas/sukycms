@@ -8,6 +8,7 @@ return [
         'shelter' => 'Asociación',
         'stats' => 'Estadísticas',
         'calendar' => 'Calendario',
+        'web' => 'Página web',
 
         'management' => 'Gestión',
         'animals' => 'Animales',

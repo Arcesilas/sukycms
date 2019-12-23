@@ -11,6 +11,8 @@ return [
     'role' => 'Rol',
     'status' => 'Estado',
     'avatar' => 'Avatar',
+    'sex' => 'Sexo',
+    'species' => 'Especie',
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',

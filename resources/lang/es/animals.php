@@ -2,6 +2,8 @@
 
 return [
 
+    'list' => 'Listado de animales',
+
     'configuration' => [
         'sexes' => [
             'list' => 'Listado de sexos',
