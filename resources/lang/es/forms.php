@@ -13,6 +13,7 @@ return [
     'avatar' => 'Avatar',
     'sex' => 'Sexo',
     'species' => 'Especie',
+    'location' => 'Localización',
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',

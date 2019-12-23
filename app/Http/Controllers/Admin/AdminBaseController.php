@@ -58,7 +58,7 @@ class AdminBaseController extends Controller
                             ],
                             [
                                 'title' => __('admin.sidebar.add_animal'),
-                                'url' => '',
+                                'url' => route('admin.animals.create'),
                                 'icon' => 'fas fa-plus-square',
                                 'active' => 'admin/animals/create',
                             ],

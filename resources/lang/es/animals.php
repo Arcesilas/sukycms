@@ -13,7 +13,14 @@ return [
         ],
         'species' => [
             'list' => 'Listado de especies',
-        ]
+        ],
+    ],
+
+    'form' => [
+        'create' => [
+            'title' => 'Crear ficha de animal',
+            'submit' => 'Crear ficha',
+        ],
     ],
 
 ];
