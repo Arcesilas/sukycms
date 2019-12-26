@@ -11,6 +11,7 @@ class CreateAnimalSexesTable extends Migration
         Schema::create('animal_sexes', static function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('sex')->unique();
+            $table->smallInteger('order');
             $table->timestamps();
         });
     }

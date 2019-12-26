@@ -61,16 +61,16 @@ class AnimalForm extends Form
 
     private function getSpecies(): array
     {
-        return AnimalSpecies::pluck('species', 'id')->toArray();
+        return AnimalSpecies::orderBy('order')->pluck('species', 'id')->toArray();
     }
 
     private function getSexes(): array
     {
-        return AnimalSex::pluck('sex', 'id')->toArray();
+        return AnimalSex::orderBy('order')->pluck('sex', 'id')->toArray();
     }
 
     private function getLocations(): array
     {
-        return AnimalLocation::pluck('location', 'id')->toArray();
+        return AnimalLocation::orderBy('order')->pluck('location', 'id')->toArray();
     }
 }

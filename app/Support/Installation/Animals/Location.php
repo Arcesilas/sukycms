@@ -8,9 +8,11 @@ final class Location
 {
     public static function install(): void
     {
-        foreach (self::data() as $location) {
+        $order = 1;
+        foreach (self::data() as  $location) {
             AnimalLocation::forceCreate([
                 'location' => $location,
+                'order' => $order++,
             ]);
         }
     }

@@ -8,9 +8,11 @@ final class Sex
 {
     public static function install(): void
     {
+        $order = 1;
         foreach (self::data() as $sex) {
             AnimalSex::forceCreate([
                 'sex' => $sex,
+                'order' => $order++,
             ]);
         }
     }

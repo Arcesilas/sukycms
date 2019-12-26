@@ -11,6 +11,7 @@ class CreateAnimalSpeciesTable extends Migration
         Schema::create('animal_species', static function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('species')->unique();
+            $table->smallInteger('order');
             $table->timestamps();
         });
     }
