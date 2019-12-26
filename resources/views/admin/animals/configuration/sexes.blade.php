@@ -19,6 +19,7 @@
             <tr>
                 <th>{{ __('forms.name') }}</th>
                 <th class="text-right">Nº de animales</th>
+                <th class="text-center">Orden</th>
                 <th></th>
             </tr>
         @endslot
@@ -28,6 +29,15 @@
                 <tr>
                     <td>{{ $sex->sex }}</td>
                     <td class="text-right">{{ $sex->animals_count }}</td>
+                    <td class="text-center">
+                        <a href="" class="text-green-500" data-tooltip="Editar">
+                            <i class="fas fa-arrow-up fa-fw"></i>
+                        </a>
+                        {{ $sex->order }}
+                        <a href="" class="text-green-500" data-tooltip="Editar">
+                            <i class="fas fa-arrow-down fa-fw"></i>
+                        </a>
+                    </td>
                     <td class="actions visible">
                         <ul>
                             <li>
