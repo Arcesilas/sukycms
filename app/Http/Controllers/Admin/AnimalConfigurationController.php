@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\AnimalLocation;
 use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
+use App\Models\Behavior;
 use Illuminate\View\View;
 
 class AnimalConfigurationController extends AdminBaseController
@@ -32,6 +33,13 @@ class AnimalConfigurationController extends AdminBaseController
     {
         return view('admin.animals.configuration.species', [
             'species' => AnimalSpecies::withCount('animals')->get(),
+        ]);
+    }
+
+    public function behaviors(): View
+    {
+        return view('admin.animals.configuration.behaviors', [
+            'behaviors' => Behavior::withCount('animals')->get(),
         ]);
     }
 }

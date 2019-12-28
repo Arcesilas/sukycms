@@ -5,11 +5,13 @@ namespace App\Console\Commands;
 use App\Enum\Users\UserRole;
 use App\Enum\Users\UserStatus;
 use App\Models\Animal;
+use App\Models\Behavior;
 use App\Models\Option;
 use App\Models\User;
+use App\Support\Installation\Animals\Behaviors;
+use App\Support\Installation\Animals\Location;
 use App\Support\Installation\Animals\Sex;
 use App\Support\Installation\Animals\Species;
-use App\Support\Installation\Animals\Location;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use RuntimeException;
@@ -31,6 +33,7 @@ class DevData extends Command
 
         $this->installAnimal();
         $this->createAnimals();
+        $this->addBehaviors();
     }
 
     private function createAdmin(): User
@@ -83,10 +86,25 @@ class DevData extends Command
         Sex::install();
         Location::install();
         Species::install();
+        Behaviors::install();
     }
 
     private function createUsers(int $number = 50, array $attributes = []): Collection
     {
         return factory(User::class, $number)->create($attributes);
+    }
+
+    private function addBehaviors(): void
+    {
+        foreach (Animal::all() as $animal) {
+            if (random_int(0, 1)) {
+                continue;
+            }
+
+            $numBehaviors = random_int(1, 6);
+            $behaviors = Behavior::inRandomOrder()->take($numBehaviors)->get();
+
+            $animal->behaviors()->attach($behaviors->pluck('id'));
+        }
     }
 }

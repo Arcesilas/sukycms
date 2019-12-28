@@ -30,7 +30,7 @@ $(document).ready(function () {
 });
 
 Dropzone.autoDiscover = false;
-let dropzone = new Dropzone('.dropzone', {
+new Dropzone('.dropzone', {
     url: '/',
     autoProcessQueue: false,
     dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'

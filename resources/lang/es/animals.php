@@ -14,6 +14,9 @@ return [
         'species' => [
             'list' => 'Listado de especies',
         ],
+        'behaviors' => [
+            'list' => 'Lista de comportamientos',
+        ]
     ],
 
     'form' => [

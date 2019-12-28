@@ -8,6 +8,7 @@ use App\Scopes\Animals\SpeciesScope;
 use App\Scopes\Animals\LocationScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Animal extends Model
 {
@@ -44,5 +45,10 @@ class Animal extends Model
     public function kind(): BelongsTo
     {
         return $this->belongsTo(AnimalSpecies::class);
+    }
+
+    public function behaviors(): BelongsToMany
+    {
+        return $this->belongsToMany(Behavior::class, 'animal_behavior');
     }
 }
