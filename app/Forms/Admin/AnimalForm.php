@@ -50,7 +50,8 @@ class AnimalForm extends Form
 
             (new SelectField('special')),
 
-            (new DateField('entry_date')),
+            (new DateField('entry_date'))
+                ->setValue(now()->format(option('date_format'))),
 
             (new TextareaField('description'))
                 ->setShowLabel(false),

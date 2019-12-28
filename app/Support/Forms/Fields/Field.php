@@ -89,6 +89,13 @@ abstract class Field
         return $this;
     }
 
+    public function setValue(string $value): self
+    {
+        $this->value = $value;
+
+        return $this;
+    }
+
     public function render(): string
     {
         if (session()->has('errors') && session('errors')->has($this->name)) {
