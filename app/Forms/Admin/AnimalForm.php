@@ -50,7 +50,7 @@ class AnimalForm extends Form
 
             (new SelectField('special')),
 
-            (new InputField('entry_date')),
+            (new DateField('entry_date')),
 
             (new TextareaField('description'))
                 ->setShowLabel(false),
