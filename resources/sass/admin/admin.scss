@@ -8,6 +8,9 @@
 // THEMES
 @import "themes/default";
 
+// VENDOR
+@import "~@chenfengyuan/datepicker/dist/datepicker.min.css";
+
 // VARIABLES
 :root {
     --admin-header-height: 60px;

@@ -1,5 +1,8 @@
 require('../bootstrap');
 
+require('@chenfengyuan/datepicker');
+require('@chenfengyuan/datepicker/i18n/datepicker.es-ES');
+
 $(document).ready(function () {
     $('aside.sidebar > a').on('click', function () {
         $(this).toggleClass('open');
@@ -17,6 +20,10 @@ $(document).ready(function () {
     $('form').on('submit', function () {
         $('.btn-loading').prop('disabled', true);
         return true;
-    })
+    });
+
+    $('[data-toggle="datepicker"]').datepicker({
+        language: 'es-ES',
+    });
 });
 

@@ -6,6 +6,7 @@ use App\Models\AnimalLocation;
 use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
 use App\Support\Forms\Fields\CheckboxField;
+use App\Support\Forms\Fields\DateField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SelectField;
 use App\Support\Forms\Fields\SubmitField;
@@ -43,7 +44,7 @@ class AnimalForm extends Form
                 ->setLabel(__('forms.location'))
                 ->setChoices($this->getLocations()),
 
-            (new InputField('birth_date')),
+            (new DateField('birth_date')),
 
             (new SelectField('urgent')),
 
