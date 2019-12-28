@@ -17,12 +17,9 @@ class LoadOptions
             return $options->pluck('value', 'key')->toArray();
         });
 
-        $language = $options->first(fn ($option) => $option->key === 'language')->value;
-        $timezone = $options->first(fn ($option) => $option->key === 'timezone')->value;
-
-        date_default_timezone_set($timezone);
-        app()->setLocale($language);
-        setlocale(LC_TIME, $language);
+        date_default_timezone_set(option('timezone'));
+        app()->setLocale(option('language'));
+        setlocale(LC_TIME, option('language'));
 
         return $next($request);
     }
