@@ -82,11 +82,25 @@
 
             <div class="flex mt-12">
                 <div class="w-1/3">
+                    <h4 class="text-lg">Fotos:</h4>
+                    <p class="help-text">Elige las fotografías que aparecerán en la ficha del animal. Una vez creada la ficha podrás cambiar la foto principal</p>
+                </div>
+                <div class="w-2/3">
+                    <div class="w-full flex px-4">
+                        <div class="dropzone w-full"></div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-8 mb-12">
+
+            <div class="flex mt-12">
+                <div class="w-1/3">
                     <h4 class="text-lg">Comportamiento:</h4>
                     <p class="help-text">Todos los campos son obligatorios</p>
                 </div>
                 <div class="w-2/3">
-                    
+
                 </div>
             </div>
 

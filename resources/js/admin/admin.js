@@ -1,5 +1,7 @@
 require('../bootstrap');
 
+window.Dropzone = require('dropzone');
+
 require('@chenfengyuan/datepicker');
 require('@chenfengyuan/datepicker/i18n/datepicker.es-ES');
 
@@ -26,4 +28,12 @@ $(document).ready(function () {
         language: 'es-ES',
     });
 });
+
+Dropzone.autoDiscover = false;
+let dropzone = new Dropzone('.dropzone', {
+    url: '/',
+    autoProcessQueue: false,
+    dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'
+});
+
 

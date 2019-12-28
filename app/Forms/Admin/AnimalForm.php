@@ -7,6 +7,7 @@ use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
 use App\Support\Forms\Fields\CheckboxField;
 use App\Support\Forms\Fields\DateField;
+use App\Support\Forms\Fields\FileField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SelectField;
 use App\Support\Forms\Fields\SubmitField;
