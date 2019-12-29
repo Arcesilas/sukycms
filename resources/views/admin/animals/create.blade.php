@@ -100,7 +100,7 @@
                     <p class="help-text">Todos los campos son obligatorios</p>
                 </div>
                 <div class="w-2/3">
-                    <div class="flex flex-wrap">
+                    <div class="flex flex-wrap px-4">
                         @foreach ($behaviors as $behavior)
                             <div class="w-1/3">
                                 <label class="text-xs"><input type="checkbox" name="behaviors[]" value="{{ $behavior->id }}"> {{ $behavior->behavior }}</label>

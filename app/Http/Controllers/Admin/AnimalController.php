@@ -23,7 +23,7 @@ class AnimalController extends AdminBaseController
     {
         return view('admin.animals.create', [
             'form' => $form->make(),
-            'behaviors' => Behavior::get(['id', 'behavior']),
+            'behaviors' => Behavior::orderBy('order')->get(['id', 'behavior']),
         ]);
     }
 }
