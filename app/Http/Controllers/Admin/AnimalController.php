@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Filters\AnimalFilters;
 use App\Forms\Admin\AnimalForm;
 use App\Models\Animal;
+use App\Models\Behavior;
 use Illuminate\View\View;
 
 class AnimalController extends AdminBaseController
@@ -22,6 +23,7 @@ class AnimalController extends AdminBaseController
     {
         return view('admin.animals.create', [
             'form' => $form->make(),
+            'behaviors' => Behavior::get(['id', 'behavior']),
         ]);
     }
 }
