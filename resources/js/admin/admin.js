@@ -30,10 +30,14 @@ $(document).ready(function () {
 });
 
 Dropzone.autoDiscover = false;
-new Dropzone('.dropzone', {
-    url: '/',
-    autoProcessQueue: false,
-    dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'
-});
+
+if ($('.dropzone').length) {
+    new Dropzone('.dropzone', {
+        url: '/',
+        autoProcessQueue: false,
+        dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'
+    });
+}
+
 
 
