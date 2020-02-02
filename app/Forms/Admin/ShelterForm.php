@@ -4,8 +4,10 @@ namespace App\Forms\Admin;
 
 use App\Support\Forms\Fields\EmailField;
 use App\Support\Forms\Fields\InputField;
+use App\Support\Forms\Fields\SelectField;
 use App\Support\Forms\Fields\SubmitField;
 use App\Support\Forms\Form;
+use App\Support\Timezone;
 use Illuminate\Http\Request;
 
 class ShelterForm extends Form
@@ -19,15 +21,14 @@ class ShelterForm extends Form
             (new InputField('name'))
                 ->setRequired(true),
 
-            (new InputField('domain'))
-                ->setReadonly(true),
-
-            (new InputField('subdomain'))
-                ->setReadonly(true)
-                ->setHelpText('Test'),
-
             (new EmailField('email'))
                 ->setRequired(true),
+
+            (new SelectField('timezone'))
+                ->setChoices(Timezone::all()),
+
+            (new SelectField('language'))
+                ->setChoices(__('languages')),
 
             new SubmitField('save'),
         ]);

@@ -18,6 +18,8 @@ return [
     'entry_date' => 'Fecha de entrada',
     'urgent' => 'Caso urgente',
     'special' => 'Caso especial',
+    'timezone' => 'Zona horaria',
+    'language' => 'Idioma',
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',
