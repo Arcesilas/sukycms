@@ -16,6 +16,8 @@ class ShelterRequest extends BaseRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
+            'timezone' => 'required',
+            'language' => 'required',
         ];
     }
 }
