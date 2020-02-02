@@ -29,7 +29,7 @@ class Animal extends Model
 
     public function getPhoto(): string
     {
-        return asset('images/animaldefault.jpg');
+        return 'https://picsum.photos/200?random='.$this->id;
     }
 
     public function sex(): BelongsTo
