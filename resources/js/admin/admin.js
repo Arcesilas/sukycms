@@ -27,6 +27,16 @@ $(document).ready(function () {
     $('[data-toggle="datepicker"]').datepicker({
         language: 'es-ES',
     });
+
+    $('[data-toggle="show"]').on('click', function () {
+        const icon = $(this).find('i');
+        const item = $($(this).data('item'));
+
+        icon.toggleClass('fa-plus-square');
+        icon.toggleClass('fa-minus-square');
+
+        item.toggleClass('hidden');
+    });
 });
 
 Dropzone.autoDiscover = false;
