@@ -18,6 +18,12 @@ return [
     'entry_date' => 'Fecha de entrada',
     'urgent' => 'Caso urgente',
     'special' => 'Caso especial',
+    'timezone' => 'Zona horaria',
+    'language' => 'Idioma',
+    'microchip' => 'Microchip',
+    'identifier' => 'Identificador',
+    'breed' => 'Raza',
+    'litter' => 'Camada',
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',

@@ -51,6 +51,14 @@ class AnimalForm extends Form
 
             (new SelectField('special')),
 
+            (new InputField('identifier')),
+
+            (new InputField('microchip')),
+
+            (new InputField('breed')),
+
+            (new InputField('litter')),
+
             (new DateField('entry_date'))
                 ->setValue(now()->format(option('date_format'))),
 

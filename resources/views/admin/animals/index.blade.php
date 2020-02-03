@@ -28,7 +28,7 @@
                     </td>
                     <td>{{ $animal->species }}</td>
                     <td>{{ $animal->sex }}</td>
-                    <td class="actions">
+                    <td class="actions visible">
                         <ul>
                             <li>
                                 <a href="#" class="text-purple-500" data-tooltip="Ver">

@@ -18,7 +18,15 @@
         @endforeach
         >
             @foreach ($field->choices as $key => $value)
-            <option value="{{ $key }}" {{ $key == $field->selected ? 'selected' : '' }}>{{ $value }}</option>
+                @if (is_array($value))
+                    <optgroup label="{{ $key }}">
+                        @foreach ($value as $subKey => $subValue)
+                            <option value="{{ $subKey }}" {{ $subKey == $field->selected ? 'selected' : '' }}>{{ $subValue }}</option>
+                        @endforeach
+                    </optgroup>
+                @else
+                    <option value="{{ $key }}" {{ $key == $field->selected ? 'selected' : '' }}>{{ $value }}</option>
+                @endif
             @endforeach
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

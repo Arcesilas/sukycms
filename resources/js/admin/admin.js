@@ -27,13 +27,27 @@ $(document).ready(function () {
     $('[data-toggle="datepicker"]').datepicker({
         language: 'es-ES',
     });
+
+    $('[data-toggle="show"]').on('click', function () {
+        const icon = $(this).find('i');
+        const item = $($(this).data('item'));
+
+        icon.toggleClass('fa-plus-square');
+        icon.toggleClass('fa-minus-square');
+
+        item.toggleClass('hidden');
+    });
 });
 
 Dropzone.autoDiscover = false;
-new Dropzone('.dropzone', {
-    url: '/',
-    autoProcessQueue: false,
-    dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'
-});
+
+if ($('.dropzone').length) {
+    new Dropzone('.dropzone', {
+        url: '/',
+        autoProcessQueue: false,
+        dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'
+    });
+}
+
 
 

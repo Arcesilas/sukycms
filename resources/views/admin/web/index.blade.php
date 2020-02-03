@@ -2,13 +2,13 @@
 
 @section('content')
 
-    <div class="flex pt-8 pb-4 px-4">
-        <div class="w-1/2 px-4">
+    <div class="flex">
+        <div class="w-1/2 pr-4">
             <div class="card">
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
@@ -19,12 +19,12 @@
             </div>
         </div>
 
-        <div class="w-1/2 px-4">
+        <div class="w-1/2 pl-4">
             <div class="card">
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
@@ -36,13 +36,13 @@
         </div>
     </div>
 
-    <div class="flex py-4 px-4">
-        <div class="w-1/2 px-4">
+    <div class="flex pt-8">
+        <div class="w-1/2 pr-4">
             <div class="card">
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
@@ -53,12 +53,12 @@
             </div>
         </div>
 
-        <div class="w-1/2 px-4">
+        <div class="w-1/2 pl-4">
             <div class="card">
                 <div class="card-title flex flex-row justify-between">
                     <span>Card</span>
 
-                    <div class="icons">
+                    <div class="actions">
                         <i class="fas fa-edit px-4"></i>
                         <i class="fas fa-trash-alt"></i>
                     </div>
