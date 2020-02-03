@@ -10,10 +10,10 @@ return [
         ],
 
         'locations' => [
-            'shelter' => 'En el refugio',
-            'temporaryhome' => 'En casa de acogida',
-            'street' => 'En la calle',
-            'residence' => 'En una residencia',
+            'shelter' => 'Refugio',
+            'temporaryhome' => 'Casa de acogida',
+            'street' => 'Calle',
+            'residence' => 'Residencia',
             'unknown' => 'Desconocido',
         ],
 
