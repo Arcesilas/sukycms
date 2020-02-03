@@ -30,13 +30,17 @@
                     <td>{{ $behavior->behavior }}</td>
                     <td class="text-right">{{ $behavior->animals_count }}</td>
                     <td class="text-center">
-                        <a href="" class="text-green-500" data-tooltip="Editar">
-                            <i class="fas fa-arrow-up fa-fw"></i>
-                        </a>
+                        @if ($behavior->order !== 1)
+                            <a href="" class="text-green-500" data-tooltip="Editar">
+                                <i class="fas fa-arrow-up fa-fw"></i>
+                            </a>
+                        @endif
                         {{ $behavior->order }}
-                        <a href="" class="text-green-500" data-tooltip="Editar">
-                            <i class="fas fa-arrow-down fa-fw"></i>
-                        </a>
+                        @if ($behavior->order !== count($behaviors))
+                            <a href="" class="text-green-500" data-tooltip="Editar">
+                                <i class="fas fa-arrow-down fa-fw"></i>
+                            </a>
+                        @endif
                     </td>
                     <td class="actions visible">
                         <ul>
