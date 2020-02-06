@@ -58,3 +58,24 @@
         background-color: var(--color-red);
     }
 }
+
+.btn-gray {
+    background-color: var(--color-gray);
+    border-color: var(--color-gray);
+
+    &:hover {
+        background-color: var(--color-gray-dark);
+        border-color: var(--color-gray-dark);
+    }
+}
+
+.btn-gray-outline {
+    color: var(--color-gray);
+    background-color: transparent;
+    border-color: var(--color-gray);
+
+    &:hover {
+        color: #fff;
+        background-color: var(--color-gray);
+    }
+}

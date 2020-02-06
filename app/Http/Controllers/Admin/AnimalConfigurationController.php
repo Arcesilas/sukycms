@@ -15,13 +15,6 @@ class AnimalConfigurationController extends AdminBaseController
         return view('admin.animals.configuration.index');
     }
 
-    public function sexes(): View
-    {
-        return view('admin.animals.configuration.sexes', [
-            'sexes' => AnimalSex::withCount('animals')->get(),
-        ]);
-    }
-
     public function locations(): View
     {
         return view('admin.animals.configuration.locations', [

@@ -10,14 +10,14 @@
         @endslot
 
         @slot('actions')
-            <a href="" class="btn btn-blue">
+            <a href="{{ route('admin.animals.sexes.create') }}" class="btn btn-blue">
                 <i class="fas fa-plus-circle fa-fw mr-2"></i> Nuevo
             </a>
         @endslot
 
         @slot('thead')
             <tr>
-                <th>{{ __('forms.name') }}</th>
+                <th>Sexo</th>
                 <th class="text-right">Nº de animales</th>
                 <th class="text-center">Orden</th>
                 <th></th>
@@ -30,18 +30,22 @@
                     <td>{{ $sex->sex }}</td>
                     <td class="text-right">{{ $sex->animals_count }}</td>
                     <td class="text-center">
-                        <a href="" class="text-green-500" data-tooltip="Editar">
-                            <i class="fas fa-arrow-up fa-fw"></i>
-                        </a>
+                        @if (! $loop->first)
+                            <a href="" class="text-green-500" data-tooltip="Subir">
+                                <i class="fas fa-arrow-up fa-fw"></i>
+                            </a>
+                        @endif
                         {{ $sex->order }}
-                        <a href="" class="text-green-500" data-tooltip="Editar">
-                            <i class="fas fa-arrow-down fa-fw"></i>
-                        </a>
+                        @if (! $loop->last)
+                            <a href="" class="text-green-500" data-tooltip="Bajar">
+                                <i class="fas fa-arrow-down fa-fw"></i>
+                            </a>
+                        @endif
                     </td>
                     <td class="actions visible">
                         <ul>
                             <li>
-                                <a href="{{ route('admin.users.edit', $sex) }}" class="text-blue-500" data-tooltip="Editar">
+                                <a href="{{ route('admin.animals.sexes.edit', $sex) }}" class="text-blue-500" data-tooltip="Editar">
                                     <i class="fas fa-edit fa-fw"></i>
                                 </a>
                             </li>
