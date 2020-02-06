@@ -6,6 +6,7 @@ use App\Filters\Filterable;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
 use App\Scopes\Animals\LocationScope;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -24,12 +25,18 @@ class Animal extends Model
     }
 
     protected $casts = [
-        'birth_date' => 'datetime',
+        'birth_date' => 'date',
+        'entry_date' => 'date',
     ];
 
     public function getPhoto(): string
     {
         return 'https://picsum.photos/200?random='.$this->id;
+    }
+
+    public function hasBehavior(int $behavior_id): bool
+    {
+        return $this->behaviors->contains($behavior_id);
     }
 
     public function sex(): BelongsTo

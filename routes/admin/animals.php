@@ -7,6 +7,7 @@ Route::get('/', [AnimalController::class, 'index'])->name('index');
 Route::get('/create', [AnimalController::class, 'create'])->name('create');
 Route::post('/', [AnimalController::class, 'store'])->name('store');
 Route::get('/{animal}/edit', [AnimalController::class, 'edit'])->name('edit');
+Route::put('/{animal}', [AnimalController::class, 'update'])->name('update');
 
 Route::group(['prefix' => 'configuration'], static function () {
     Route::get('/', [AnimalConfigurationController::class, 'configuration'])->name('configuration');

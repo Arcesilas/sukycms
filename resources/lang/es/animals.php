@@ -24,6 +24,10 @@ return [
             'title' => 'Crear ficha de animal',
             'submit' => 'Crear ficha',
         ],
+        'edit' => [
+            'title' => 'Editar ficha de :name',
+            'submit' => 'Actualizar ficha',
+        ],
     ],
 
 ];
