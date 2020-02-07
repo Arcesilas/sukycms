@@ -5,60 +5,48 @@ namespace App\Http\Controllers\Admin;
 use App\Forms\Admin\AnimalSexForm;
 use App\Http\Requests\AnimalSexRequest;
 use App\Models\AnimalSex;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
+use App\Support\Crud;
+use App\Support\Forms\Form;
+use Illuminate\Support\Collection;
 
 class AnimalSexController extends AdminBaseController
 {
-    public function index(): View
+    use Crud;
+
+    protected string $viewNamespace = 'admin.animals.sexes';
+
+    protected string $transNamespace = 'animals.sexes';
+
+    protected string $routeNamespace = 'admin.animals.sexes';
+
+    public function indexQuery(): Collection
     {
-        return view('admin.animals.sexes.index', [
-            'sexes' => AnimalSex::withCount('animals')->get(),
-        ]);
+        return AnimalSex::withCount('animals')->get();
     }
 
-    public function create(AnimalSexForm $form): View
+    public function form(): Form
     {
-        return view('admin.animals.sexes.create', [
-            'form' => $form->make(),
-        ]);
+        return new AnimalSexForm();
     }
 
-    public function store(AnimalSexRequest $request): RedirectResponse
+    public function formRequest(): string
     {
-        flash(
-            __(''),
-            __(''),
-        )->show();
-
-        return redirect()->route('admin.animals.sexes.index');
+        return AnimalSexRequest::class;
     }
 
-    public function edit(AnimalSexForm $form, AnimalSex $sex): View
+    public function tableFields(): array
     {
-        return view('admin.animals.sexes.edit', [
-            'form' => $form->setData($sex)->make(),
-            'sex' => $sex,
-        ]);
-    }
-
-    public function update(AnimalSexRequest $request, int $id): RedirectResponse
-    {
-        flash(
-            __(''),
-            __(''),
-        )->show();
-
-        return redirect()->route('admin.animals.sexes.index');
-    }
-
-    public function delete(): RedirectResponse
-    {
-        flash(
-            __(''),
-            __(''),
-        )->show();
-
-        return redirect()->route('admin.animals.sexes.index');
+        return [
+            'sex' => [],
+            'animals_count' => [
+                'align' => 'right',
+            ],
+            'order' => [
+                'align' => 'center',
+            ],
+            'actions' => [
+                'align' => 'right',
+            ],
+        ];
     }
 }

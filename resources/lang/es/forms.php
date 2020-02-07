@@ -25,9 +25,13 @@ return [
     'breed' => 'Raza',
     'litter' => 'Camada',
 
+    'animals_count' => 'Nº de animales',
+
     'login' => 'Acceder',
     'remember' => 'Recordarme',
     'last_login' => 'Último acceso',
+    'order' => 'Orden',
+    'actions' => 'Acciones',
 
     'search' => 'Buscar',
 
