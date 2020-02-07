@@ -1,4 +1,4 @@
-<td class="text-{{ $field['align'] ?? '' }}">
+<td class="text-{{ $field->align ?? '' }}">
     @if (! $loop->parent->first)
         <a href="" class="text-green-500" data-tooltip="Subir">
             <i class="fas fa-arrow-up fa-fw"></i>

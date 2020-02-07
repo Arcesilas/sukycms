@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Support;
+namespace App\Support\Crud;
 
-use App\Http\Requests\AnimalSexRequest;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;

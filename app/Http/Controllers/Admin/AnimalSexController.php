@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Forms\Admin\AnimalSexForm;
 use App\Http\Requests\AnimalSexRequest;
 use App\Models\AnimalSex;
-use App\Support\Crud;
+use App\Support\Crud\Crud;
+use App\Support\Crud\Fields\Text;
 use App\Support\Forms\Form;
 use Illuminate\Support\Collection;
 
@@ -37,16 +38,10 @@ class AnimalSexController extends AdminBaseController
     public function tableFields(): array
     {
         return [
-            'sex' => [],
-            'animals_count' => [
-                'align' => 'right',
-            ],
-            'order' => [
-                'align' => 'center',
-            ],
-            'actions' => [
-                'align' => 'right',
-            ],
+            (new Text)->make('sex'),
+            (new Text)->align('right')->make('animals_count'),
+            (new Text)->align('center')->make('order'),
+            (new Text)->align('right')->make('actions'),
         ];
     }
 }
