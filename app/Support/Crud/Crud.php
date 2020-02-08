@@ -10,7 +10,7 @@ trait Crud
 {
     public function __construct()
     {
-        view()->share('namespace', $this->viewNamespace);
+        view()->share('viewNamespace', $this->viewNamespace);
         view()->share('routeNamespace', $this->routeNamespace);
         view()->share('transNamespace', $this->transNamespace);
 
@@ -39,8 +39,8 @@ trait Crud
         $this->model()->forceCreate($validation->validated());
 
         flash(
-            __(''),
-            __(''),
+            __($this->transNamespace.'.create.title'),
+            __($this->transNamespace.'.create.text'),
         )->show();
 
         return redirect()->route($this->routeNamespace.'.index');
@@ -56,13 +56,31 @@ trait Crud
 
     public function update(Model $model): RedirectResponse
     {
-        app($this->formRequest());
+        $validation = app($this->formRequest());
+
+        foreach ($validation->validated() as $key => $value) {
+            $model->$key = $value;
+        }
+
+        $model->save();
 
         flash(
-            __(''),
-            __(''),
+            __($this->transNamespace.'.update.title'),
+            __($this->transNamespace.'.update.text'),
         )->show();
 
         return redirect()->route($this->routeNamespace.'.edit', $model);
+    }
+
+    public function delete(Model $model): RedirectResponse
+    {
+        $model->delete();
+
+        flash(
+            __($this->transNamespace.'.delete.title'),
+            __($this->transNamespace.'.delete.text'),
+        )->show();
+
+        return redirect()->route($this->routeNamespace.'.index');
     }
 }

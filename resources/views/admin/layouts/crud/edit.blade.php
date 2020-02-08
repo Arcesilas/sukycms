@@ -11,7 +11,7 @@
         <div class="card-body">
             <hr class="mt-8 mb-12">
 
-            @include($namespace.'.form')
+            @include($viewNamespace.'.form')
         </div>
     </div>
 

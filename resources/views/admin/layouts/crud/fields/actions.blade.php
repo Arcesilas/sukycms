@@ -6,9 +6,14 @@
             </a>
         </li>
         <li>
-            <a href="#" class="text-red-500" data-tooltip="Eliminar">
-                <i class="fas fa-trash-alt fa-fw"></i>
-            </a>
+            <form action="{{ route($routeNamespace.'.delete', $item) }}" method="POST" class="inline">
+                @method('DELETE')
+                @csrf
+
+                <button class="text-red-500" data-tooltip="Eliminar">
+                    <i class="fas fa-trash-alt fa-fw"></i>
+                </button>
+            </form>
         </li>
     </ul>
 </td>
