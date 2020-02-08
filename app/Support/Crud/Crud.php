@@ -8,11 +8,21 @@ use Illuminate\View\View;
 
 trait Crud
 {
+    protected string $viewNamespace;
+
+    protected string $routeNamespace;
+
+    protected string $transNamespace;
+
     public function __construct()
     {
+        $this->viewNamespace = 'admin.'.$this->namespace;
+        $this->routeNamespace = 'admin.'.$this->namespace;
+        $this->transNamespace = $this->namespace;
+
         view()->share('viewNamespace', $this->viewNamespace);
         view()->share('routeNamespace', $this->routeNamespace);
-        view()->share('transNamespace', $this->transNamespace);
+        view()->share('transNamespace', $this->namespace);
 
         parent::__construct();
     }
@@ -28,15 +38,15 @@ trait Crud
     public function create(): View
     {
         return view('admin.layouts.crud.create', [
-            'form' => $this->form()->make(),
+            'form' => (new $this->form)->make(),
         ]);
     }
 
     public function store(): RedirectResponse
     {
-        $validation = app($this->formRequest());
+        $validation = app($this->formRequest);
 
-        $this->model()->forceCreate($validation->validated());
+        (new $this->model)->forceCreate($validation->validated());
 
         flash(
             __($this->transNamespace.'.create.title'),
@@ -49,14 +59,14 @@ trait Crud
     public function edit(Model $model): View
     {
         return view('admin.layouts.crud.edit', [
-            'form' => $this->form()->setData($model)->make(),
+            'form' => (new $this->form)->setData($model)->make(),
             'model' => $model,
         ]);
     }
 
     public function update(Model $model): RedirectResponse
     {
-        $validation = app($this->formRequest());
+        $validation = app($this->formRequest);
 
         foreach ($validation->validated() as $key => $value) {
             $model->$key = $value;

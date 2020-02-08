@@ -16,30 +16,17 @@ class AnimalSexController extends AdminBaseController
 {
     use Crud;
 
-    protected string $viewNamespace = 'admin.animals.sexes';
+    protected string $namespace = 'animals.sexes';
 
-    protected string $transNamespace = 'animals.sexes';
+    protected string $model = AnimalSex::class;
 
-    protected string $routeNamespace = 'admin.animals.sexes';
+    protected string $form = AnimalSexForm::class;
+
+    protected string $formRequest = AnimalSexRequest::class;
 
     public function indexQuery(): Collection
     {
         return AnimalSex::withCount('animals')->get();
-    }
-
-    public function model(): Builder
-    {
-        return AnimalSex::query();
-    }
-
-    public function form(): Form
-    {
-        return new AnimalSexForm();
-    }
-
-    public function formRequest(): string
-    {
-        return AnimalSexRequest::class;
     }
 
     public function tableFields(): array
