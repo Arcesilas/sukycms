@@ -2,7 +2,9 @@
 
 namespace App\Support\Crud;
 
+use App\Support\Forms\Form;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -16,9 +18,7 @@ trait Crud
 
     public function __construct()
     {
-        $this->viewNamespace = 'admin.'.$this->namespace;
-        $this->routeNamespace = 'admin.'.$this->namespace;
-        $this->transNamespace = $this->namespace;
+        $this->setNamespaces();
 
         view()->share('viewNamespace', $this->viewNamespace);
         view()->share('routeNamespace', $this->routeNamespace);
@@ -30,7 +30,7 @@ trait Crud
     public function index(): View
     {
         return view('admin.layouts.crud.index', [
-            'tableFields' => $this->tableFields(),
+            'fields' => $this->fields(),
             'items' => $this->indexQuery(),
         ]);
     }
@@ -38,13 +38,13 @@ trait Crud
     public function create(): View
     {
         return view('admin.layouts.crud.create', [
-            'form' => (new $this->form)->make(),
+            'form' => $this->form()->make(),
         ]);
     }
 
     public function store(): RedirectResponse
     {
-        $validation = app($this->formRequest);
+        $validation = app($this->formRequest());
 
         (new $this->model)->forceCreate($validation->validated());
 
@@ -59,14 +59,14 @@ trait Crud
     public function edit(Model $model): View
     {
         return view('admin.layouts.crud.edit', [
-            'form' => (new $this->form)->setData($model)->make(),
+            'form' => $this->form()->setData($model)->make(),
             'model' => $model,
         ]);
     }
 
     public function update(Model $model): RedirectResponse
     {
-        $validation = app($this->formRequest);
+        $validation = app($this->formRequest());
 
         foreach ($validation->validated() as $key => $value) {
             $model->$key = $value;
@@ -82,7 +82,7 @@ trait Crud
         return redirect()->route($this->routeNamespace.'.edit', $model);
     }
 
-    public function delete(Model $model): RedirectResponse
+    public function destroy(Model $model): RedirectResponse
     {
         $model->delete();
 
@@ -92,5 +92,29 @@ trait Crud
         )->show();
 
         return redirect()->route($this->routeNamespace.'.index');
+    }
+
+    public function model(): Model
+    {
+        return new $this->model;
+    }
+
+    public function form(): Form
+    {
+        $form = $this->model()->form;
+
+        return new $form;
+    }
+
+    public function formRequest(): string
+    {
+        return $this->form()->formRequest;
+    }
+
+    public function setNamespaces(): void
+    {
+        $this->viewNamespace = 'admin.'.$this->namespace;
+        $this->routeNamespace = 'admin.'.$this->namespace;
+        $this->transNamespace = $this->namespace;
     }
 }

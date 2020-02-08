@@ -6,7 +6,7 @@
             </a>
         </li>
         <li>
-            <form action="{{ route($routeNamespace.'.delete', $item) }}" method="POST" class="inline">
+            <form action="{{ route($routeNamespace.'.destroy', $item) }}" method="POST" class="inline">
                 @method('DELETE')
                 @csrf
 

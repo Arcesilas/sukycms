@@ -17,7 +17,7 @@
 
         @slot('thead')
             <tr>
-                @foreach ($tableFields as $field)
+                @foreach ($fields as $field)
                     <th class="text-{{ $field->align ?? '' }}">{{ $field->title ?? __('forms.'.$field->key) }}</th>
                 @endforeach
             </tr>
@@ -26,7 +26,7 @@
         @slot('tbody')
             @foreach ($items as $item)
                 <tr>
-                    @foreach ($tableFields as $field)
+                    @foreach ($fields as $field)
                         @if ($field->key === 'actions')
                             @include('admin.layouts.crud.fields.actions')
                             @continue

@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\AnimalSex;
+use App\Models\AnimalLocation;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
 use Illuminate\Support\Collection;
 
-class AnimalSexController extends AdminBaseController
+class AnimalLocationController extends AdminBaseController
 {
     use Crud;
 
-    protected string $model = AnimalSex::class;
+    protected string $model = AnimalLocation::class;
 
-    protected string $namespace = 'animals.sexes';
+    protected string $namespace = 'animals.locations';
 
     public function indexQuery(): Collection
     {
-        return AnimalSex::withCount('animals')->get();
+        return AnimalLocation::withCount('animals')->get();
     }
 
     public function fields(): array
     {
         return [
-            (new Text)->make('sex'),
+            (new Text)->make('location'),
             (new Text)->align('right')->make('animals_count'),
             (new Text)->align('center')->make('order'),
             (new Text)->align('right')->make('actions'),

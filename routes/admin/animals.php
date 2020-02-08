@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AnimalConfigurationController;
 use App\Http\Controllers\Admin\AnimalController;
+use App\Http\Controllers\Admin\AnimalLocationController;
 use App\Http\Controllers\Admin\AnimalSexController;
 
 Route::get('/', [AnimalController::class, 'index'])->name('index');
@@ -13,16 +14,9 @@ Route::put('/{animal}', [AnimalController::class, 'update'])->name('update');
 Route::group(['prefix' => 'configuration'], static function () {
     Route::get('/', [AnimalConfigurationController::class, 'configuration'])->name('configuration');
 
-    Route::group(['prefix' => 'sexes', 'as' => 'sexes.'], static function () {
-        Route::get('/', [AnimalSexController::class, 'index'])->name('index');
-        Route::get('/create', [AnimalSexController::class, 'create'])->name('create');
-        Route::post('/', [AnimalSexController::class, 'store'])->name('store');
-        Route::get('/{animalsex}/edit', [AnimalSexController::class, 'edit'])->name('edit');
-        Route::put('/{animalsex}', [AnimalSexController::class, 'update'])->name('update');
-        Route::delete('/{animalsex}', [AnimalSexController::class, 'delete'])->name('delete');
-    });
+    Route::resource('sexes', AnimalSexController::class);
+    Route::resource('locations', AnimalLocationController::class);
 
-    Route::get('/locations', [AnimalConfigurationController::class, 'locations'])->name('locations');
     Route::get('/species', [AnimalConfigurationController::class, 'species'])->name('species');
     Route::get('/behaviors', [AnimalConfigurationController::class, 'behaviors'])->name('behaviors');
 });
