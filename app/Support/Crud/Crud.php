@@ -34,7 +34,9 @@ trait Crud
 
     public function store(): RedirectResponse
     {
-        app($this->formRequest());
+        $validation = app($this->formRequest());
+
+        $this->model()->forceCreate($validation->validated());
 
         flash(
             __(''),
@@ -50,5 +52,17 @@ trait Crud
             'form' => $this->form()->setData($model)->make(),
             'model' => $model,
         ]);
+    }
+
+    public function update(Model $model): RedirectResponse
+    {
+        app($this->formRequest());
+
+        flash(
+            __(''),
+            __(''),
+        )->show();
+
+        return redirect()->route($this->routeNamespace.'.edit', $model);
     }
 }

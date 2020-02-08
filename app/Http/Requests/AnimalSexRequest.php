@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class AnimalSexRequest extends FormRequest
 {
@@ -14,7 +15,10 @@ class AnimalSexRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'sex' => 'required|unique:animal_sexes,sex',
+            'sex' => [
+                'required',
+                Rule::unique('animal_sexes', 'sex')->ignore($this->route('animalsex'))
+            ],
         ];
     }
 }

@@ -8,6 +8,8 @@ use App\Models\AnimalSex;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
 use App\Support\Forms\Form;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
 class AnimalSexController extends AdminBaseController
@@ -23,6 +25,11 @@ class AnimalSexController extends AdminBaseController
     public function indexQuery(): Collection
     {
         return AnimalSex::withCount('animals')->get();
+    }
+
+    public function model(): Builder
+    {
+        return AnimalSex::query();
     }
 
     public function form(): Form
