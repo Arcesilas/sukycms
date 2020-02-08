@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Animal;
 use App\Models\AnimalLocation;
 use App\Models\AnimalSex;
+use App\Models\AnimalSpecies;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('animal', Animal::class);
         Route::model('sex', AnimalSex::class);
         Route::model('location', AnimalLocation::class);
+        Route::model('species', AnimalSpecies::class);
 
         parent::boot();
     }

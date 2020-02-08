@@ -39,7 +39,7 @@
         <div class="w-1/3 pl-4">
             <div class="card hover:bg-gray-200 cursor-pointer">
                 <div class="card-body">
-                    <a href="{{ route('admin.animals.species') }}" class="flex flex-col text-center text-xl">
+                    <a href="{{ route('admin.animals.species.index') }}" class="flex flex-col text-center text-xl">
                         <span class="icons">
                             <i class="fas fa-paw"></i>
                         </span>

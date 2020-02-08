@@ -45,8 +45,30 @@ return [
     ],
     'species' => [
         'list' => 'Listado de especies',
+        'create' => [
+            'title' => 'Crear especie',
+            'success' => 'Especie creada correctamente',
+        ],
+        'edit' => [
+            'title' => 'Editar especie: :title',
+            'success' => 'Especie actualizada correctamente',
+        ],
+        'destroy' => [
+            'success' => 'Especie eliminada correctamente',
+        ],
     ],
     'behaviors' => [
-        'list' => 'Lista de comportamientos',
+        'list' => 'Listado de comportamientos',
+        'create' => [
+            'title' => 'Crear comportamiento',
+            'success' => 'Comportamiento creada correctamente',
+        ],
+        'edit' => [
+            'title' => 'Editar comportamiento: :title',
+            'success' => 'Comportamiento actualizada correctamente',
+        ],
+        'destroy' => [
+            'success' => 'Comportamiento eliminada correctamente',
+        ],
     ],
 ];

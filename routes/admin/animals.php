@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AnimalConfigurationController;
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\AnimalLocationController;
 use App\Http\Controllers\Admin\AnimalSexController;
+use App\Http\Controllers\Admin\AnimalSpeciesController;
 
 Route::get('/', [AnimalController::class, 'index'])->name('index');
 Route::get('/create', [AnimalController::class, 'create'])->name('create');
@@ -16,7 +17,7 @@ Route::group(['prefix' => 'configuration'], static function () {
 
     Route::resource('sexes', AnimalSexController::class);
     Route::resource('locations', AnimalLocationController::class);
+    Route::resource('species', AnimalSpeciesController::class);
 
-    Route::get('/species', [AnimalConfigurationController::class, 'species'])->name('species');
     Route::get('/behaviors', [AnimalConfigurationController::class, 'behaviors'])->name('behaviors');
 });
