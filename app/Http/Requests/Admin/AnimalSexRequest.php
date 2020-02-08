@@ -17,7 +17,7 @@ class AnimalSexRequest extends FormRequest
         return [
             'sex' => [
                 'required',
-                Rule::unique('animal_sexes', 'sex')->ignore($this->route('animalsex'))
+                Rule::unique('animal_sexes', 'sex')->ignore($this->route('sex'))
             ],
         ];
     }

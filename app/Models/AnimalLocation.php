@@ -25,4 +25,9 @@ class AnimalLocation extends Model
     {
         return $this->hasMany(Animal::class, 'location_id');
     }
+
+    public function __toString(): string
+    {
+        return $this->location;
+    }
 }

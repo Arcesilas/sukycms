@@ -17,7 +17,7 @@ class AnimalLocationRequest extends FormRequest
         return [
             'location' => [
                 'required',
-                Rule::unique('animal_locations', 'location')->ignore($this->route('animallocation'))
+                Rule::unique('animal_locations', 'location')->ignore($this->route('location'))
             ],
         ];
     }

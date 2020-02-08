@@ -58,4 +58,9 @@ class Animal extends Model
     {
         return $this->belongsToMany(Behavior::class, 'animal_behavior');
     }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

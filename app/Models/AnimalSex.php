@@ -25,4 +25,9 @@ class AnimalSex extends Model
     {
         return $this->hasMany(Animal::class, 'sex_id');
     }
+
+    public function __toString(): string
+    {
+        return $this->sex;
+    }
 }

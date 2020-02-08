@@ -4,21 +4,6 @@ return [
 
     'list' => 'Listado de animales',
 
-    'configuration' => [
-        'sexes' => [
-            'list' => 'Listado de sexos',
-        ],
-        'locations' => [
-            'list' => 'Listado de localizaciones',
-        ],
-        'species' => [
-            'list' => 'Listado de especies',
-        ],
-        'behaviors' => [
-            'list' => 'Lista de comportamientos',
-        ]
-    ],
-
     'form' => [
         'create' => [
             'title' => 'Crear ficha de animal',
@@ -30,4 +15,38 @@ return [
         ],
     ],
 
+    'sexes' => [
+        'list' => 'Listado de sexos',
+        'create' => [
+            'title' => 'Crear sexo',
+            'success' => 'Sexo creado correctamente',
+        ],
+        'edit' => [
+            'title' => 'Editar sexo: :title',
+            'success' => 'Sexo actualizado correctamente',
+        ],
+        'destroy' => [
+            'success' => 'Sexo eliminado correctamente',
+        ],
+    ],
+    'locations' => [
+        'list' => 'Listado de localizaciones',
+        'create' => [
+            'title' => 'Crear localización',
+            'success' => 'Localización creada correctamente',
+        ],
+        'edit' => [
+            'title' => 'Editar localización: :title',
+            'success' => 'Localización actualizada correctamente',
+        ],
+        'destroy' => [
+            'success' => 'Localización eliminada correctamente',
+        ],
+    ],
+    'species' => [
+        'list' => 'Listado de especies',
+    ],
+    'behaviors' => [
+        'list' => 'Lista de comportamientos',
+    ],
 ];

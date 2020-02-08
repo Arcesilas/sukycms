@@ -20,10 +20,6 @@ trait Crud
     {
         $this->setNamespaces();
 
-        view()->share('viewNamespace', $this->viewNamespace);
-        view()->share('routeNamespace', $this->routeNamespace);
-        view()->share('transNamespace', $this->namespace);
-
         parent::__construct();
     }
 
@@ -49,8 +45,7 @@ trait Crud
         (new $this->model)->forceCreate($validation->validated());
 
         flash(
-            __($this->transNamespace.'.create.title'),
-            __($this->transNamespace.'.create.text'),
+            __($this->transNamespace.'.create.success'),
         )->show();
 
         return redirect()->route($this->routeNamespace.'.index');
@@ -75,8 +70,7 @@ trait Crud
         $model->save();
 
         flash(
-            __($this->transNamespace.'.update.title'),
-            __($this->transNamespace.'.update.text'),
+            __($this->transNamespace.'.edit.success'),
         )->show();
 
         return redirect()->route($this->routeNamespace.'.edit', $model);
@@ -87,8 +81,7 @@ trait Crud
         $model->delete();
 
         flash(
-            __($this->transNamespace.'.delete.title'),
-            __($this->transNamespace.'.delete.text'),
+            __($this->transNamespace.'.destroy.success'),
         )->show();
 
         return redirect()->route($this->routeNamespace.'.index');
@@ -116,5 +109,9 @@ trait Crud
         $this->viewNamespace = 'admin.'.$this->namespace;
         $this->routeNamespace = 'admin.'.$this->namespace;
         $this->transNamespace = $this->namespace;
+
+        view()->share('viewNamespace', $this->viewNamespace);
+        view()->share('routeNamespace', $this->routeNamespace);
+        view()->share('transNamespace', $this->namespace);
     }
 }
