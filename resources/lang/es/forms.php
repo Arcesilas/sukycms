@@ -24,6 +24,7 @@ return [
     'identifier' => 'Identificador',
     'breed' => 'Raza',
     'litter' => 'Camada',
+    'behavior' => 'Comportamiento',
 
     'animals_count' => 'Nº de animales',
 

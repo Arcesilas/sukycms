@@ -63,7 +63,7 @@
         <div class="w-1/3 px-4 mt-8">
             <div class="card hover:bg-gray-200 cursor-pointer">
                 <div class="card-body">
-                    <a href="{{ route('admin.animals.behaviors') }}" class="flex flex-col text-center text-xl">
+                    <a href="{{ route('admin.animals.behaviors.index') }}" class="flex flex-col text-center text-xl">
                         <span class="icons">
                             <i class="fas fa-smile-beam"></i>
                         </span>

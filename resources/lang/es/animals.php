@@ -61,14 +61,14 @@ return [
         'list' => 'Listado de comportamientos',
         'create' => [
             'title' => 'Crear comportamiento',
-            'success' => 'Comportamiento creada correctamente',
+            'success' => 'Comportamiento creado correctamente',
         ],
         'edit' => [
             'title' => 'Editar comportamiento: :title',
-            'success' => 'Comportamiento actualizada correctamente',
+            'success' => 'Comportamiento actualizado correctamente',
         ],
         'destroy' => [
-            'success' => 'Comportamiento eliminada correctamente',
+            'success' => 'Comportamiento eliminado correctamente',
         ],
     ],
 ];
