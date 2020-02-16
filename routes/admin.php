@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\AnimalConfigurationController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ShelterController;
 use App\Http\Controllers\Admin\UserController;
@@ -18,12 +17,7 @@ Route::group(['prefix' => 'animals', 'as' => 'animals.'], static function () {
 });
 
 Route::group(['prefix' => 'users', 'as' => 'users.'], static function () {
-    Route::get('/', [UserController::class, 'index'])->name('index');
-    Route::post('/', [UserController::class, 'store'])->name('store');
-    Route::get('/create', [UserController::class, 'create'])->name('create');
-    Route::get('/{user}/edit', [UserController::class, 'edit'])->name('edit');
-    Route::put('/{user}', [UserController::class, 'update'])->name('update');
-    Route::get('/configuration', [UserController::class, 'configuration'])->name('configuration');
+    include 'admin/users.php';
 });
 
 Route::group(['prefix' => 'web', 'as' => 'web.'], static function () {

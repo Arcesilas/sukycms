@@ -20,5 +20,4 @@ Route::group(['prefix' => 'configuration'], static function () {
     Route::resource('locations', AnimalLocationController::class);
     Route::resource('species', AnimalSpeciesController::class);
     Route::resource('behaviors', BehaviorController::class);
-
 });

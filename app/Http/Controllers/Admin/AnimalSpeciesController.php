@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;

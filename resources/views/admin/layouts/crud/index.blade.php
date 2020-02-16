@@ -32,6 +32,11 @@
                             @continue
                         @endif
 
+                        @if ($field instanceof \App\Support\Crud\Fields\Custom)
+                            @include($routeNamespace.'.fields.'.$field->view)
+                            @continue
+                        @endif
+
                         @if (view()->exists('admin.layouts.crud.fields.'.$field->key))
                             @include('admin.layouts.crud.fields.'.$field->key)
                             @continue

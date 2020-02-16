@@ -2,93 +2,37 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Filters\UserFilters;
-use App\Forms\Admin\UserForm;
-use App\Http\Requests\Admin\UserRequest;
 use App\Models\User;
-use App\Notifications\Admin\UserRegistered;
 use Illuminate\View\View;
+use App\Support\Crud\Crud;
+use App\Filters\UserFilters;
+use App\Support\Crud\Fields\Text;
+use Illuminate\Support\Collection;
+use App\Support\Crud\Fields\Custom;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserController extends AdminBaseController
 {
-    public function index(UserFilters $filter): View
-    {
-        $users = User::query()->filter($filter);
+    use Crud;
 
-        return view('admin.users.index', [
-            'users' => $users->paginate(),
-        ]);
+    protected string $model = User::class;
+
+    protected string $namespace = 'users';
+
+    public function indexQuery(): LengthAwarePaginator
+    {
+        $filter = app(UserFilters::class);
+
+        return User::query()->filter($filter)->paginate();
     }
 
-    public function create(UserForm $form): View
+    public function fields(): array
     {
-        return view('admin.users.create', [
-            'form' => $form->make(),
-        ]);
-    }
-
-    public function store(UserRequest $request)
-    {
-        $user = new User();
-        $user->name = $request->get('name');
-        $user->password = $request->get('password');
-        $user->email = $request->get('email');
-        $user->role = $request->get('role');
-        $user->status = $request->get('status');
-
-        if ($request->hasFile('avatar')) {
-            // TODO: resize & refactor
-            $user->avatar = asset('storage/' . $request
-                    ->file('avatar')
-                    ->store('images/avatar', 'public'));
-        }
-
-        $user->save();
-
-        if ($request->get('notify')) {
-            $user->notify(new UserRegistered($request->get('password')));
-        }
-
-        flash(
-            __('users.notification.registered.title'),
-            __('users.notification.registered.text'),
-        )->show();
-
-        return redirect()->route('admin.users.index');
-    }
-
-    public function edit(UserForm $form, User $user): View
-    {
-        return view('admin.users.edit', [
-            'form' => $form->setData($user)->make(),
-            'user' => $user,
-        ]);
-    }
-
-    public function update(UserRequest $request, User $user)
-    {
-        $user->name = $request->get('name');
-
-        if ($request->filled('password')) {
-            $user->password = $request->get('password');
-        }
-
-        $user->email = $request->get('email');
-        $user->role = $request->get('role');
-        $user->status = $request->get('status');
-
-        if ($request->hasFile('avatar')) {
-            // TODO: resize & refactor
-            $user->avatar = asset('storage/' . $request
-                    ->file('avatar')
-                    ->store('images/avatar', 'public'));
-        }
-
-        $user->save();
-
-        flash(__('forms.saved'),)->show();
-
-        return redirect()->route('admin.users.edit', $user);
+        return [
+            (new Custom)->make('name'),
+            (new Text)->make('email'),
+            (new Text)->align('right')->make('actions'),
+        ];
     }
 
     public function configuration(): View

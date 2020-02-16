@@ -14,25 +14,4 @@ class AnimalConfigurationController extends AdminBaseController
     {
         return view('admin.animals.configuration.index');
     }
-
-    public function locations(): View
-    {
-        return view('admin.animals.configuration.locations', [
-            'locations' => AnimalLocation::withCount('animals')->get(),
-        ]);
-    }
-
-    public function species(): View
-    {
-        return view('admin.animals.configuration.species', [
-            'species' => AnimalSpecies::withCount('animals')->get(),
-        ]);
-    }
-
-    public function behaviors(): View
-    {
-        return view('admin.animals.configuration.behaviors', [
-            'behaviors' => Behavior::withCount('animals')->get(),
-        ]);
-    }
 }
