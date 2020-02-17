@@ -2,8 +2,6 @@
 
 use App\Http\Controllers\Admin\UserController;
 
-Route::resource('', UserController::class);
+Route::resource('users', UserController::class);
 
-Route::group(['prefix' => 'configuration'], static function () {
-    Route::get('/', [UserController::class, 'configuration'])->name('configuration');
-});
+Route::get('users/configuration', [UserController::class, 'configuration'])->name('users.configuration');

@@ -2,6 +2,7 @@
 
 namespace App\Forms\Admin;
 
+use App\Http\Requests\Admin\UserRequest;
 use App\Support\Forms\Fields\CheckboxField;
 use App\Support\Forms\Fields\EmailField;
 use App\Support\Forms\Fields\FileField;
@@ -14,6 +15,8 @@ use Illuminate\Http\Request;
 
 class UserForm extends Form
 {
+    public string $formRequest = UserRequest::class;
+
     public function build(): void
     {
         if (empty($this->data)) {
@@ -46,7 +49,7 @@ class UserForm extends Form
                 ->setShowLabel(false),
 
             (new SelectField('notify'))
-                ->setChoices(__('users.form.create.notify.choices'))->setShowLabel(false),
+                ->setChoices(__('users.create.notify.choices'))->setShowLabel(false),
 
             (new SubmitField('save'))
                 ->setLabel($submitLabel),

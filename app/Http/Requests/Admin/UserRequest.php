@@ -20,12 +20,14 @@ class UserRequest extends BaseRequest
             'email' => 'required|email|unique:users,email',
             'password' => 'required|confirmed|min:6|max:30',
             'avatar' => 'nullable|image',
-            'notify' => [
-                'boolean',
-                Rule::in(array_keys(__('users.form.create.notify.choices'))),
-            ],
         ];
 
+        if ($this->method() === Request::METHOD_POST) {
+            $rules['notify'] = [
+                'boolean',
+                Rule::in(array_keys(__('users.create.notify.choices'))),
+            ];
+        }
 
         if ($this->method() === Request::METHOD_PUT) {
             $rules['email'] = [

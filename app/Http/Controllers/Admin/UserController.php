@@ -21,9 +21,7 @@ class UserController extends AdminBaseController
 
     public function indexQuery(): LengthAwarePaginator
     {
-        $filter = app(UserFilters::class);
-
-        return User::query()->filter($filter)->paginate();
+        return User::query()->filter(app(UserFilters::class))->paginate();
     }
 
     public function fields(): array

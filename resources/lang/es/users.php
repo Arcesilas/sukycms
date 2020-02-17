@@ -7,21 +7,19 @@ return [
 
     'list' => 'Listado de usuarios',
 
-    'form' => [
-        'create' => [
-            'title' => 'Registrar persona',
-            'submit' => 'Registrar',
-            'notify' => [
-                'choices' => [
-                    'No notificar',
-                    'Notificar',
-                ]
-            ]
+    'create' => [
+        'title' => 'Registrar persona',
+        'submit' => 'Registrar',
+        'notify' => [
+            'choices' => [
+                'No notificar',
+                'Notificar',
+            ],
         ],
-        'edit' => [
-            'title' => 'Editar a :name',
-            'submit' => 'Guardar',
-        ]
+    ],
+    'edit' => [
+        'title' => 'Editar a :title',
+        'submit' => 'Guardar',
     ],
 
     'roles' => [
