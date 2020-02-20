@@ -40,10 +40,6 @@ class User extends Authenticatable
     // TODO: resize & refactor
     public function setAvatarAttribute($value): void
     {
-        dd(request()
-        ->file('avatar')
-        ->store('images/avatar', 'public'));
-
         $this->attributes['avatar'] = asset('storage/' . request()
             ->file('avatar')
             ->store('images/avatar', 'public')

@@ -3,13 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
-use Illuminate\View\View;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use App\Support\Crud\Crud;
 use App\Filters\UserFilters;
 use App\Support\Crud\Fields\Text;
-use Illuminate\Support\Collection;
 use App\Support\Crud\Fields\Custom;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserController extends AdminBaseController
 {
@@ -31,10 +29,5 @@ class UserController extends AdminBaseController
             (new Text)->make('email'),
             (new Text)->align('right')->make('actions'),
         ];
-    }
-
-    public function configuration(): View
-    {
-        return view('admin.users.configuration');
     }
 }
