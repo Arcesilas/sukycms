@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Behavior;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
+use App\Support\Orderable;
 use Illuminate\Support\Collection;
 
 class BehaviorController extends AdminBaseController
 {
-    use Crud;
+    use Crud, Orderable;
 
     protected string $model = Behavior::class;
 
