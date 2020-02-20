@@ -4,15 +4,13 @@ return [
 
     'list' => 'Listado de animales',
 
-    'form' => [
-        'create' => [
-            'title' => 'Crear ficha de animal',
-            'submit' => 'Crear ficha',
-        ],
-        'edit' => [
-            'title' => 'Editar ficha de :name',
-            'submit' => 'Actualizar ficha',
-        ],
+    'create' => [
+        'title' => 'Crear ficha de animal',
+        'submit' => 'Crear ficha',
+    ],
+    'edit' => [
+        'title' => 'Editar ficha de :name',
+        'submit' => 'Actualizar ficha',
     ],
 
     'sexes' => [

@@ -32,9 +32,9 @@ trait Crud
 
     public function create(): View
     {
-        return view('admin.layouts.crud.create', [
+        return view('admin.layouts.crud.create', array_merge([
             'form' => $this->form()->make(),
-        ]);
+        ], $this->formViewShare()));
     }
 
     public function store(): RedirectResponse
@@ -52,10 +52,10 @@ trait Crud
 
     public function edit(Model $model): View
     {
-        return view('admin.layouts.crud.edit', [
+        return view('admin.layouts.crud.edit', array_merge([
             'form' => $this->form()->setData($model)->make(),
             'model' => $model,
-        ]);
+        ], $this->formViewShare()));
     }
 
     public function update(Model $model): RedirectResponse
@@ -112,5 +112,10 @@ trait Crud
         view()->share('viewNamespace', $this->viewNamespace);
         view()->share('routeNamespace', $this->routeNamespace);
         view()->share('transNamespace', $this->namespace);
+    }
+
+    public function formViewShare(): array
+    {
+        return [];
     }
 }

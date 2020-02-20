@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use App\Filters\Filterable;
+use App\Forms\Admin\AnimalForm;
+use App\Scopes\Animals\LocationScope;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
-use App\Scopes\Animals\LocationScope;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Animal extends Model
 {
     use Filterable;
+
+    public string $form = AnimalForm::class;
 
     public static function boot(): void
     {
@@ -31,7 +33,7 @@ class Animal extends Model
 
     public function getPhoto(): string
     {
-        return 'https://picsum.photos/200?random='.$this->id;
+        return 'https://picsum.photos/200?random=' . $this->id;
     }
 
     public function hasBehavior(int $behavior_id): bool

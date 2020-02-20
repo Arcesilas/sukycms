@@ -3,60 +3,40 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Filters\AnimalFilters;
-use App\Forms\Admin\AnimalForm;
-use App\Http\Requests\Admin\AnimalRequest;
 use App\Models\Animal;
 use App\Models\Behavior;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
+use App\Support\Crud\Crud;
+use App\Support\Crud\Fields\Custom;
+use App\Support\Crud\Fields\Text;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class AnimalController extends AdminBaseController
 {
-    public function index(AnimalFilters $filter): View
-    {
-        $animals = Animal::filter($filter);
+    use Crud;
 
-        return view('admin.animals.index', [
-            'animals' => $animals->paginate(),
-        ]);
+    protected string $model = Animal::class;
+
+    protected string $namespace = 'animals';
+
+    public function indexQuery(): LengthAwarePaginator
+    {
+        return Animal::query()->filter(app(AnimalFilters::class))->paginate();
     }
 
-    public function create(AnimalForm $form): View
+    public function formViewShare(): array
     {
-        return view('admin.animals.create', [
-            'form' => $form->make(),
+        return [
             'behaviors' => Behavior::orderBy('order')->get(['id', 'behavior']),
-        ]);
+        ];
     }
 
-    public function store(AnimalRequest $request): RedirectResponse
+    public function fields(): array
     {
-        flash(
-            __('animals.notification.store.title'),
-            __('animals.notification.store.text'),
-        )->show();
-
-        return redirect()->route('admin.animals.index');
-    }
-
-    public function edit(AnimalForm $form, Animal $animal): View
-    {
-        $animal->load('behaviors');
-
-        return view('admin.animals.edit', [
-            'animal' => $animal,
-            'form' => $form->setData($animal)->make(),
-            'behaviors' => Behavior::orderBy('order')->get(['id', 'behavior']),
-        ]);
-    }
-
-    public function update(AnimalRequest $request, Animal $animal): RedirectResponse
-    {
-        flash(
-            __('animals.notification.update.title'),
-            __('animals.notification.update.text'),
-        )->show();
-
-        return redirect()->route('admin.animals.edit', $animal);
+        return [
+            (new Custom)->make('name'),
+            (new Text)->make('species'),
+            (new Text)->make('sex'),
+            (new Text)->align('right')->make('actions'),
+        ];
     }
 }
