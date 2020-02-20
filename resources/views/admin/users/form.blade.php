@@ -22,6 +22,14 @@
         </div>
         <div class="flex pt-4">
             <div class="w-1/2 flex px-4">
+                {!! $form->renderField('password') !!}
+            </div>
+            <div class="w-1/2 flex px-4">
+                {!! $form->renderField('password_confirmation') !!}
+            </div>
+        </div>
+        <div class="flex pt-4">
+            <div class="w-1/2 flex px-4">
                 {!! $form->renderField('role') !!}
             </div>
             <div class="w-1/2 flex px-4">

@@ -21,7 +21,7 @@ class UserForm extends Form
     {
         if (empty($this->data)) {
             $this->url = route('admin.users.store');
-            $submitLabel = __('users.form.create.submit');
+            $submitLabel = __('users.create.submit');
             $this->method = 'POST';
         } else {
             $this->url = route('admin.users.update', request()->route('user'));

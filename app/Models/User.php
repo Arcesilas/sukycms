@@ -32,9 +32,11 @@ class User extends Authenticatable
         return asset('images/avatar.jpg');
     }
 
-    public function setPasswordAttribute($value): void
+    public function setPasswordAttribute(?string $value): void
     {
-        $this->attributes['password'] = bcrypt($value);
+        if ($value) {
+            $this->attributes['password'] = bcrypt($value);
+        }
     }
 
     // TODO: resize & refactor
