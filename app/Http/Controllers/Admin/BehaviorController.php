@@ -18,7 +18,9 @@ class BehaviorController extends AdminBaseController
 
     public function indexQuery(): Collection
     {
-        return Behavior::withCount('animals')->get();
+        return Behavior::withCount('animals')
+            ->orderBy('order')
+            ->get();
     }
 
     public function fields(): array

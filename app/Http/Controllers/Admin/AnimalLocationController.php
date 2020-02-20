@@ -18,7 +18,9 @@ class AnimalLocationController extends AdminBaseController
 
     public function indexQuery(): Collection
     {
-        return AnimalLocation::withCount('animals')->get();
+        return AnimalLocation::withCount('animals')
+            ->orderBy('order')
+            ->get();
     }
 
     public function fields(): array
