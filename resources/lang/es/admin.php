@@ -33,4 +33,8 @@ return [
         'configuration' => 'Configuración',
     ],
 
+    'order' => [
+        'success' => 'Orden cambiado correctamente',
+    ],
+
 ];

@@ -5,11 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Models\AnimalSex;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
+use App\Support\Orderable;
 use Illuminate\Support\Collection;
 
 class AnimalSexController extends AdminBaseController
 {
-    use Crud;
+    use Crud, Orderable;
 
     protected string $model = AnimalSex::class;
 
@@ -17,7 +18,9 @@ class AnimalSexController extends AdminBaseController
 
     public function indexQuery(): Collection
     {
-        return AnimalSex::withCount('animals')->get();
+        return AnimalSex::withCount('animals')
+            ->orderBy('order')
+            ->get();
     }
 
     public function fields(): array

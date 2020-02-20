@@ -24,6 +24,11 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('species', AnimalSpecies::class);
         Route::model('behavior', Behavior::class);
 
+        Route::macro('orderable', function (string $namespace, string $model, string $controller) {
+            Route::get("{$namespace}/{{$model}}/up", [$controller, 'up'])->name("{$namespace}.up");
+            Route::get("{$namespace}/{{$model}}/down", [$controller, 'down'])->name("{$namespace}.down");
+        });
+
         parent::boot();
     }
 
