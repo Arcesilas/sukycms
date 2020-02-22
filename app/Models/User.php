@@ -42,10 +42,12 @@ class User extends Authenticatable
     // TODO: resize & refactor
     public function setAvatarAttribute($value): void
     {
-        $this->attributes['avatar'] = asset('storage/' . request()
-            ->file('avatar')
-            ->store('images/avatar', 'public')
-        );
+        if (request()->hasFile('avatar')) {
+            $this->attributes['avatar'] = asset('storage/' . request()
+                    ->file('avatar')
+                    ->store('images/avatar', 'public')
+            );
+        }
     }
 
     public function __toString(): string
