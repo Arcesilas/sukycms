@@ -1,14 +1,13 @@
 <div class="card w-full">
     <div class="card-title flex flex-row justify-between items-center">
-        <span>{{ $title }}</span>
-
-        @if (! isset($actions))
+        @if (isset($searchForm))
             <div class="actions">
                 <form class="search-form">
                     <input type="text" name="q" placeholder="{{ __('forms.search') }}..." class="form-input" value="{{ request('q') }}">
                 </form>
             </div>
-        @else
+        @endif
+        @if (isset($actions))
             {!! $actions !!}
         @endif
     </div>

@@ -2,11 +2,23 @@
 
 @section('content')
 
+    <h4 class="text-xl mb-4">{{ __($transNamespace.'.list') }}</h4>
+    @if (is_iterable(__($transNamespace.'.description')))
+        <div class="text-gray-600">
+            @foreach (__($transNamespace.'.description') ?? [] as $description)
+                <p class="w-2/3 {{ ! $loop->last ? 'mb-4' : '' }}">{!! $description !!}</p>
+            @endforeach
+        </div>
+    @endif
+
+    <hr class="my-8">
+
     @component('admin.components.table', [
-        'items' => $items
+        'items' => $items,
+        'searchForm' => true,
     ])
         @slot('title')
-            {{ __($transNamespace.'.list') }}
+
         @endslot
 
         @slot('actions')
