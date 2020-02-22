@@ -254,6 +254,11 @@ class AdminBaseController extends Controller
                         'icon' => 'fas fa-question-circle fa-fw',
                         'url' => '',
                     ],
+                    [
+                        'title' => __('admin.sidebar.activity_log'),
+                        'icon' => 'fas fa-list-ul fa-fw',
+                        'url' => route('admin.activity_log'),
+                    ]
                 ],
             ],
 

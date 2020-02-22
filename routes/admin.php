@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WebController;
 
 Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/activity-log', [DashboardController::class, 'activity_log'])->name('activity_log');
 
 Route::group(['prefix' => 'shelter', 'as' => 'shelter.'], static function () {
     Route::get('/', [ShelterController::class, 'form'])->name('form');

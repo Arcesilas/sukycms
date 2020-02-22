@@ -31,6 +31,7 @@ return [
         'new' => 'Nuevo',
         'add_animal' => 'Crear ficha',
         'configuration' => 'Configuración',
+        'activity_log' => 'Historial de cambios',
     ],
 
     'order' => [
