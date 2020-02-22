@@ -18,6 +18,11 @@ $(document).ready(function () {
 
     $('.btn-loading').on('click', function () {
         let button = $(this);
+
+        if (button.parents('form').length) {
+            return;
+        }
+
         let icon = button.find('i').first();
 
         icon.removeClass();
@@ -25,7 +30,13 @@ $(document).ready(function () {
     });
 
     $('form').on('submit', function () {
-        $('.btn-loading').prop('disabled', true);
+        let button = $('.btn-loading');
+        let icon = button.find('i').first();
+
+        icon.removeClass();
+        icon.addClass('fas fa-spinner fa-spin mr-2');
+
+        button.prop('disabled', true);
         return true;
     });
 
