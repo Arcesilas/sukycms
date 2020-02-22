@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(AnimalSex::class, static function (Faker $faker) {
     return [
-        'sex' => ucfirst($faker->unique()->word()),
+        'sex' => ucfirst($faker->unique()->text()),
     ];
 });

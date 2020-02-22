@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Behavior::class, static function (Faker $faker) {
     return [
-        'behavior' => ucfirst($faker->unique()->word()),
+        'behavior' => ucfirst($faker->unique()->text()),
     ];
 });
