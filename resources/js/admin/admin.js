@@ -1,11 +1,16 @@
 require('../bootstrap');
 
 window.Dropzone = require('dropzone');
+window.MicroModal = require('micromodal/dist/micromodal.min');
 
 require('@chenfengyuan/datepicker');
 require('@chenfengyuan/datepicker/i18n/datepicker.es-ES');
 
 $(document).ready(function () {
+    MicroModal.init({
+        disableScroll: true,
+    });
+
     $('aside.sidebar > a').on('click', function () {
         $(this).toggleClass('open');
         $('.submenu[data-sidebarsubmenu="' + $(this).data('sidebarsubmenu') + '"]').toggleClass('open');

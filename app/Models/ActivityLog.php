@@ -17,6 +17,7 @@ class ActivityLog extends Model
     ];
 
     protected $ignoreAttributes = [
+        'id',
         'password',
         'token',
         'created_at',

@@ -20,7 +20,7 @@ class DashboardController extends AdminBaseController
     public function activity_log()
     {
         return view('admin.activity_log.index', [
-            'activity_log' => ActivityLog::paginate(),
+            'activity_log' => ActivityLog::latest()->paginate(),
         ]);
     }
 }

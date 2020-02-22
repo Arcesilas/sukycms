@@ -1,0 +1,27 @@
+.modal {
+    display: none;
+    text-align: left;
+
+    .card {
+        width: 100%;
+        max-width: 600px;
+        min-height: 300px;
+    }
+}
+
+.modal.is-open {
+    display: block;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
