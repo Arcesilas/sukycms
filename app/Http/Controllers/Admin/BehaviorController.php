@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\BehaviorFilters;
 use App\Models\Behavior;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
@@ -19,6 +20,7 @@ class BehaviorController extends AdminBaseController
     public function indexQuery(): Collection
     {
         return Behavior::withCount('animals')
+            ->filter(app(BehaviorFilters::class))
             ->orderBy('order')
             ->get();
     }

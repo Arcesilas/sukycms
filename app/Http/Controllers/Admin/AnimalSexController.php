@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\AnimalSexFilters;
 use App\Models\AnimalSex;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
@@ -19,6 +20,7 @@ class AnimalSexController extends AdminBaseController
     public function indexQuery(): Collection
     {
         return AnimalSex::withCount('animals')
+            ->filter(app(AnimalSexFilters::class))
             ->orderBy('order')
             ->get();
     }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Filters\Filterable;
 use App\Forms\Admin\AnimalSexForm;
 use App\Support\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AnimalSex extends Model
 {
-    use LogsActivity;
+    use Filterable, LogsActivity;
 
     public string $form = AnimalSexForm::class;
 
