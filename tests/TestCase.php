@@ -3,6 +3,8 @@
 namespace Tests;
 
 use App\Models\Option;
+use App\Models\User;
+use App\Support\Installation\Install;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
 abstract class TestCase extends BaseTestCase
@@ -13,7 +15,13 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
+        Install::install();
         $this->prepareOptions();
+    }
+
+    protected function createAdmin(): User
+    {
+        return factory(User::class)->state('admin')->create();
     }
 
     private function prepareOptions(): void

@@ -125,4 +125,14 @@ trait Crud
     {
         return [];
     }
+
+    public function getModel(): string
+    {
+        return $this->model;
+    }
+
+    public function getNamespace(): string
+    {
+        return $this->namespace;
+    }
 }
