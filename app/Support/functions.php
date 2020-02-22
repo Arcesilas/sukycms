@@ -15,3 +15,8 @@ function flash(string $title, string $text = '', string $type = 'success')
 {
     return new FlashNotification($title, $text, $type);
 }
+
+function activityLog(): \App\Models\ActivityLog
+{
+    return new \App\Models\ActivityLog();
+}

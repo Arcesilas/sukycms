@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use App\Forms\Admin\AnimalSexForm;
+use App\Support\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AnimalSex extends Model
 {
+    use LogsActivity;
+
     public string $form = AnimalSexForm::class;
 
     public static function boot(): void

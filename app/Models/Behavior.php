@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use App\Forms\Admin\BehaviorForm;
-use App\Support\Orderable;
+use App\Support\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Behavior extends Model
 {
-    use Orderable;
+    use LogsActivity;
 
     public string $form = BehaviorForm::class;
 

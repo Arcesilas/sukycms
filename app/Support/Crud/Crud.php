@@ -5,6 +5,7 @@ namespace App\Support\Crud;
 use App\Support\Forms\Form;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Arr;
 use Illuminate\View\View;
 
 trait Crud
@@ -41,7 +42,9 @@ trait Crud
     {
         $validation = app($this->formRequest());
 
-        (new $this->model)->forceCreate($validation->validated());
+        $model = (new $this->model)->forceCreate($validation->validated());
+
+        activityLog()->onModel($model)->log();
 
         flash(
             __($this->transNamespace.'.create.success'),
@@ -66,7 +69,11 @@ trait Crud
             $model->$key = $value;
         }
 
+        $oldAttributes = Arr::only($model->getOriginal(), array_keys($model->getDirty()));
         $model->save();
+        $model->oldAttributes = $oldAttributes;
+
+        activityLog()->onModel($model)->log();
 
         flash(
             __($this->transNamespace.'.edit.success'),

@@ -7,13 +7,14 @@ use App\Forms\Admin\AnimalForm;
 use App\Scopes\Animals\LocationScope;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
+use App\Support\LogsActivity;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Animal extends Model
 {
-    use Filterable;
+    use Filterable, LogsActivity;
 
     public string $form = AnimalForm::class;
 

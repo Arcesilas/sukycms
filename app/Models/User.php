@@ -4,12 +4,13 @@ namespace App\Models;
 
 use App\Filters\Filterable;
 use App\Forms\Admin\UserForm;
+use App\Support\LogsActivity;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable, Filterable;
+    use Notifiable, Filterable, LogsActivity;
 
     public string $form = UserForm::class;
 
