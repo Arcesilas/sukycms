@@ -25,6 +25,8 @@ class PostController extends AdminBaseController
     {
         return [
             (new Text)->make('title'),
+            (new Text)->make('user'),
+            (new Text)->make('published_at'),
             (new Text)->align('right')->make('actions'),
         ];
     }
