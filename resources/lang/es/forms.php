@@ -25,6 +25,9 @@ return [
     'breed' => 'Raza',
     'litter' => 'Camada',
     'behavior' => 'Comportamiento',
+    'published_at' => 'Fecha de publicación',
+    'category_id' => 'Categoría',
+    'title' => 'Título',
 
     'animals_count' => 'Nº de animales',
 

@@ -74,14 +74,25 @@ class AdminBaseController extends Controller
                         'title' => __('admin.sidebar.posts'),
                         'icon' => 'fas fa-file-alt fa-fw',
                         'url' => '#',
+                        'active' => 'admin/posts*',
                         'submenu' => [
                             [
                                 'title' => __('admin.sidebar.list'),
                                 'url' => route('admin.posts.index'),
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/posts',
                             ],
                             [
                                 'title' => __('admin.sidebar.publish'),
                                 'url' => route('admin.posts.create'),
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/posts/create',
+                            ],
+                            [
+                                'title' => __('admin.sidebar.categories'),
+                                'url' => route('admin.posts.index'),
+                                'icon' => 'fas fa-folder',
+                                'active' => 'admin/posts/categories',
                             ],
                         ],
                     ],

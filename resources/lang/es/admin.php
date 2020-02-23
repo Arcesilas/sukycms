@@ -20,6 +20,7 @@ return [
         'veterinarians' => 'Veterinarios',
         'partners' => 'Socios',
         'temporaryhomes' => 'Casas de acogida',
+        'categories' => 'Categorías',
 
         'support' => 'Soporte',
         'documentation' => 'Documentación',

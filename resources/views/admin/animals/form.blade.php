@@ -43,7 +43,8 @@
 
 <div class="flex mt-12">
     <div class="w-1/3 mb-4">
-        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-optional"><i class="far fa-plus-square"></i> Información opcional:</h4>
+        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-optional"><i
+                class="far fa-plus-square"></i> Información opcional:</h4>
         <p class="help-text">Todos los campos son obligatorios</p>
     </div>
     <div class="animal-form-optional w-2/3 hidden">
@@ -86,8 +87,10 @@
 
 <div class="flex mt-12">
     <div class="w-1/3">
-        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-photos"><i class="far fa-plus-square"></i> Fotos:</h4>
-        <p class="help-text">Elige las fotografías que aparecerán en la ficha del animal. Una vez creada la ficha podrás cambiar la foto principal</p>
+        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-photos"><i
+                class="far fa-plus-square"></i> Fotos:</h4>
+        <p class="help-text">Elige las fotografías que aparecerán en la ficha del animal. Una vez creada la ficha podrás
+            cambiar la foto principal</p>
     </div>
     <div class="animal-form-photos w-2/3 hidden">
         <div class="w-full flex px-4">
@@ -100,14 +103,17 @@
 
 <div class="flex mt-12">
     <div class="w-1/3">
-        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-behavior"><i class="far fa-plus-square"></i> Comportamiento:</h4>
+        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-behavior"><i
+                class="far fa-plus-square"></i> Comportamiento:</h4>
         <p class="help-text">Todos los campos son obligatorios</p>
     </div>
     <div class="animal-form-behavior w-2/3 hidden">
         <div class="flex flex-wrap px-4">
             @foreach ($behaviors as $behavior)
                 <div class="w-1/3">
-                    <label class="text-xs"><input type="checkbox" name="behaviors[]" value="{{ $behavior->id }}" {{ isset($animal) && $animal->hasBehavior($behavior->id) ? 'checked' : '' }}> {{ $behavior->behavior }}</label>
+                    <label class="text-xs"><input type="checkbox" name="behaviors[]"
+                                                  value="{{ $behavior->id }}" {{ isset($animal) && $animal->hasBehavior($behavior->id) ? 'checked' : '' }}> {{ $behavior->behavior }}
+                    </label>
                 </div>
             @endforeach
         </div>

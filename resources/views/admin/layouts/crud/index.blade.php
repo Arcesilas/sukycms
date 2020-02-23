@@ -54,7 +54,7 @@
                             @continue
                         @endif
 
-                        <td class="text-{{ $field->align ?? '' }}">{{ $item->{$field->key} }}</td>
+                        <td class="text-{{ $field->align ?? '' }}">{{ Str::limit($item->{$field->key}, 30) }}</td>
                     @endforeach
                 </tr>
             @endforeach
