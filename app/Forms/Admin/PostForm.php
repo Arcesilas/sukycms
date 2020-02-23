@@ -5,6 +5,7 @@ namespace App\Forms\Admin;
 use App\Http\Requests\Admin\PostRequest;
 use App\Models\PostCategory;
 use App\Support\Forms\Fields\DateField;
+use App\Support\Forms\Fields\DateTimeField;
 use App\Support\Forms\Fields\EmailField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SelectField;
@@ -34,7 +35,7 @@ class PostForm extends Form
             (new InputField('title'))
                 ->setRequired(true),
 
-            (new DateField('published_at'))
+            (new DateTimeField('published_at'))
                 ->setRequired(true),
 
             (new SelectField('category_id'))

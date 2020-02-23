@@ -24,6 +24,13 @@
         </div>
     </div>
 
+    <script>
+        window.SukyCMS = {
+            dateFormat: '{{ option('date_format') }}',
+            datetimeFormat: '{{ option('datetime_format') }}',
+        }
+    </script>
+
     <script src="{{ mix('build/admin.js') }}"></script>
     @stack('scripts')
     @include('components.flash_notification')

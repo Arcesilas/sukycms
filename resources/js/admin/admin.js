@@ -3,8 +3,7 @@ require('../bootstrap');
 window.Dropzone = require('dropzone');
 window.MicroModal = require('micromodal/dist/micromodal.min');
 
-require('@chenfengyuan/datepicker');
-require('@chenfengyuan/datepicker/i18n/datepicker.es-ES');
+require('jquery-datetimepicker');
 
 $(document).ready(function () {
     MicroModal.init({
@@ -40,8 +39,14 @@ $(document).ready(function () {
         return true;
     });
 
-    $('[data-toggle="datepicker"]').datepicker({
-        language: 'es-ES',
+    $.datetimepicker.setLocale('es');
+    $('[data-toggle="datepicker"]').datetimepicker({
+        format: SukyCMS.dateFormat,
+        timepicker: false,
+    });
+
+    $('[data-toggle="datetimepicker"]').datetimepicker({
+        format: SukyCMS.datetimeFormat,
     });
 
     $('[data-toggle="show"]').on('click', function () {
