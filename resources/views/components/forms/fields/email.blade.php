@@ -11,7 +11,7 @@
         </label>
     @endif
 
-    <input type="email" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}" class="{{ $field->class }}"
+    <input type="email" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ old($field->name, $field->value) }}" class="{{ $field->class }}"
     @foreach ($field->options as $key => $value)
         {{ $key }}="{{ $value }}"
     @endforeach

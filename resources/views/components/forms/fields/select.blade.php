@@ -25,7 +25,7 @@
                         @endforeach
                     </optgroup>
                 @else
-                    <option value="{{ $key }}" {{ $key == $field->selected ? 'selected' : '' }}>{{ $value }}</option>
+                    <option value="{{ $key }}" {{ $key == old($field->name, $field->selected) ? 'selected' : '' }}>{{ $value }}</option>
                 @endif
             @endforeach
         </select>

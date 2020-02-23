@@ -15,7 +15,7 @@
     @foreach ($field->options as $key => $value)
         {{ $key }}="{{ $value }}"
     @endforeach
-    >{{ $field->value ?? '' }}</textarea>
+    >{{ old($field->name, $field->value) }}</textarea>
 
     @if ($errors->has($field->name))
         <div class="error-message">{{ $errors->first($field->name) }}</div>

@@ -11,7 +11,7 @@
         </label>
     @endif
 
-    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ $field->value ?? '' }}" data-toggle="datepicker"
+    <input type="text" name="{{ $field->name }}" id="{{ $field->id }}" value="{{ old($field->name, $field->value) }}" data-toggle="datepicker"
     @foreach ($field->options as $key => $value)
         {{ $key }}="{{ $value }}"
     @endforeach
