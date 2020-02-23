@@ -77,11 +77,11 @@ class AdminBaseController extends Controller
                         'submenu' => [
                             [
                                 'title' => __('admin.sidebar.list'),
-                                'url' => '',
+                                'url' => route('admin.posts.index'),
                             ],
                             [
                                 'title' => __('admin.sidebar.publish'),
-                                'url' => '',
+                                'url' => route('admin.posts.create'),
                             ],
                         ],
                     ],

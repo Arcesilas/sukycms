@@ -18,6 +18,7 @@ Route::group(['prefix' => 'animals', 'as' => 'animals.'], static function () {
 });
 
 include 'admin/users.php';
+include 'admin/posts.php';
 
 Route::group(['prefix' => 'web', 'as' => 'web.'], static function () {
     Route::get('/', [WebController::class, 'index'])->name('index');

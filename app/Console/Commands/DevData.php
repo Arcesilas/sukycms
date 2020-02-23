@@ -7,6 +7,8 @@ use App\Enum\Users\UserStatus;
 use App\Models\Animal;
 use App\Models\Behavior;
 use App\Models\Option;
+use App\Models\Post;
+use App\Models\PostCategory;
 use App\Models\User;
 use App\Support\Installation\Animals\Behaviors;
 use App\Support\Installation\Animals\Location;
@@ -34,6 +36,8 @@ class DevData extends Command
         $this->installAnimal();
         $this->createAnimals();
         $this->addBehaviors();
+
+        $this->createPosts();
     }
 
     private function createAdmin(): User
@@ -106,5 +110,19 @@ class DevData extends Command
 
             $animal->behaviors()->attach($behaviors->pluck('id'));
         }
+    }
+
+    private function createPosts(): Collection
+    {
+        $categories = factory(PostCategory::class, 5)->create();
+
+        $posts = collect([]);
+        for ($i = 0; $i < 50; $i++) {
+            $posts[] = factory(Post::class)->create([
+                'user_id' => mt_rand(1, 50),
+                'category_id' => $categories->random()->id,
+            ]);
+        }
+        return $posts;
     }
 }
