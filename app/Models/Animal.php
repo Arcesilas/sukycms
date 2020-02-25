@@ -8,11 +8,11 @@ use App\Scopes\Animals\LocationScope;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
 use App\Support\LogsActivity;
-use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Animal extends Model
+class Animal extends BaseModel
 {
     use Filterable, LogsActivity;
 
@@ -35,6 +35,11 @@ class Animal extends Model
     public function getPhoto(): string
     {
         return 'https://picsum.photos/200?random=' . $this->id;
+    }
+
+    public function getAge(): string
+    {
+        return Carbon::createFromFormat(option('date_format'), $this->birth_date)->shortAbsoluteDiffForHumans();
     }
 
     public function hasBehavior(int $behavior_id): bool

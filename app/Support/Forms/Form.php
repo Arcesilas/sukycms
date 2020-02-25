@@ -17,7 +17,7 @@ abstract class Form
 
     public array $fields = [];
 
-    public array $data = [];
+    public $data = [];
 
     abstract public function build(): void;
 
@@ -103,11 +103,7 @@ abstract class Form
 
     public function setData($data = []): self
     {
-        if ($data instanceof Model) {
-            $this->data = $data->toArray();
-        } else {
-            $this->data = $data;
-        }
+        $this->data = $data;
 
         return $this;
     }
