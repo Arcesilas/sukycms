@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(AnimalSpecies::class, static function (Faker $faker) {
     return [
-        'species' => ucfirst($faker->unique()->text()),
+        'species' => ucfirst($faker->unique()->text(30)),
     ];
 });

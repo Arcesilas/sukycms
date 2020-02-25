@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(AnimalLocation::class, static function (Faker $faker) {
     return [
-        'location' => ucfirst($faker->unique()->text()),
+        'location' => ucfirst($faker->unique()->text(30)),
     ];
 });

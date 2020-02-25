@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 $factory->define(User::class, static function (Faker $faker) {
     return [
-        'name' => $faker->unique()->text(20),
+        'name' => $faker->unique()->text(30),
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => 'secret',
