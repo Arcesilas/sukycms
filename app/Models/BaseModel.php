@@ -39,4 +39,29 @@ abstract class BaseModel extends Model
 
         return parent::getAttribute($key);
     }
+
+    public function setAttribute($key, $value)
+    {
+        if ($this->hasCast($key) && $this->getCastType($key) === 'date') {
+            try {
+                if ($value) {
+                    $value = Carbon::createFromFormat(option('date_format'), $value);
+                }
+            } catch (\Exception $e) {
+            }
+        }
+
+        if ($this->hasCast($key) && $this->getCastType($key) === 'datetime') {
+            try {
+                if ($value) {
+                    $value = Carbon::createFromFormat(option('datetime_format'), $value);
+                }
+            } catch (\Exception $e) {
+            }
+        }
+
+        parent::setAttribute($key, $value);
+
+        return $this;
+    }
 }
