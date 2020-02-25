@@ -72,7 +72,11 @@ $(document).ready(function () {
             cancelButtonText: SukyCMS.lang.confirm.cancelButtonText,
         }).then((result) => {
             if (result.value) {
-                $(this).unbind('submit').submit();
+                if ($(this).is('form')) {
+                    $(this).unbind('submit').submit();
+                } else {
+                    $(this).unbind('click').click();
+                }
             }
         })
     });
