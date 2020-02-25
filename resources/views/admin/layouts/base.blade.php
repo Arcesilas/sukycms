@@ -28,6 +28,14 @@
         window.SukyCMS = {
             dateFormat: '{{ option('date_format') }}',
             datetimeFormat: '{{ option('datetime_format') }}',
+            lang: {
+                confirm: {
+                    title: '¿Estás seguro?',
+                    text: 'Esta acción es irreversible.',
+                    confirmButtonText: 'Si',
+                    cancelButtonText: 'Cancelar',
+                }
+            }
         }
     </script>
 

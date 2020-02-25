@@ -13,10 +13,7 @@ Route::group(['prefix' => 'shelter', 'as' => 'shelter.'], static function () {
     Route::put('/', [ShelterController::class, 'update'])->name('update');
 });
 
-Route::group(['prefix' => 'animals', 'as' => 'animals.'], static function () {
-    include 'admin/animals.php';
-});
-
+include 'admin/animals.php';
 include 'admin/users.php';
 include 'admin/posts.php';
 

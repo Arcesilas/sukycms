@@ -23,11 +23,13 @@ class CreateAnimalBehaviorsTable extends Migration
 
             $table->foreign('animal_id')
                 ->references('id')
-                ->on('animals');
+                ->on('animals')
+                ->onDelete('CASCADE');
 
             $table->foreign('behavior_id')
                 ->references('id')
-                ->on('behaviors');
+                ->on('behaviors')
+                ->onDelete('CASCADE');
         });
     }
 

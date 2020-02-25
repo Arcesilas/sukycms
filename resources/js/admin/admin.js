@@ -58,6 +58,24 @@ $(document).ready(function () {
 
         item.toggleClass('hidden');
     });
+
+    $('.confirm').on('click submit', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: SukyCMS.lang.confirm.title,
+            text: SukyCMS.lang.confirm.text,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: SukyCMS.lang.confirm.confirmButtonText,
+            cancelButtonText: SukyCMS.lang.confirm.cancelButtonText,
+        }).then((result) => {
+            if (result.value) {
+                $(this).unbind('submit').submit();
+            }
+        })
+    });
 });
 
 Dropzone.autoDiscover = false;

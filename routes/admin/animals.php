@@ -7,9 +7,9 @@ use App\Http\Controllers\Admin\AnimalSexController;
 use App\Http\Controllers\Admin\AnimalSpeciesController;
 use App\Http\Controllers\Admin\BehaviorController;
 
-Route::resource('/', AnimalController::class);
+Route::resource('animals', AnimalController::class);
 
-Route::group(['prefix' => 'configuration'], static function () {
+Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static function () {
     Route::get('/', [AnimalConfigurationController::class, 'configuration'])->name('configuration');
 
     Route::resource('sexes', AnimalSexController::class);
