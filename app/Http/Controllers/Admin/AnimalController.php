@@ -9,6 +9,7 @@ use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Custom;
 use App\Support\Crud\Fields\Text;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\View\View;
 
 class AnimalController extends AdminBaseController
 {
@@ -38,5 +39,10 @@ class AnimalController extends AdminBaseController
             (new Text)->make('sex'),
             (new Text)->align('right')->make('actions'),
         ];
+    }
+
+    public function configuration(): View
+    {
+        return view('admin.animals.configuration.index');
     }
 }
