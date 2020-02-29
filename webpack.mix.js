@@ -34,4 +34,11 @@ mix.sass('resources/sass/auth/auth.scss', 'build').options({
     whitelist: ['open'],
 });
 
+/**
+ * VENDOR ASSETS
+ */
+mix.copy('node_modules/tinymce/plugins', 'public/build/plugins');
+mix.copy('node_modules/tinymce/skins', 'public/build/skins');
+mix.copy('node_modules/tinymce/themes', 'public/build/themes');
+
 mix.version();

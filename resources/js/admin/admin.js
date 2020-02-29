@@ -1,4 +1,5 @@
 require('../bootstrap');
+require('tinymce');
 
 window.Dropzone = require('dropzone');
 window.MicroModal = require('micromodal/dist/micromodal.min');
