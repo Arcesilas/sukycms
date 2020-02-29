@@ -31,7 +31,7 @@ abstract class BaseModel extends Model
                         return $value;
                     }
 
-                    return (new Carbon($value))->format(option('date_format'));
+                    return (new Carbon($value))->format(option('datetime_format'));
                 } catch (\Exception $e) {
                 }
             }

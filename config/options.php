@@ -40,6 +40,6 @@ return [
     'datetime_format' => [
         'required' => true,
         'autoload' => true,
-        'default' => 'd/m/Y H:i:s',
+        'default' => 'd/m/Y H:i',
     ],
 ];

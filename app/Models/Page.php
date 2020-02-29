@@ -5,13 +5,16 @@ namespace App\Models;
 use App\Filters\Filterable;
 use App\Forms\Admin\PageForm;
 use App\Scopes\UserScope;
-use Illuminate\Database\Eloquent\Model;
 
-class Page extends Model
+class Page extends BaseModel
 {
     use Filterable;
 
     public string $form = PageForm::class;
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 
     public static function boot(): void
     {
