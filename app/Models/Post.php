@@ -23,7 +23,10 @@ class Post extends BaseModel
 
         static::creating(function (Post $post) {
             $post->slug = Str::slug($post->title);
-            $post->user_id = auth()->user()->id;
+
+            if (auth()->check()) {
+                $post->user_id = auth()->user()->id;
+            }
         });
 
         static::addGlobalScope(new UserScope());
