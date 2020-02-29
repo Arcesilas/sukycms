@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use App\Filters\Filterable;
-use App\Forms\Admin\PostForm;
+use App\Forms\Admin\PageForm;
 use App\Scopes\UserScope;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Page extends Model
 {
     use Filterable;
 
-    public string $form = PostForm::class;
+    public string $form = PageForm::class;
 
     public static function boot(): void
     {

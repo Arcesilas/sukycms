@@ -7,6 +7,7 @@ use App\Enum\Users\UserStatus;
 use App\Models\Animal;
 use App\Models\Behavior;
 use App\Models\Option;
+use App\Models\Page;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\User;
@@ -38,6 +39,7 @@ class DevData extends Command
         $this->addBehaviors();
 
         $this->createPosts();
+        $this->createPages();
     }
 
     private function createAdmin(): User
@@ -124,5 +126,16 @@ class DevData extends Command
             ]);
         }
         return $posts;
+    }
+
+    private function createPages(): Collection
+    {
+        $pages = collect([]);
+        for ($i = 0; $i < 50; $i++) {
+            $pages[] = factory(Page::class)->create([
+                'user_id' => mt_rand(1, 50),
+            ]);
+        }
+        return $pages;
     }
 }

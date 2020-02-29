@@ -100,14 +100,19 @@ class AdminBaseController extends Controller
                         'title' => __('admin.sidebar.pages'),
                         'icon' => 'fas fa-file-powerpoint fa-fw',
                         'url' => '#',
+                        'active' => 'admin/pages*',
                         'submenu' => [
                             [
                                 'title' => __('admin.sidebar.list'),
-                                'url' => '',
+                                'url' => route('admin.pages.index'),
+                                'icon' => 'fas fa-list',
+                                'active' => 'admin/pages',
                             ],
                             [
-                                'title' => __('admin.sidebar.new'),
-                                'url' => '',
+                                'title' => __('admin.sidebar.publish'),
+                                'url' => route('admin.pages.create'),
+                                'icon' => 'fas fa-plus-square',
+                                'active' => 'admin/pages/create',
                             ],
                         ],
                     ],

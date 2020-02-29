@@ -16,6 +16,7 @@ Route::group(['prefix' => 'shelter', 'as' => 'shelter.'], static function () {
 include 'admin/animals.php';
 include 'admin/users.php';
 include 'admin/posts.php';
+include 'admin/pages.php';
 
 Route::group(['prefix' => 'web', 'as' => 'web.'], static function () {
     Route::get('/', [WebController::class, 'index'])->name('index');
