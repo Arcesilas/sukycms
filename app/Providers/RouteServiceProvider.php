@@ -7,6 +7,8 @@ use App\Models\AnimalLocation;
 use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
 use App\Models\Behavior;
+use App\Models\Page;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +20,8 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Route::model('user', User::class);
+        Route::model('post', Page::class);
+        Route::model('page', Post::class);
         Route::model('animal', Animal::class);
         Route::model('sex', AnimalSex::class);
         Route::model('location', AnimalLocation::class);
