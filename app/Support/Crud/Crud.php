@@ -25,10 +25,10 @@ trait Crud
 
     public function index(): View
     {
-        return view('admin.layouts.crud.index', [
+        return view('admin.layouts.crud.index', array_merge([
             'fields' => $this->fields(),
             'items' => $this->indexQuery(),
-        ]);
+        ], $this->viewShare()));
     }
 
     public function create(): View
@@ -84,6 +84,10 @@ trait Crud
 
     public function destroy(Model $model): RedirectResponse
     {
+        if (! $this->preDestroy($model)) {
+            return redirect()->route($this->routeNamespace.'.index');
+        }
+
         $model->delete();
 
         flash(
@@ -121,9 +125,19 @@ trait Crud
         view()->share('transNamespace', $this->namespace);
     }
 
+    public function viewShare(): array
+    {
+        return [];
+    }
+
     public function formViewShare(): array
     {
         return [];
+    }
+
+    public function preDestroy(): bool
+    {
+        return true;
     }
 
     public function getModel(): string

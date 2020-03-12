@@ -39,6 +39,11 @@
             @foreach ($items as $item)
                 <tr>
                     @foreach ($fields as $field)
+                        @if (view()->exists("$viewNamespace.fields.$field->key"))
+                            @include("$viewNamespace.fields.$field->key")
+                            @continue
+                        @endif
+
                         @if ($field->key === 'actions')
                             @include('admin.layouts.crud.fields.actions')
                             @continue
@@ -62,3 +67,15 @@
     @endcomponent
 
 @endsection
+
+@push('scripts')
+    <script>
+        SukyCMS.selectOtherAndDestroy = {
+            options: {
+                @foreach($items as $item)
+                    {{ $item->id }}: '{{ $item->location }}',
+                @endforeach
+            }
+        }
+    </script>
+@endpush

@@ -81,6 +81,31 @@ $(document).ready(function () {
             }
         })
     });
+
+    $('.select-other-and-confirm').on('click submit', function (e) {
+        e.preventDefault();
+        Swal.fire({
+            title: SukyCMS.lang.confirm.title,
+            text: 'Va a eliminar Refugio, por favor, seleccione una nueva localización para los 19 animales que se encuentran en Refugio.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: SukyCMS.lang.confirm.confirmButtonText,
+            cancelButtonText: SukyCMS.lang.confirm.cancelButtonText,
+            input: 'select',
+            inputOptions: SukyCMS.selectOtherAndDestroy.options,
+        }).then((result) => {
+            if (result.value) {
+                if ($(this).is('form')) {
+                    $(this).append(`<input type="hidden" name="model_id" value="${result.value}" />`);
+                    $(this).unbind('submit').submit();
+                } else {
+                    $(this).unbind('click').click();
+                }
+            }
+        })
+    });
 });
 
 Dropzone.autoDiscover = false;
