@@ -3,6 +3,7 @@
 namespace App\Support\Crud;
 
 use App\Support\Forms\Form;
+use App\Support\Orderable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Arr;
@@ -89,6 +90,10 @@ trait Crud
         }
 
         $model->delete();
+
+        if (in_array(Orderable::class, class_uses($this))) {
+            (new $model)->where('order', '>', $model->order)->decrement('order');
+        }
 
         flash(
             __($this->transNamespace.'.destroy.success'),
