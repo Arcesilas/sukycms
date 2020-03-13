@@ -89,6 +89,10 @@ trait Crud
             return redirect()->route($this->routeNamespace.'.index');
         }
 
+        if (in_array(DontDestroyLast::class, class_uses($this)) && ! $this->dontDestroyLast($model)) {
+            return redirect()->route($this->routeNamespace.'.index');
+        }
+
         $model->delete();
 
         if (in_array(Orderable::class, class_uses($this))) {
