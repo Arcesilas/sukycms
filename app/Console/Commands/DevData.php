@@ -10,11 +10,13 @@ use App\Models\Option;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\Status;
 use App\Models\User;
 use App\Support\Installation\Animals\Behaviors;
 use App\Support\Installation\Animals\Location;
 use App\Support\Installation\Animals\Sex;
 use App\Support\Installation\Animals\Species;
+use App\Support\Installation\Animals\Statuses;
 use Illuminate\Console\Command;
 use Illuminate\Support\Collection;
 use RuntimeException;
@@ -37,6 +39,7 @@ class DevData extends Command
         $this->installAnimal();
         $this->createAnimals();
         $this->addBehaviors();
+        $this->addStatuses();
 
         $this->createPosts();
         $this->createPages();
@@ -93,6 +96,7 @@ class DevData extends Command
         Location::install();
         Species::install();
         Behaviors::install();
+        Statuses::install();
     }
 
     private function createUsers(int $number = 50, array $attributes = []): Collection
@@ -111,6 +115,20 @@ class DevData extends Command
             $behaviors = Behavior::inRandomOrder()->take($numBehaviors)->get();
 
             $animal->behaviors()->attach($behaviors->pluck('id'));
+        }
+    }
+
+    private function addStatuses(): void
+    {
+        foreach (Animal::all() as $animal) {
+            if (random_int(0, 1)) {
+                continue;
+            }
+
+            $numStatuses = random_int(1, 6);
+            $statuses = Status::inRandomOrder()->take($numStatuses)->get();
+
+            $animal->statuses()->attach($statuses->pluck('id'));
         }
     }
 

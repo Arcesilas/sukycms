@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\AnimalLocationController;
 use App\Http\Controllers\Admin\AnimalSexController;
 use App\Http\Controllers\Admin\AnimalSpeciesController;
+use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\BehaviorController;
 
 Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static function () {
@@ -20,6 +21,9 @@ Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static f
 
     Route::resource('behaviors', BehaviorController::class);
     Route::orderable('behaviors', 'behavior', BehaviorController::class);
+
+    Route::resource('statuses', StatusController::class);
+    Route::orderable('statuses', 'status', StatusController::class);
 });
 
 Route::resource('animals', AnimalController::class);

@@ -7,6 +7,7 @@ use App\Forms\Admin\AnimalForm;
 use App\Scopes\Animals\LocationScope;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
+use App\Scopes\Animals\StatusScope;
 use App\Support\LogsActivity;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,6 +26,7 @@ class Animal extends BaseModel
         static::addGlobalScope(new SexScope());
         static::addGlobalScope(new LocationScope());
         static::addGlobalScope(new SpeciesScope());
+        static::addGlobalScope(new StatusScope());
     }
 
     protected $casts = [
@@ -65,6 +67,16 @@ class Animal extends BaseModel
     public function behaviors(): BelongsToMany
     {
         return $this->belongsToMany(Behavior::class, 'animal_behavior');
+    }
+
+//    public function statuses(): BelongsToMany
+//    {
+//        return $this->belongsToMany(Status::class, 'animal_status');
+//    }
+
+    public function statuses()
+    {
+        return $this->belongsToMany(Status::class, 'animal_status')->latest()->first()->status;
     }
 
     public function __toString(): string

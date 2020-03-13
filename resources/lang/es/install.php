@@ -25,6 +25,14 @@ return [
             'other' => 'Otro',
         ],
 
+        'statuses' => [
+            'adoption' => 'En adopción',
+            'reserved' => 'Reservado',
+            'adopted' => 'Adoptado',
+            'quarentine' => 'En cuarentena',
+            'death' => 'Fallecido',
+        ],
+
         'behaviors' => [
             'kids' => 'Bueno con niños',
             'maledogs' => 'Bueno con perros machos',
