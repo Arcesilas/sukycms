@@ -28,25 +28,25 @@
     </div>
 </div>
 
-<hr class="mt-8 mb-12">
-
 @if (Request::routeIs('admin.animals.create'))
-<div class="flex">
-    <div class="w-1/3">
-        <h4 class="text-lg">Situación del animal:</h4>
-        <p class="help-text">Todos los campos son obligatorios</p>
-    </div>
-    <div class="w-2/3">
-        <div class="flex pt-4">
-            <div class="w-1/2 flex px-4">
-                {!! $form->renderField('status_id') !!}
-            </div>
-            <div class="w-1/2 flex px-4">
-                {!! $form->renderField('location_id') !!}
+    <hr class="mt-8 mb-12">
+
+    <div class="flex">
+        <div class="w-1/3">
+            <h4 class="text-lg">Situación del animal:</h4>
+            <p class="help-text">Todos los campos son obligatorios</p>
+        </div>
+        <div class="w-2/3">
+            <div class="flex pt-4">
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('status_id') !!}
+                </div>
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('location_id') !!}
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endif
 
 <hr class="mt-8 mb-12">
