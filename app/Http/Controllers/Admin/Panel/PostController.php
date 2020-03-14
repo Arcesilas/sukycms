@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Panel;
 
-use App\Filters\PageFilters;
-use App\Models\Page;
+use App\Filters\PostFilters;
+use App\Models\Post;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class PageController extends AdminBaseController
+class PostController extends PanelController
 {
     use Crud;
 
-    protected string $model = Page::class;
+    protected string $model = Post::class;
 
-    protected string $namespace = 'pages';
+    protected string $namespace = 'posts';
 
     public function indexQuery(): LengthAwarePaginator
     {
-        return Page::query()->filter(app(PageFilters::class))->paginate();
+        return Post::query()->filter(app(PostFilters::class))->paginate();
     }
 
     public function fields(): array

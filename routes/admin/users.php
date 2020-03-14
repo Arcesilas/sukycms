@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\Panel\UserController;
 
 Route::resource('users', UserController::class);
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Panel;
 
 use App\Enum\Users\UserRole;
 use App\Models\ActivityLog;
@@ -10,7 +10,7 @@ use App\Models\AnimalLocation;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class DashboardController extends AdminBaseController
+class DashboardController extends PanelController
 {
     public function dashboard(): View
     {

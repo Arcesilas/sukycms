@@ -1,26 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Panel;
 
-use App\Filters\AnimalSexFilters;
-use App\Models\AnimalSex;
+use App\Filters\AnimalSpeciesFilters;
+use App\Models\AnimalSpecies;
 use App\Support\Crud\Crud;
 use App\Support\Crud\Fields\Text;
 use App\Support\Orderable;
 use Illuminate\Support\Collection;
 
-class AnimalSexController extends AdminBaseController
+class AnimalSpeciesController extends PanelController
 {
     use Crud, Orderable;
 
-    protected string $model = AnimalSex::class;
+    protected string $model = AnimalSpecies::class;
 
-    protected string $namespace = 'animals.sexes';
+    protected string $namespace = 'animals.species';
 
     public function indexQuery(): Collection
     {
-        return AnimalSex::withCount('animals')
-            ->filter(app(AnimalSexFilters::class))
+        return AnimalSpecies::withCount('animals')
+            ->filter(app(AnimalSpeciesFilters::class))
             ->orderBy('order')
             ->get();
     }
@@ -28,7 +28,7 @@ class AnimalSexController extends AdminBaseController
     public function fields(): array
     {
         return [
-            (new Text)->make('sex'),
+            (new Text)->make('species'),
             (new Text)->align('right')->make('animals_count'),
             (new Text)->align('center')->make('order'),
             (new Text)->align('right')->make('actions'),

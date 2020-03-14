@@ -1,27 +1,27 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Panel;
 
-use App\Filters\AnimalStatusFilters;
-use App\Models\AnimalStatus;
+use App\Filters\AnimalLocationFilters;
+use App\Models\AnimalLocation;
 use App\Support\Crud\Crud;
 use App\Support\Crud\DontDestroyLast;
 use App\Support\Crud\Fields\Text;
 use App\Support\Orderable;
 use Illuminate\Support\Collection;
 
-class AnimalStatusController extends AdminBaseController
+class AnimalLocationController extends PanelController
 {
     use Crud, Orderable, DontDestroyLast;
 
-    protected string $model = AnimalStatus::class;
+    protected string $model = AnimalLocation::class;
 
-    protected string $namespace = 'animals.statuses';
+    protected string $namespace = 'animals.locations';
 
     public function indexQuery(): Collection
     {
-        return AnimalStatus::withCount('animals')
-            ->filter(app(AnimalStatusFilters::class))
+        return AnimalLocation::withCount('animals')
+            ->filter(app(AnimalLocationFilters::class))
             ->orderBy('order')
             ->get();
     }
@@ -29,7 +29,7 @@ class AnimalStatusController extends AdminBaseController
     public function fields(): array
     {
         return [
-            (new Text)->make('status'),
+            (new Text)->make('location'),
             (new Text)->align('right')->make('animals_count'),
             (new Text)->align('center')->make('order'),
             (new Text)->align('right')->make('actions'),

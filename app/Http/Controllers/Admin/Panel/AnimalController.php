@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Panel;
 
 use App\Filters\AnimalFilters;
 use App\Models\Animal;
@@ -11,7 +11,7 @@ use App\Support\Crud\Fields\Text;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\View\View;
 
-class AnimalController extends AdminBaseController
+class AnimalController extends PanelController
 {
     use Crud;
 

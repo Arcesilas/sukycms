@@ -33,6 +33,13 @@ return [
         'add_animal' => 'Crear ficha',
         'configuration' => 'Configuración',
         'activity_log' => 'Historial de cambios',
+        'panel' => 'Panel',
+
+        'modules' => 'Módules',
+        'backups' => 'Copias de seguridad',
+        'socialnetworks' => 'Redes sociales',
+        'updates' => 'Actualizaciones',
+        'maintenance' => 'Mantenimiento',
     ],
 
     'order' => [
