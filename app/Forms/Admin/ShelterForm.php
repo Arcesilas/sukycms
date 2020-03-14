@@ -24,12 +24,6 @@ class ShelterForm extends Form
             (new EmailField('email'))
                 ->setRequired(true),
 
-            (new SelectField('timezone'))
-                ->setChoices(Timezone::all()),
-
-            (new SelectField('language'))
-                ->setChoices(__('languages')),
-
             new SubmitField('save'),
         ]);
     }

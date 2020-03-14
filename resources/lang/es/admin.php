@@ -35,7 +35,7 @@ return [
         'activity_log' => 'Historial de cambios',
         'panel' => 'Panel',
 
-        'modules' => 'Módules',
+        'modules' => 'Módulos',
         'backups' => 'Copias de seguridad',
         'socialnetworks' => 'Redes sociales',
         'updates' => 'Actualizaciones',
