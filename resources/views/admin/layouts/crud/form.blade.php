@@ -1,4 +1,4 @@
-<div class="flex mt-12">
+<div class="flex">
     <div class="w-1/3">
         <h4 class="text-lg">Datos del sexo:</h4>
         <p class="help-text">Todos los campos son obligatorios</p>

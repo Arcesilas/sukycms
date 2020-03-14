@@ -4,13 +4,10 @@
 
     {!! $form->renderStart() !!}
 
-    <div class="card">
-        <div class="card-title flex flex-row justify-between">
-            <h3>{{ __($transNamespace.'.edit.title', ['title' => (string) $model]) }}</h3>
-        </div>
-        <div class="card-body">
-            <hr class="mt-8 mb-12">
+    <h4 class="text-xl mb-4">{{ __($transNamespace.'.edit.title', ['name' => (string) $model]) }}</h4>
 
+    <div class="card">
+        <div class="card-body">
             @include($viewNamespace.'.form')
         </div>
     </div>

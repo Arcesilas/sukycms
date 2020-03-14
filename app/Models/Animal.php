@@ -64,19 +64,14 @@ class Animal extends BaseModel
         return $this->belongsTo(AnimalSpecies::class);
     }
 
+    public function status(): BelongsTo
+    {
+        return $this->belongsTo(AnimalStatus::class);
+    }
+
     public function behaviors(): BelongsToMany
     {
         return $this->belongsToMany(Behavior::class, 'animal_behavior');
-    }
-
-//    public function statuses(): BelongsToMany
-//    {
-//        return $this->belongsToMany(Status::class, 'animal_status');
-//    }
-
-    public function statuses()
-    {
-        return $this->belongsToMany(Status::class, 'animal_status')->latest()->first()->status;
     }
 
     public function __toString(): string

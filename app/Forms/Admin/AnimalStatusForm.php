@@ -2,15 +2,15 @@
 
 namespace App\Forms\Admin;
 
-use App\Http\Requests\Admin\StatusRequest;
+use App\Http\Requests\Admin\AnimalStatusRequest;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SubmitField;
 use App\Support\Forms\Form;
 use Illuminate\Http\Request;
 
-class StatusForm extends Form
+class AnimalStatusForm extends Form
 {
-    public string $formRequest = StatusRequest::class;
+    public string $formRequest = AnimalStatusRequest::class;
 
     public function build(): void
     {

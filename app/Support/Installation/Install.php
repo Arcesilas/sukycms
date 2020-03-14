@@ -6,6 +6,7 @@ use App\Support\Installation\Animals\Behaviors;
 use App\Support\Installation\Animals\Location;
 use App\Support\Installation\Animals\Sex;
 use App\Support\Installation\Animals\Species;
+use App\Support\Installation\Animals\Statuses;
 
 class Install
 {
@@ -20,5 +21,6 @@ class Install
         Location::install();
         Sex::install();
         Species::install();
+        Statuses::install();
     }
 }

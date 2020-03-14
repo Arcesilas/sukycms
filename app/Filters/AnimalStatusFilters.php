@@ -2,7 +2,7 @@
 
 namespace App\Filters;
 
-class StatusFilters extends Filter
+class AnimalStatusFilters extends Filter
 {
     protected array $searchFields = [
         'status',

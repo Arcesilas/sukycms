@@ -3,7 +3,7 @@
 namespace App\Support\Installation\Animals;
 
 use App\Models\Behavior;
-use App\Models\Status;
+use App\Models\AnimalStatus;
 
 final class Statuses
 {
@@ -11,7 +11,7 @@ final class Statuses
     {
         $order = 1;
         foreach (self::data() as $status) {
-            Status::forceCreate([
+            AnimalStatus::forceCreate([
                 'status' => $status,
                 'order' => $order++,
             ]);

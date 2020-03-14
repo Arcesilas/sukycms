@@ -9,7 +9,7 @@ use App\Models\AnimalSpecies;
 use App\Models\Behavior;
 use App\Models\Page;
 use App\Models\Post;
-use App\Models\Status;
+use App\Models\AnimalStatus;
 use App\Models\User;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +28,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('location', AnimalLocation::class);
         Route::model('species', AnimalSpecies::class);
         Route::model('behavior', Behavior::class);
-        Route::model('status', Status::class);
+        Route::model('status', AnimalStatus::class);
 
         Route::macro('orderable', function (string $namespace, string $model, string $controller) {
             Route::get("{$namespace}/{{$model}}/up", [$controller, 'up'])->name("{$namespace}.up");

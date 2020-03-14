@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class StatusRequest extends FormRequest
+class AnimalStatusRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -17,7 +17,7 @@ class StatusRequest extends FormRequest
         return [
             'status' => [
                 'required',
-                Rule::unique('statuses', 'status')->ignore($this->route('status'))
+                Rule::unique('animal_statuses', 'status')->ignore($this->route('status'))
             ],
         ];
     }
