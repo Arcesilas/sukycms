@@ -19,7 +19,6 @@ class AnimalRequest extends BaseRequest
             'name' => 'required|max:100',
             'sex_id' => 'required|exists:animal_sexes,id',
             'species_id' => 'required|exists:animal_species,id',
-            'location_id' => 'required|exists:animal_locations,id',
             'birth_date' => 'required|date_format:'.option('date_format'),
             'entry_date' => 'date_format:'.option('date_format'),
             'weight' => 'numeric',
