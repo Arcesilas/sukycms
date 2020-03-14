@@ -34,7 +34,13 @@ trait Crud
 
     public function create(): View
     {
-        return view('admin.layouts.crud.create', array_merge([
+        if (view()->exists($this->viewNamespace.'.create')) {
+            $view = $this->viewNamespace.'.create';
+        } else {
+            $view = 'admin.layouts.crud.create';
+        }
+
+        return view($view, array_merge([
             'form' => $this->form()->make(),
         ], $this->formViewShare()));
     }
@@ -56,7 +62,13 @@ trait Crud
 
     public function edit(Model $model): View
     {
-        return view('admin.layouts.crud.edit', array_merge([
+        if (view()->exists($this->viewNamespace.'.edit')) {
+            $view = $this->viewNamespace.'.edit';
+        } else {
+            $view = 'admin.layouts.crud.edit';
+        }
+
+        return view($view, array_merge([
             'form' => $this->form()->setData($model)->make(),
             'model' => $model,
         ], $this->formViewShare()));

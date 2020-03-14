@@ -46,6 +46,20 @@ return [
             'success' => 'Localización eliminada correctamente',
         ],
     ],
+    'statuses' => [
+        'list' => 'Listado de estados',
+        'create' => [
+            'title' => 'Crear estado',
+            'success' => 'Estado creado correctamente',
+        ],
+        'edit' => [
+            'title' => 'Editar estado: :title',
+            'success' => 'Estado actualizado correctamente',
+        ],
+        'destroy' => [
+            'success' => 'Estado eliminado correctamente',
+        ],
+    ],
     'species' => [
         'list' => 'Listado de especies',
         'create' => [

@@ -6,6 +6,7 @@ use App\Http\Requests\Admin\AnimalRequest;
 use App\Models\AnimalLocation;
 use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
+use App\Models\AnimalStatus;
 use App\Support\Forms\Fields\DateField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SelectField;
@@ -24,6 +25,7 @@ class AnimalForm extends Form
             $this->url = route('admin.animals.store');
             $submitLabel = __('animals.form.create.submit');
             $this->method = 'POST';
+
         } else {
             $this->url = route('admin.animals.update', request()->route('animal'));
             $submitLabel = __('forms.save');
@@ -41,10 +43,6 @@ class AnimalForm extends Form
             (new SelectField('sex_id'))
                 ->setLabel(__('forms.sex'))
                 ->setChoices($this->getSexes()),
-
-            (new SelectField('location_id'))
-                ->setLabel(__('forms.location'))
-                ->setChoices($this->getLocations()),
 
             (new DateField('birth_date')),
 
@@ -69,6 +67,16 @@ class AnimalForm extends Form
             (new SubmitField('save'))
                 ->setLabel($submitLabel),
         ]);
+
+        if (empty($this->data)) {
+            $this->add((new SelectField('location_id'))
+                ->setLabel(__('forms.location'))
+                ->setChoices($this->getLocations()));
+
+            $this->add((new SelectField('status_id'))
+                ->setLabel(__('forms.status'))
+                ->setChoices($this->getStatuses()));
+        }
     }
 
     private function getSpecies(): array
@@ -84,5 +92,10 @@ class AnimalForm extends Form
     private function getLocations(): array
     {
         return AnimalLocation::orderBy('order')->pluck('location', 'id')->toArray();
+    }
+
+    private function getStatuses(): array
+    {
+        return AnimalStatus::orderBy('order')->pluck('status', 'id')->toArray();
     }
 }
