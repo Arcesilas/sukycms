@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Admin\Panel\DashboardController;
 use App\Http\Controllers\Admin\Panel\ShelterController;
-use App\Http\Controllers\Admin\Panel\UserController;
 use App\Http\Controllers\Admin\Panel\WebController;
+
+Route::get('/', function () {
+    return redirect()->route('admin.dashboard');
+});
 
 Route::group(['prefix' => 'panel'], function () {
     Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');

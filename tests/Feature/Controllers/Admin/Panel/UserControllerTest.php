@@ -2,14 +2,14 @@
 
 namespace Tests\Feature\Controllers\Admin;
 
-use App\Http\Controllers\Admin\AnimalStatusController;
+use App\Http\Controllers\Admin\Panel\UserController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Feature\TestCrud;
 use Tests\TestCase;
 
-class AnimalStatusControllerTest extends TestCase
+class UserControllerTest extends TestCase
 {
     use RefreshDatabase, TestCrud;
 
-    protected string $controller = AnimalStatusController::class;
+    protected string $controller = UserController::class;
 }

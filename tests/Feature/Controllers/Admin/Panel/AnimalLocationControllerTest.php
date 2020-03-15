@@ -2,10 +2,10 @@
 
 namespace Tests\Feature\Controllers\Admin;
 
-use App\Http\Controllers\Admin\AnimalController;
-use App\Http\Controllers\Admin\AnimalLocationController;
-use App\Http\Controllers\Admin\AnimalSexController;
-use App\Http\Controllers\Admin\AnimalSpeciesController;
+use App\Http\Controllers\Admin\Panel\AnimalController;
+use App\Http\Controllers\Admin\Panel\AnimalLocationController;
+use App\Http\Controllers\Admin\Panel\AnimalSexController;
+use App\Http\Controllers\Admin\Panel\AnimalSpeciesController;
 use App\Models\Animal;
 use App\Models\AnimalLocation;
 use Illuminate\Foundation\Testing\RefreshDatabase;

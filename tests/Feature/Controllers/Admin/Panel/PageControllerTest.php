@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Controllers\Admin;
 
-use App\Http\Controllers\Admin\PageController;
+use App\Http\Controllers\Admin\Panel\PageController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Feature\TestCrud;
 use Tests\TestCase;
