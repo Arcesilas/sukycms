@@ -33,6 +33,7 @@ return [
         'add_animal' => 'Crear ficha',
         'configuration' => 'Configuración',
         'activity_log' => 'Historial de cambios',
+<<<<<<< HEAD
         'panel' => 'Panel',
 
         'modules' => 'Módulos',
@@ -40,6 +41,8 @@ return [
         'socialnetworks' => 'Redes sociales',
         'updates' => 'Actualizaciones',
         'maintenance' => 'Mantenimiento',
+=======
+>>>>>>> parent of 9ff8279... wip refactor
     ],
 
     'order' => [

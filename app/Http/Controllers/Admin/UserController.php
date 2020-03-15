@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Panel;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -9,7 +9,7 @@ use App\Filters\UserFilters;
 use App\Support\Crud\Fields\Text;
 use App\Support\Crud\Fields\Custom;
 
-class UserController extends PanelController
+class UserController extends AdminBaseController
 {
     use Crud;
 

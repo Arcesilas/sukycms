@@ -1,11 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Panel;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\BaseController;
+use App\Http\Controllers\Controller;
 
-abstract class PanelController extends BaseController
+class AdminBaseController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('sidebar', $this->getSidebar());
+    }
+
     protected function getSidebar(): array
     {
         return [
@@ -13,7 +18,7 @@ abstract class PanelController extends BaseController
                 'title' => __('admin.sidebar.general'),
                 'links' => [
                     [
-                        'title' => __('admin.sidebar.panel'),
+                        'title' => __('admin.sidebar.dashboard'),
                         'icon' => 'fas fa-columns fa-fw',
                         'url' => route('admin.dashboard'),
                         'active' => 'admin',

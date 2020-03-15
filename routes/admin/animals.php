@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\Panel\AnimalController;
-use App\Http\Controllers\Admin\Panel\AnimalLocationController;
-use App\Http\Controllers\Admin\Panel\AnimalSexController;
-use App\Http\Controllers\Admin\Panel\AnimalSpeciesController;
-use App\Http\Controllers\Admin\Panel\AnimalStatusController;
-use App\Http\Controllers\Admin\Panel\BehaviorController;
+use App\Http\Controllers\Admin\AnimalController;
+use App\Http\Controllers\Admin\AnimalLocationController;
+use App\Http\Controllers\Admin\AnimalSexController;
+use App\Http\Controllers\Admin\AnimalSpeciesController;
+use App\Http\Controllers\Admin\AnimalStatusController;
+use App\Http\Controllers\Admin\BehaviorController;
 
 Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static function () {
     Route::get('/', [AnimalController::class, 'configuration'])->name('configuration');

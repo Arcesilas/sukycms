@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Http\Controllers\Admin\Panel;
+namespace App\Http\Controllers\Admin;
 
 
 use Illuminate\View\View;
 
-class WebController extends PanelController
+class WebController extends AdminBaseController
 {
     public function index(): View
     {

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Panel;
+namespace App\Http\Controllers\Admin;
 
 use App\Forms\Admin\ShelterForm;
 use App\Http\Requests\Admin\ShelterRequest;
 use App\Models\Option;
 
-class ShelterController extends PanelController
+class ShelterController extends AdminBaseController
 {
     public function form(ShelterForm $form)
     {
