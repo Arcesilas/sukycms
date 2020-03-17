@@ -12,6 +12,26 @@ return [
         'autoload' => true,
         'default' => 'sukycms@gmail.com',
     ],
+    'address' => [
+        'required' => false,
+        'autoload' => false,
+        'default' => null,
+    ],
+    'postal_code' => [
+        'required' => false,
+        'autoload' => false,
+        'default' => null,
+    ],
+    'city' => [
+        'required' => false,
+        'autoload' => false,
+        'default' => null,
+    ],
+    'country' => [
+        'required' => false,
+        'autoload' => false,
+        'default' => null,
+    ],
     'domain' => [
         'required' => true,
         'autoload' => true,

@@ -28,6 +28,11 @@ return [
     'published_at' => 'Fecha de publicación',
     'category_id' => 'Categoría',
     'title' => 'Título',
+    'address' => 'Dirección',
+    'postal_code' => 'Código postal',
+    'city' => 'Ciudad',
+    'country' => 'País',
+    'description' => 'Descripción',
 
     'animals_count' => 'Nº de animales',
 
