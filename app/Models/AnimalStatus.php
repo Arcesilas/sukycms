@@ -9,6 +9,27 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * App\Models\AnimalStatus
+ *
+ * @property int $id
+ * @property string $status
+ * @property int $order
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Animal[] $animals
+ * @property-read int|null $animals_count
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus filter(\App\Filters\Filter $filters)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus whereOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\AnimalStatus whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
 class AnimalStatus extends Model
 {
     use Filterable, LogsActivity;

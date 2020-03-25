@@ -7,6 +7,34 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Support\Arr;
 
+/**
+ * App\Models\ActivityLog
+ *
+ * @property int $id
+ * @property int $user_id
+ * @property string $model_type
+ * @property int $model_id
+ * @property string|null $description
+ * @property \Illuminate\Support\Collection|null $before
+ * @property \Illuminate\Support\Collection|null $after
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $model
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereAfter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereBefore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereModelId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereModelType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ActivityLog whereUserId($value)
+ * @mixin \Eloquent
+ */
 class ActivityLog extends Model
 {
     protected $table = 'activity_log';

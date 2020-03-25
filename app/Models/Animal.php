@@ -13,6 +13,65 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
+/**
+ * App\Models\Animal
+ *
+ * @property int $id
+ * @property string|null $identifier
+ * @property string $name
+ * @property int $species_id
+ * @property int $sex_id
+ * @property int $location_id
+ * @property int $status_id
+ * @property \Illuminate\Support\Carbon $birth_date
+ * @property \Illuminate\Support\Carbon|null $entry_date
+ * @property float|null $weight
+ * @property int|null $height
+ * @property int|null $length
+ * @property string|null $litter
+ * @property string|null $breed
+ * @property string|null $microchip
+ * @property string $description
+ * @property string|null $private_description
+ * @property int $visits_list
+ * @property int $visits
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property string|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Behavior[] $behaviors
+ * @property-read int|null $behaviors_count
+ * @property-read \App\Models\AnimalSpecies $kind
+ * @property-read \App\Models\AnimalLocation $location
+ * @property-read \App\Models\AnimalSex $sex
+ * @property-read \App\Models\AnimalStatus $status
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal filter(\App\Filters\Filter $filters)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal query()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereBirthDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereBreed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereEntryDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereHeight($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereIdentifier($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereLength($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereLitter($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereLocationId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereMicrochip($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal wherePrivateDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereSexId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereSpeciesId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereStatusId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereVisits($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereVisitsList($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Animal whereWeight($value)
+ * @mixin \Eloquent
+ */
 class Animal extends BaseModel
 {
     use Filterable, LogsActivity;
