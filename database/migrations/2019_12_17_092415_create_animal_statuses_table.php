@@ -14,7 +14,7 @@ class CreateAnimalStatusesTable extends Migration
     public function up()
     {
         Schema::create('animal_statuses', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('status')->unique();
             $table->smallInteger('order');
             $table->timestamps();

@@ -9,7 +9,7 @@ class CreateAnimalSexesTable extends Migration
     public function up(): void
     {
         Schema::create('animal_sexes', static function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('sex')->unique();
             $table->smallInteger('order');
             $table->timestamps();

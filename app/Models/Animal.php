@@ -12,6 +12,7 @@ use App\Support\LogsActivity;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Models\Animal
@@ -131,6 +132,11 @@ class Animal extends BaseModel
     public function behaviors(): BelongsToMany
     {
         return $this->belongsToMany(Behavior::class, 'animal_behavior');
+    }
+
+    public function health(): HasMany
+    {
+        return $this->hasMany(AnimalHealth::class);
     }
 
     public function __toString(): string

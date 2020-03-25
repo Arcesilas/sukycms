@@ -9,14 +9,14 @@ class CreateAnimalBehaviorsTable extends Migration
     public function up(): void
     {
         Schema::create('behaviors', static function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('behavior')->unique();
             $table->smallInteger('order');
             $table->timestamps();
         });
 
         Schema::create('animal_behavior', static function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('animal_id');
             $table->unsignedBigInteger('behavior_id');
             $table->timestamps();

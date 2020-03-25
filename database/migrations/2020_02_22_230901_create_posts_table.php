@@ -9,7 +9,7 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts_categories', static function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
         });
 
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->string('title');

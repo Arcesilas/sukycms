@@ -9,7 +9,7 @@ class CreateOptionsTable extends Migration
     public function up(): void
     {
         Schema::create('options', static function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('key')->unique();
             $table->text('value')->nullable();
             $table->boolean('autoload')->default(false);

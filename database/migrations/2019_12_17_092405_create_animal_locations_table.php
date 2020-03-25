@@ -9,7 +9,7 @@ class CreateAnimalLocationsTable extends Migration
     public function up(): void
     {
         Schema::create('animal_locations', static function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('location')->unique();
             $table->smallInteger('order');
             $table->timestamps();
