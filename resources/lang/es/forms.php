@@ -33,8 +33,18 @@ return [
     'city' => 'Ciudad',
     'country' => 'País',
     'description' => 'Descripción',
+    'type' => 'Tipo',
+    'start_date' => 'Fecha de inicio',
+    'end_date' => 'Fecha de fin',
+    'text' => 'Texto',
+    'observations' => 'Observaciones',
 
     'animals_count' => 'Nº de animales',
+
+    'treatments_number' => 'Número de tratamientos',
+    'treatments_life' => 'Tratamiento de por vida',
+    'treatments_time' => 'Tiempo',
+    'treatments_each' => 'Tratar cada',
 
     'login' => 'Acceder',
     'remember' => 'Recordarme',

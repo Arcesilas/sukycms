@@ -14,7 +14,7 @@
             <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-exchange-alt fa-fw"></i> Situación</a>
         </li>
         <li class="mr-1">
-            <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-book-medical fa-fw"></i> Salud</a>
+            <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="{{ route('admin.animals.health.index') }}"><i class="fas fa-book-medical fa-fw"></i> Salud</a>
         </li>
         <li class="mr-1">
             <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-file-alt fa-fw"></i> Notas</a>

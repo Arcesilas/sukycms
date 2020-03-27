@@ -88,4 +88,36 @@ return [
             'success' => 'Comportamiento eliminado correctamente',
         ],
     ],
+    'health' => [
+        'list' => 'Listado de salud',
+        'create' => [
+            'title' => 'Crear salud',
+            'success' => 'Salud creada correctamente',
+        ],
+        'edit' => [
+            'title' => 'Editar salud: :title',
+            'success' => 'Salud actualizada correctamente',
+        ],
+        'destroy' => [
+            'success' => 'Salud eliminada correctamente',
+        ],
+
+        'type' => [
+            'treatment' => 'Tratamiento',
+            'vaccine' => 'Vacuna',
+            'operation' => 'Operación',
+            'review' => 'Revisión',
+            'appointment' => 'Cita',
+            'test' => 'Prueba',
+            'disease' => 'Enfermedad',
+        ],
+
+        'treatments_time' => [
+            'hour'  => 'hora/s',
+            'day'   => 'día/s',
+            'week'  => 'semana/s',
+            'month' => 'mes/es',
+            'year'  => 'año/s',
+        ],
+    ],
 ];

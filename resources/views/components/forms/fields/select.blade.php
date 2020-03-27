@@ -12,7 +12,7 @@
     @endif
 
     <div class="relative">
-        <select type="text" name="{{ $field->name }}" id="{{ $field->id }}"
+        <select type="text" name="{{ $field->name }}" id="{{ $field->id }}" class="{{ $field->class }}"
         @foreach ($field->options as $key => $value)
             {{ $key }}="{{ $value }}"
         @endforeach

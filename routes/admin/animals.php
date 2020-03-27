@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AnimalController;
+use App\Http\Controllers\Admin\AnimalHealthController;
 use App\Http\Controllers\Admin\AnimalLocationController;
 use App\Http\Controllers\Admin\AnimalSexController;
 use App\Http\Controllers\Admin\AnimalSpeciesController;
@@ -24,6 +25,10 @@ Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static f
 
     Route::resource('statuses', AnimalStatusController::class);
     Route::orderable('statuses', 'status', AnimalStatusController::class);
+});
+
+Route::group(['as' => 'animals.', 'prefix' => 'animals'], static function () {
+    Route::resource('health', AnimalHealthController::class);
 });
 
 Route::resource('animals', AnimalController::class);
