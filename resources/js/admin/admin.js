@@ -106,6 +106,15 @@ $(document).ready(function () {
             }
         })
     });
+
+    $('select.select-toggle').on('change', function () {
+        const name = $(this).attr('name');
+        const value = $(this).val();
+        let target = $(`[data-select-toggle="${value}"]`);
+
+        $(`[data-select-toggle-parent="${name}"]`).addClass('hidden');
+        target.toggleClass('hidden');
+    });
 });
 
 Dropzone.autoDiscover = false;
