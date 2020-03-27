@@ -67,6 +67,38 @@
                 </div>
             </div>
         </div>
+
+        <div class="hidden" data-select-toggle="vaccine" data-select-toggle-parent="type">
+            <div class="flex pt-4">
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('vaccine_name') !!}
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden" data-select-toggle="disease" data-select-toggle-parent="type">
+            <div class="flex pt-4">
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('disease') !!}
+                </div>
+            </div>
+            <div class="flex pt-4">
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('treatments_number') !!}
+                </div>
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('treatments_life') !!}
+                </div>
+            </div>
+            <div class="flex pt-4">
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('treatments_each') !!}
+                </div>
+                <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('treatments_time') !!}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

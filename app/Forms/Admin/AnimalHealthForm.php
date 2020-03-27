@@ -62,6 +62,12 @@ class AnimalHealthForm extends Form
             (new InputField('test')),
 
             (new InputField('test_result')),
+
+            // VACCINE
+            (new InputField('vaccine_name')),
+
+            // DISEASE
+            (new InputField('disease')),
         ]);
     }
 }
