@@ -115,6 +115,29 @@ $(document).ready(function () {
         $(`[data-select-toggle-parent="${name}"]`).addClass('hidden');
         target.toggleClass('hidden');
     });
+
+    // IS FORM CHANGED
+    let _isDirty = false;
+
+    $(':input').change(function () {
+        let form = $(this).closest('form');
+
+        if (form.prop('method') !== 'get') {
+            _isDirty = true;
+        }
+    });
+
+    onbeforeunload = function (e) {
+        if (_isDirty) {
+            return '¿Estás seguro? Se perderán los cambios.';
+        }
+    };
+
+    onunload = function (e) {
+        if (_isDirty) {
+            confirm('¿Estás seguro? Se perderán los cambios.');
+        }
+    };
 });
 
 Dropzone.autoDiscover = false;
