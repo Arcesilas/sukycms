@@ -37,7 +37,10 @@ class AnimalHealthForm extends Form
 
             (new DateTimeField('end_date')),
 
+            (new InputField('medicine')),
+
             (new SelectField('type'))
+                ->setEmptyOption(true)
                 ->setClass('select-toggle')
                 ->setChoices(__('animals.health.type')),
 
@@ -56,7 +59,7 @@ class AnimalHealthForm extends Form
                 ->setChoices(__('animals.health.treatments_time')),
 
             (new SelectField('treatments_life'))
-                ->setChoices([]),
+                ->setChoices(__('forms.boolean')),
 
             // TEST
             (new InputField('test')),
@@ -64,7 +67,7 @@ class AnimalHealthForm extends Form
             (new InputField('test_result')),
 
             // VACCINE
-            (new InputField('vaccine_name')),
+            (new InputField('vaccine')),
 
             // DISEASE
             (new InputField('disease')),

@@ -64,4 +64,9 @@ return [
             'text' => 'Revisa el formulario',
         ],
     ],
+
+    'boolean' => [
+        'no' => 'No',
+        'yes' => 'Si',
+    ]
 ];

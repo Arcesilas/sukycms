@@ -17,6 +17,9 @@
             {{ $key }}="{{ $value }}"
         @endforeach
         >
+            @if ($field->emptyOption)
+                <option value="" disabled selected>- Seleccione -</option>
+            @endif
             @foreach ($field->choices as $key => $value)
                 @if (is_array($value))
                     <optgroup label="{{ $key }}">

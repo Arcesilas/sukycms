@@ -11,6 +11,8 @@ class SelectField extends Field
 
     public string $selected = '';
 
+    public bool $emptyOption = false;
+
     public function setSelected(string $selected): self
     {
         $this->selected = $selected;
@@ -21,6 +23,13 @@ class SelectField extends Field
     public function setChoices(array $choices): self
     {
         $this->choices = $choices;
+
+        return $this;
+    }
+
+    public function setEmptyOption(bool $emptyOption): self
+    {
+        $this->emptyOption = $emptyOption;
 
         return $this;
     }
