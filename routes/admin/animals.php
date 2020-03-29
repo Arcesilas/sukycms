@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AnimalController;
 use App\Http\Controllers\Admin\AnimalHealthController;
 use App\Http\Controllers\Admin\AnimalLocationController;
+use App\Http\Controllers\Admin\AnimalPhotoController;
 use App\Http\Controllers\Admin\AnimalSexController;
 use App\Http\Controllers\Admin\AnimalSpeciesController;
 use App\Http\Controllers\Admin\AnimalStatusController;
@@ -29,6 +30,10 @@ Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static f
 
 Route::group(['as' => 'animals.', 'prefix' => 'animals/{animal}'], static function () {
     Route::resource('health', AnimalHealthController::class);
+
+    Route::group(['as' => 'photos.', 'prefix' => 'photos'], function () {
+        Route::get('/', [AnimalPhotoController::class, 'index'])->name('index');
+    });
 });
 
 Route::resource('animals', AnimalController::class);
