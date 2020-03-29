@@ -3,7 +3,6 @@
 namespace App\Forms\Admin;
 
 use App\Http\Requests\Admin\AnimalHealthRequest;
-use App\Http\Requests\Admin\AnimalLocationRequest;
 use App\Support\Forms\Fields\DateTimeField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\NumberField;
@@ -20,11 +19,11 @@ class AnimalHealthForm extends Form
     public function build(): void
     {
         if (empty($this->data)) {
-            $this->url = route('admin.animals.health.store');
+            $this->url = route('admin.animals.health.store', request()->route('animal'));
             $submitLabel = __('forms.save');
             $this->method = 'POST';
         } else {
-            $this->url = route('admin.animals.health.update', request()->route('location'));
+            $this->url = route('admin.animals.health.update', request()->route('health'));
             $submitLabel = __('forms.save');
             $this->method = Request::METHOD_PUT;
         }

@@ -138,7 +138,7 @@
 <hr class="mt-8 mb-6">
 
 <div class="flex justify-between">
-    <a href="{{ route('admin.animals.health.index') }}" class="btn btn-gray-outline"><i class="fas fa-chevron-left mr-2"></i> Volver</a>
+    <a href="{{ route('admin.animals.health.index', $parent) }}" class="btn btn-gray-outline"><i class="fas fa-chevron-left mr-2"></i> Volver</a>
 
     {!! $form->renderField('save') !!}
 </div>

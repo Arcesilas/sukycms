@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Filters\AnimalHealthFilters;
 use App\Models\AnimalHealth;
-use App\Support\Crud\Crud;
+use App\Support\Crud\CrudChild;
 use App\Support\Crud\DontDestroyLast;
 use App\Support\Crud\Fields\Text;
 use App\Support\Orderable;
@@ -12,7 +12,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class AnimalHealthController extends AdminBaseController
 {
-    use Crud, Orderable, DontDestroyLast;
+    use CrudChild, Orderable, DontDestroyLast;
 
     protected string $model = AnimalHealth::class;
 

@@ -27,7 +27,7 @@ Route::group(['as' => 'animals.', 'prefix' => 'animals/configuration'], static f
     Route::orderable('statuses', 'status', AnimalStatusController::class);
 });
 
-Route::group(['as' => 'animals.', 'prefix' => 'animals'], static function () {
+Route::group(['as' => 'animals.', 'prefix' => 'animals/{animal}'], static function () {
     Route::resource('health', AnimalHealthController::class);
 });
 
