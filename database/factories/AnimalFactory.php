@@ -12,7 +12,7 @@ use Faker\Generator as Faker;
 $factory->define(Animal::class, static function (Faker $faker) {
     return [
         'identifier' => $faker->optional(0.2)->bothify('####???####'),
-        'name' => ucfirst($faker->unique()->text(30)),
+        'name' => ucfirst($faker->word),
         'species_id' => AnimalSpecies::inRandomOrder()->first()->id,
         'sex_id' => AnimalSex::inRandomOrder()->first()->id,
         'location_id' => AnimalLocation::inRandomOrder()->first()->id,

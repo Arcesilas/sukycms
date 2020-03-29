@@ -18,6 +18,10 @@ return [
         'submit' => 'Actualizar ficha',
     ],
 
+    'file' => [
+        'title' => 'Ficha de :name',
+    ],
+
     'sexes' => [
         'list' => 'Listado de sexos',
         'create' => [
