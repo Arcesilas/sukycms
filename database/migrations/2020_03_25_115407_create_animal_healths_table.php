@@ -22,6 +22,7 @@ class CreateAnimalHealthsTable extends Migration
             $table->string('type');
             $table->boolean('hidden_in_calendar')->default(false);
             $table->string('medicine')->nullable();
+            $table->string('vaccine')->nullable();
             $table->text('text')->nullable();
             $table->text('result')->nullable();
             $table->integer('treatments_number')->nullable();

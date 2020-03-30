@@ -33,6 +33,6 @@
         <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-users fa-fw"></i> Apadrinamientos</a>
     </li>
     <li class="mr-1">
-        <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-coins fa-fw"></i> Costes</a>
+        <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-list-ul fa-fw"></i> Resumen</a>
     </li>
 </ul>

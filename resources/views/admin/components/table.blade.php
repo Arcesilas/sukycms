@@ -36,7 +36,7 @@
                 @endif
             </div>
         @else
-            @if (view()->exists("$viewNamespace.empty_table"))
+            @if (isset($viewNamespace) && view()->exists("$viewNamespace.empty_table"))
                 @include("$viewNamespace.empty_table")
             @else
                 <div class="text-3xl py-20 text-center text-gray-600">

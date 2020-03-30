@@ -29,17 +29,6 @@ $(document).ready(function () {
         icon.addClass('fas fa-spinner fa-spin mr-2');
     });
 
-    $('form').on('submit', function () {
-        let button = $('.btn-loading');
-        let icon = button.find('i').first();
-
-        icon.removeClass();
-        icon.addClass('fas fa-spinner fa-spin mr-2');
-
-        button.prop('disabled', true);
-        return true;
-    });
-
     $.datetimepicker.setLocale('es');
     $('[data-toggle="datepicker"]').datetimepicker({
         format: SukyCMS.dateFormat,
@@ -118,6 +107,20 @@ $(document).ready(function () {
 
     // IS FORM CHANGED
     let _isDirty = false;
+    let _submitted = false;
+
+    $('form').on('submit', function () {
+        _submitted = true;
+
+        let button = $('.btn-loading');
+        let icon = button.find('i').first();
+
+        icon.removeClass();
+        icon.addClass('fas fa-spinner fa-spin mr-2');
+
+        button.prop('disabled', true);
+        return true;
+    });
 
     $(':input').change(function () {
         let form = $(this).closest('form');
@@ -128,13 +131,13 @@ $(document).ready(function () {
     });
 
     onbeforeunload = function (e) {
-        if (_isDirty) {
+        if (_isDirty && ! _submitted) {
             return '¿Estás seguro? Se perderán los cambios.';
         }
     };
 
     onunload = function (e) {
-        if (_isDirty) {
+        if (_isDirty && ! _submitted) {
             confirm('¿Estás seguro? Se perderán los cambios.');
         }
     };

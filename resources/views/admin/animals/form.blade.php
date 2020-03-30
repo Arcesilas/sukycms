@@ -93,21 +93,23 @@
     </div>
 </div>
 
-<hr class="mt-8 mb-12">
+@if (! Request::routeIs('admin.animals.edit'))
+    <hr class="mt-8 mb-12">
 
-<div class="flex mt-12">
-    <div class="w-1/3">
-        <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-photos"><i
-                class="far fa-plus-square"></i> Fotos:</h4>
-        <p class="help-text">Elige las fotografías que aparecerán en la ficha del animal. Una vez creada la ficha podrás
-            cambiar la foto principal</p>
-    </div>
-    <div class="animal-form-photos w-2/3 hidden">
-        <div class="w-full flex px-4">
-            <div class="dropzone w-full"></div>
+    <div class="flex mt-12">
+        <div class="w-1/3">
+            <h4 class="text-lg cursor-pointer" data-toggle="show" data-item=".animal-form-photos"><i
+                    class="far fa-plus-square"></i> Fotos:</h4>
+            <p class="help-text">Elige las fotografías que aparecerán en la ficha del animal. Una vez creada la ficha podrás
+                cambiar la foto principal</p>
+        </div>
+        <div class="animal-form-photos w-2/3 hidden">
+            <div class="w-full flex px-4">
+                <div class="dropzone w-full"></div>
+            </div>
         </div>
     </div>
-</div>
+@endif
 
 <hr class="mt-8 mb-12">
 
