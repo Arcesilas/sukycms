@@ -12,6 +12,12 @@ class AnimalHealth extends BaseModel
 
     public string $form = AnimalHealthForm::class;
 
+    protected $casts = [
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'treatments_life' => 'bool',
+    ];
+
     public function animal(): BelongsTo
     {
         return $this->belongsTo(Animal::class);

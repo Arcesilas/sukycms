@@ -3,10 +3,9 @@
 namespace App\Support\Forms;
 
 use App\Support\Forms\Fields\Field;
-use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\SelectField;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use RuntimeException;
 
 abstract class Form
@@ -37,6 +36,7 @@ abstract class Form
 
     public function renderField(string $name, array $options = [])
     {
+        /** @var Field $field */
         $field = $this->fields[$name];
 
         if (isset($options['wrapper'])) {
@@ -46,6 +46,8 @@ abstract class Form
         if (isset($options['show_label'])) {
             $field->setShowLabel($options['show_label']);
         }
+
+        $field->id = $field->id . '-' . Str::random(8);
 
         return $field->render();
     }

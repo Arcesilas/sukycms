@@ -2,10 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\BaseRequest;
 
-class AnimalHealthRequest extends FormRequest
+class AnimalHealthRequest extends BaseRequest
 {
     public function authorize(): bool
     {
@@ -24,14 +23,14 @@ class AnimalHealthRequest extends FormRequest
             'vaccine' => 'required_if:type,vaccine',
 
             // Treatment
-            'treatments_number' => 'required_if:type,treatment|required_if:type,disease',
-            'treatments_each' => 'required_if:type,treatment|required_if:type,disease',
-            'treatments_time' => 'required_if:type,treatment|required_if:type,disease',
-            'treatments_life' => 'required_if:type,treatment|required_if:type,disease',
+            'treatments_number' => '',
+            'treatments_each' => '',
+            'treatments_time' => '',
+            'treatments_life' => '',
 
             // Disease
             'disease' => 'required_if:type,disease',
-            'medicine' => '',
+            'medicine' => 'required_if:type,treatment|required_if:type,disease',
         ];
     }
 }

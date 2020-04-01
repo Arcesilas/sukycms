@@ -37,6 +37,11 @@
         <div class="hidden" data-select-toggle="treatment" data-select-toggle-parent="type">
             <div class="flex pt-4">
                 <div class="w-1/2 flex px-4">
+                    {!! $form->renderField('medicine') !!}
+                </div>
+            </div>
+            <div class="flex pt-4">
+                <div class="w-1/2 flex px-4">
                     {!! $form->renderField('treatments_number') !!}
                 </div>
                 <div class="w-1/2 flex px-4">

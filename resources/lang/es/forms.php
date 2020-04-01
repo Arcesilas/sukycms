@@ -66,7 +66,7 @@ return [
     ],
 
     'boolean' => [
-        'no' => 'No',
-        'yes' => 'Si',
+        0 => 'No',
+        1 => 'Si',
     ]
 ];

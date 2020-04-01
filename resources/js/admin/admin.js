@@ -96,11 +96,25 @@ $(document).ready(function () {
         })
     });
 
-    $('select.select-toggle').on('change', function () {
+    $('form .hidden input').attr('disabled', true);
+
+    let selectToggle = $('select.select-toggle');
+    if (selectToggle.val()) {
+        const name = selectToggle.attr('name');
+        const value = selectToggle.val();
+        let target = $(`[data-select-toggle="${value}"]`);
+
+        $(`[data-select-toggle="${value}"] input`).removeAttr('disabled');
+        $(`[data-select-toggle-parent="${name}"]`).addClass('hidden');
+        target.toggleClass('hidden');
+    }
+
+    selectToggle.on('change', function () {
         const name = $(this).attr('name');
         const value = $(this).val();
         let target = $(`[data-select-toggle="${value}"]`);
 
+        $(`[data-select-toggle="${value}"] input`).removeAttr('disabled');
         $(`[data-select-toggle-parent="${name}"]`).addClass('hidden');
         target.toggleClass('hidden');
     });
