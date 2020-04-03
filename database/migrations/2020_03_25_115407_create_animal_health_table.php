@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAnimalHealthsTable extends Migration
+class CreateAnimalHealthTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAnimalHealthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('animal_healths', function (Blueprint $table) {
+        Schema::create('animal_health', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('animal_id')->index();
             $table->string('title');

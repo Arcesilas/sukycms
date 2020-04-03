@@ -16,6 +16,8 @@ class AnimalHealthController extends AdminBaseController
 
     protected string $model = AnimalHealth::class;
 
+    protected string $parentRelationship = 'health';
+
     protected string $namespace = 'animals.health';
 
     public function indexQuery(): LengthAwarePaginator

@@ -23,7 +23,10 @@ class AnimalHealthForm extends Form
             $submitLabel = __('forms.save');
             $this->method = 'POST';
         } else {
-            $this->url = route('admin.animals.health.update', request()->route('health'));
+            $this->url = route('admin.animals.health.update', [
+                request()->route('animal'),
+                request()->route('health')
+            ]);
             $submitLabel = __('forms.save');
             $this->method = Request::METHOD_PUT;
         }

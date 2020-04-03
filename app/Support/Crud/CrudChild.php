@@ -47,11 +47,17 @@ trait CrudChild
         ], $this->formViewShare()));
     }
 
-    public function store(): RedirectResponse
+    public function store(Model $parent): RedirectResponse
     {
+        $relationship = $parent->{$this->parentRelationship}();
+
+        /** @var \App\Http\Requests\BaseRequest $validation */
         $validation = app($this->formRequest());
 
-        $model = (new $this->model)->forceCreate($validation->validated());
+        $data = $validation->validated();
+        $data[$relationship->getForeignKeyName()] = $parent->id;
+
+        $model = $parent->{$this->parentRelationship}()->forceCreate($data);
 
         activityLog()->onModel($model)->log();
 
@@ -59,7 +65,7 @@ trait CrudChild
             __($this->transNamespace.'.create.success'),
         )->show();
 
-        return redirect()->route($this->routeNamespace.'.index');
+        return redirect()->route($this->routeNamespace.'.index', $parent);
     }
 
     public function edit(Model $parent, Model $model): View
@@ -79,6 +85,7 @@ trait CrudChild
 
     public function update(Model $parent, Model $model): RedirectResponse
     {
+        /** @var \App\Http\Requests\BaseRequest $validation */
         $validation = app($this->formRequest());
 
         foreach ($validation->validated() as $key => $value) {
@@ -95,7 +102,7 @@ trait CrudChild
             __($this->transNamespace.'.edit.success'),
         )->show();
 
-        return redirect()->route($this->routeNamespace.'.edit', $model);
+        return redirect()->route($this->routeNamespace.'.edit', [$parent, $model]);
     }
 
     public function destroy(Model $parent, Model $model): RedirectResponse
@@ -105,7 +112,7 @@ trait CrudChild
         }
 
         if (in_array(DontDestroyLast::class, class_uses($this)) && ! $this->dontDestroyLast($model)) {
-            return redirect()->route($this->routeNamespace.'.index');
+            return redirect()->route($this->routeNamespace.'.index', $parent);
         }
 
         $model->delete();
@@ -118,7 +125,7 @@ trait CrudChild
             __($this->transNamespace.'.destroy.success'),
         )->show();
 
-        return redirect()->route($this->routeNamespace.'.index');
+        return redirect()->route($this->routeNamespace.'.index', $parent);
     }
 
     public function model(): Model

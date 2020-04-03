@@ -10,6 +10,8 @@ class AnimalHealth extends BaseModel
 {
     use Filterable;
 
+    public $table = 'animal_health';
+
     public string $form = AnimalHealthForm::class;
 
     protected $casts = [
@@ -21,5 +23,10 @@ class AnimalHealth extends BaseModel
     public function animal(): BelongsTo
     {
         return $this->belongsTo(Animal::class);
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

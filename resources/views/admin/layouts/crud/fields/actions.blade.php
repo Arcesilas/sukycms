@@ -1,12 +1,12 @@
 <td class="actions visible">
     <ul>
         <li>
-            <a href="{{ route($routeNamespace.'.edit', $item) }}" class="text-blue-500" data-tooltip="Editar">
+            <a href="{{ route($routeNamespace.'.edit', isset($parent) ? [$parent, $item] : $item) }}" class="text-blue-500" data-tooltip="Editar">
                 <i class="fas fa-edit fa-fw"></i>
             </a>
         </li>
         <li>
-            <form action="{{ route($routeNamespace.'.destroy', $item) }}" method="POST" class="inline confirm">
+            <form action="{{ route($routeNamespace.'.destroy', isset($parent) ? [$parent, $item] : $item) }}" method="POST" class="inline confirm">
                 @method('DELETE')
                 @csrf
 

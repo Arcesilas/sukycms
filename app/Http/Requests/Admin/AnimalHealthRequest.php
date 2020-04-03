@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Enum\Users\HealthType;
 use App\Http\Requests\BaseRequest;
+use Illuminate\Validation\Rule;
 
 class AnimalHealthRequest extends BaseRequest
 {
@@ -18,6 +20,10 @@ class AnimalHealthRequest extends BaseRequest
             'start_date' => 'required',
             'end_date' => '',
             'text' => 'max:50000',
+            'type' => [
+                'required',
+                Rule::in(HealthType::getValues())
+            ],
 
             // Vaccine
             'vaccine' => 'required_if:type,vaccine',

@@ -96,7 +96,7 @@ $(document).ready(function () {
         })
     });
 
-    $('form .hidden input').attr('disabled', true);
+    $('form .hidden[data-select-toggle] input').attr('disabled', true);
 
     let selectToggle = $('select.select-toggle');
     if (selectToggle.val()) {
@@ -114,8 +114,9 @@ $(document).ready(function () {
         const value = $(this).val();
         let target = $(`[data-select-toggle="${value}"]`);
 
-        $(`[data-select-toggle="${value}"] input`).removeAttr('disabled');
         $(`[data-select-toggle-parent="${name}"]`).addClass('hidden');
+        $(`[data-select-toggle-parent="${name}"] input`).attr('disabled', true);
+        $(`[data-select-toggle="${value}"] input`).removeAttr('disabled');
         target.toggleClass('hidden');
     });
 
