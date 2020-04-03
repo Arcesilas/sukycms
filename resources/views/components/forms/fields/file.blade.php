@@ -11,7 +11,7 @@
         </label>
     @endif
 
-    <input type="file" name="{{ $field->name }}" id="{{ $field->id }}" class="{{ $field->class }}"
+    <input type="file" name="{{ $field->name }}" id="{{ $field->id }}" class="{{ $field->class }}" multiple="{{ $field->multiple }}"
     @foreach ($field->options as $key => $value)
         {{ $key }}="{{ $value }}"
     @endforeach

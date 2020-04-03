@@ -4,6 +4,7 @@ namespace App\Forms\Admin;
 
 use App\Http\Requests\Admin\AnimalHealthRequest;
 use App\Support\Forms\Fields\DateTimeField;
+use App\Support\Forms\Fields\FileField;
 use App\Support\Forms\Fields\InputField;
 use App\Support\Forms\Fields\NumberField;
 use App\Support\Forms\Fields\SelectField;
@@ -48,6 +49,10 @@ class AnimalHealthForm extends Form
 
             (new TextareaField('text'))
                 ->setShowLabel(false),
+
+            (new FileField('attachments[]'))
+                ->setShowLabel(false)
+                ->setMultiple(true),
 
             (new SubmitField('save'))
                 ->setLabel($submitLabel),

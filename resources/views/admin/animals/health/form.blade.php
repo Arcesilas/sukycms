@@ -119,8 +119,23 @@
     </div>
     <div class="w-2/3">
         <div class="w-full flex px-4">
-            <div class="dropzone w-full"></div>
+            {!! $form->renderField('attachments[]') !!}
         </div>
+        @if (Request::routeIs('admin.animals.health.edit'))
+            <hr class="mt-4 mb-8">
+            <div class="flex flex-wrap w-full">
+                @foreach ($model->attachments as $attachment)
+                    <div class="w-1/4 flex px-4">
+                        <a href="{{ $attachment->getUrl() }}" target="_blank" class="flex flex-col items-center break-words">
+                            <div class="w-32 h-32 bg-gray-200 rounded flex items-center justify-center">
+                                {{ $attachment->getExtension() }}
+                            </div>
+                            <span class="w-full text-center">{{ $attachment->getName() }}</span>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        @endif
     </div>
 </div>
 

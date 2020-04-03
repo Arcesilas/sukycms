@@ -162,7 +162,10 @@ Dropzone.autoDiscover = false;
 
 if ($('.dropzone').length) {
     new Dropzone('.dropzone', {
-        url: '/',
+        url: '#',
+        paramName: 'attachments[]',
+        uploadMultiple: true,
+        maxFilesize: 5,
         autoProcessQueue: false,
         dictDefaultMessage: 'Arrastre las fotos o haga clic para seleccionarlas'
     });

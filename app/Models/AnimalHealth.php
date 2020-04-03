@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Filters\Filterable;
 use App\Forms\Admin\AnimalHealthForm;
+use App\Support\Attachmentable;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AnimalHealth extends BaseModel
 {
-    use Filterable;
+    use Filterable, Attachmentable;
 
     public $table = 'animal_health';
 

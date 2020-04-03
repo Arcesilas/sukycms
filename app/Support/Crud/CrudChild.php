@@ -2,6 +2,8 @@
 
 namespace App\Support\Crud;
 
+use App\Models\Attachment;
+use App\Support\Attachmentable;
 use App\Support\Forms\Form;
 use App\Support\Orderable;
 use Illuminate\Database\Eloquent\Model;
@@ -94,6 +96,9 @@ trait CrudChild
 
         $oldAttributes = Arr::only($model->getOriginal(), array_keys($model->getDirty()));
         $model->save();
+
+        $this->attachments($model);
+
         $model->oldAttributes = $oldAttributes;
 
         activityLog()->onModel($model)->log();
@@ -179,5 +184,36 @@ trait CrudChild
     public function getNamespace(): string
     {
         return $this->namespace;
+    }
+
+    private function attachments(Model $model): array
+    {
+        $attachments = [];
+
+        if (
+            ! in_array(Attachmentable::class, class_uses($model)) ||
+            ! request()->hasFile('attachments')
+        ) {
+            return [];
+        }
+
+        foreach (request()->file('attachments') as $file) {
+            $uploaded = $file->storeAs(
+                'health',
+                $file->getClientOriginalName(),
+                'uploads'
+            );
+
+            $attachment = new Attachment();
+            $attachment->file = $uploaded;
+            $attachment->size = $file->getSize();
+            $attachment->type = $file->getMimeType();
+            $attachment->attachmentable()->associate($model);
+            $attachment->save();
+
+            $attachments[] = $attachment;
+        }
+
+        return $attachments;
     }
 }
