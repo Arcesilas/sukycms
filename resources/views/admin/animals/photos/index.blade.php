@@ -4,6 +4,8 @@
 
     @include('admin.animals.animal_header')
 
+    {!! $form->renderStart() !!}
+
     <div class="card">
         <div class="card-body">
             <div class="flex mb-8">
@@ -15,7 +17,10 @@
             <div class="flex">
                 <div class="animal-form-photos w-full">
                     <div class="w-full flex">
-                        <div class="dropzone w-full"></div>
+                        {!! $form->renderField('photos[]') !!}
+                    </div>
+                    <div class="w-full flex">
+                        {!! $form->renderField('save') !!}
                     </div>
                 </div>
             </div>
@@ -23,13 +28,15 @@
             <hr class="mt-8 mb-8">
 
             <div class="flex flex-wrap">
-                @for($i = 0; $i < mt_rand(3, 10); $i++)
-                    <div class="flex w-1/4 justify-center mb-8">
-                        <img src="https://picsum.photos/200?random={{ $i }}" alt="">
+                @foreach ($model->photos as $photo)
+                    <div class="flex w-1/4 justify-center mb-8 px-4">
+                        <img src="{{ $photo->getThumbnailUrl() }}" alt="">
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
+
+    {!! $form->renderEnd() !!}
 
 @endsection

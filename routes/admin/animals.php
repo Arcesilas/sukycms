@@ -33,6 +33,7 @@ Route::group(['as' => 'animals.', 'prefix' => 'animals/{animal}'], static functi
 
     Route::group(['as' => 'photos.', 'prefix' => 'photos'], function () {
         Route::get('/', [AnimalPhotoController::class, 'index'])->name('index');
+        Route::post('/', [AnimalPhotoController::class, 'store'])->name('store');
     });
 });
 

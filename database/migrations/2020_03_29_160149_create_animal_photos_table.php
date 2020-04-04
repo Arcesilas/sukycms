@@ -16,7 +16,8 @@ class CreateAnimalPhotosTable extends Migration
         Schema::create('animal_photos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('animal_id')->index();
-            $table->string('url');
+            $table->string('photo');
+            $table->string('thumbnail');
             $table->boolean('main')->default(false);
             $table->timestamps();
 

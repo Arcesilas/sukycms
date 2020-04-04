@@ -5,14 +5,17 @@ namespace App\Models;
 use App\Filters\Filterable;
 use App\Forms\Admin\AnimalForm;
 use App\Scopes\Animals\LocationScope;
+use App\Scopes\Animals\MainPhotoScope;
 use App\Scopes\Animals\SexScope;
 use App\Scopes\Animals\SpeciesScope;
 use App\Scopes\Animals\StatusScope;
 use App\Support\LogsActivity;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * App\Models\Animal
@@ -87,6 +90,12 @@ class Animal extends BaseModel
         static::addGlobalScope(new LocationScope());
         static::addGlobalScope(new SpeciesScope());
         static::addGlobalScope(new StatusScope());
+        static::addGlobalScope(new StatusScope());
+        static::addGlobalScope(new MainPhotoScope());
+
+        static::addGlobalScope(function (Builder $builder) {
+            return $builder->orderBy('name');
+        });
     }
 
     protected $casts = [
@@ -96,6 +105,10 @@ class Animal extends BaseModel
 
     public function getPhoto(): string
     {
+        if ($this->main_photo) {
+            return Storage::disk('uploads')->url($this->main_photo);
+        }
+
         return 'https://picsum.photos/200?random=' . $this->id;
     }
 
@@ -107,6 +120,13 @@ class Animal extends BaseModel
     public function hasBehavior(int $behavior_id): bool
     {
         return $this->behaviors->contains($behavior_id);
+    }
+
+    public function hasMainPhoto(): bool
+    {
+        return (bool) $this->photos->first(function ($photo) {
+            return $photo->main;
+        });
     }
 
     public function sex(): BelongsTo
@@ -127,6 +147,11 @@ class Animal extends BaseModel
     public function status(): BelongsTo
     {
         return $this->belongsTo(AnimalStatus::class);
+    }
+
+    public function photos(): HasMany
+    {
+        return $this->hasMany(AnimalPhoto::class);
     }
 
     public function behaviors(): BelongsToMany
