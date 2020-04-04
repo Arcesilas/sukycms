@@ -2,26 +2,26 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Filters\AnimalHealthFilters;
-use App\Models\AnimalHealth;
+use App\Filters\AnimalNoteFilters;
+use App\Models\AnimalNote;
 use App\Support\Crud\CrudChild;
 use App\Support\Crud\Fields\Text;
 use App\Support\Orderable;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class AnimalHealthController extends AdminBaseController
+class AnimalNoteController extends AdminBaseController
 {
     use CrudChild, Orderable;
 
-    protected string $model = AnimalHealth::class;
+    protected string $model = AnimalNote::class;
 
-    protected string $parentRelationship = 'health';
+    protected string $parentRelationship = 'notes';
 
-    protected string $namespace = 'animals.health';
+    protected string $namespace = 'animals.notes';
 
     public function indexQuery(): LengthAwarePaginator
     {
-        return AnimalHealth::query()->filter(app(AnimalHealthFilters::class))->paginate();
+        return AnimalNote::query()->filter(app(AnimalNoteFilters::class))->paginate();
     }
 
     public function fields(): array

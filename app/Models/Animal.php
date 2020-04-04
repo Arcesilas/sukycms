@@ -164,6 +164,11 @@ class Animal extends BaseModel
         return $this->hasMany(AnimalHealth::class);
     }
 
+    public function notes(): HasMany
+    {
+        return $this->hasMany(AnimalNote::class);
+    }
+
     public function __toString(): string
     {
         return $this->name;

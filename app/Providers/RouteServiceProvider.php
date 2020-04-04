@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Animal;
 use App\Models\AnimalHealth;
 use App\Models\AnimalLocation;
+use App\Models\AnimalNote;
 use App\Models\AnimalSex;
 use App\Models\AnimalSpecies;
 use App\Models\Behavior;
@@ -31,6 +32,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('behavior', Behavior::class);
         Route::model('status', AnimalStatus::class);
         Route::model('health', AnimalHealth::class);
+        Route::model('note', AnimalNote::class);
 
         Route::macro('orderable', function (string $namespace, string $model, string $controller) {
             Route::get("{$namespace}/{{$model}}/up", [$controller, 'up'])->name("{$namespace}.up");

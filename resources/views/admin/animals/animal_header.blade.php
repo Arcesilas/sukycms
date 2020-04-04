@@ -27,7 +27,7 @@
         <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold {{ Request::is('admin/animals/*/health*') ? 'border-b border-gray-500' : '' }}" href="{{ route('admin.animals.health.index', $model) }}"><i class="fas fa-book-medical fa-fw"></i> Salud</a>
     </li>
     <li class="mr-1">
-        <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-file-alt fa-fw"></i> Notas</a>
+        <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold {{ Request::is('admin/animals/*/notes*') ? 'border-b border-gray-500' : '' }}" href="{{ route('admin.animals.notes.index', $model) }}"><i class="fas fa-file-alt fa-fw"></i> Notas</a>
     </li>
     <li class="mr-1">
         <a class="inline-block py-2 px-4 text-gray-600 hover:text-gray-700 font-semibold" href="#"><i class="fas fa-users fa-fw"></i> Apadrinamientos</a>
