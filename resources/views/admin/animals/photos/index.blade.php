@@ -28,11 +28,18 @@
             <hr class="mt-8 mb-8">
 
             <div class="flex flex-wrap">
-                @foreach ($model->photos as $photo)
+                @forelse ($model->photos as $photo)
                     <div class="flex w-1/4 justify-center mb-8 px-4">
                         <img src="{{ $photo->getThumbnailUrl() }}" alt="">
                     </div>
-                @endforeach
+                @empty
+                    <div class="w-full text-3xl py-20 text-center text-gray-600">
+                        <i class="fas fa-images text-5xl mb-12"></i>
+                        <h3>
+                            No hay fotos de {{ $model->name }}
+                        </h3>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>

@@ -37,7 +37,9 @@
             </div>
         @else
             @if (isset($viewNamespace) && view()->exists("$viewNamespace.empty_table"))
-                @include("$viewNamespace.empty_table")
+                @include("$viewNamespace.empty_table", [
+                    'parent' => $parent ?? null,
+                ])
             @else
                 <div class="text-3xl py-20 text-center text-gray-600">
                     <i class="fas fa-search text-5xl mb-12"></i>

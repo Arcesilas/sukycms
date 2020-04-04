@@ -18,6 +18,7 @@
     @endif
 
     @component('admin.components.table', [
+        'parent' => $parent ?? null,
         'items' => $items,
         'searchForm' => true,
     ])
